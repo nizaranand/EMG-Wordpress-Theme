@@ -18,7 +18,7 @@ function the_post_thumbnail_caption() { //TODO: move this to a template tag file
 
 function get_social_buttons() {
 	//TODO: implement this with Facebook, Twitter, (what else?)
-	echo "stub for get_social_buttons()";
+	echo "<!-- get_social_buttons(); -->";
 }
 
 function get_the_feed_insert() {
