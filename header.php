@@ -25,7 +25,8 @@
 <![endif]-->
 
 <?php get_adtag_header(); //load google double click javascipt into head. TODO: move to wp_head hook ?>
-
+<?php get_facebook_and_twitter_setup(); ?>
+<?php get_mixpanel_setup(); ?>
 <!--about to call wp_head -->
 <?php wp_head(); ?>
 </head>
@@ -34,17 +35,24 @@
 	<div class="container">
 		<header class="row">
 				
-			<div class="span12">
+			<div class="span12 hidden-phone"><!-- hide this on small screens -->
 				<?php get_adtag_leaderboard(); // inc/get_adtag.php ?>
 			</div>
-			<div class="span2">
+			<div class="span2 hidden-phone"><!-- hide this on small screens -->
 				<?php get_social_buttons(); // functions.php (?) ?>
 			</div>
 		
+			<div id="flag" class="span14">
+				<h2><a href="/">DailyEmerald.com</a></h2>
+			</div>
+		
 			<div class="span14">
-				<div class="navbar navbar-inverse">
+				<div class="navbar">
 					<div class="navbar-inner">
-						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => "nav" ) ); // the 'nav' is important for bootstrap's menu to work ?>
+						<ul class="nav">
+							<?php wp_nav_menu( array( 'theme_location' => 'primary','items_wrap' => '%3$s','container' => false) ); // strip the ul, we're going to build it ourselve ?>
+							<li><?php //get_search_form(); ?></li>
+						</ul>
 					</div> <!-- .navbar-inner -->
 				</div> <!-- .navbar -->
 			</div>

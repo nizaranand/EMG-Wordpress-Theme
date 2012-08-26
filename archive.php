@@ -19,7 +19,7 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 			<header class="archive-header">
-				<h1 class="archive-title"><?php
+				<h3 class="archive-title"><?php
 					if ( is_day() ) {
 						printf( __( 'Daily Archives: %s', 'twentytwelve' ), '<span>' . get_the_date() . '</span>' );
 					} elseif ( is_month() ) {
@@ -27,13 +27,13 @@ get_header(); ?>
 					} elseif ( is_year() ) {
 						printf( __( 'Yearly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentytwelve' ) ) . '</span>' );
 					} elseif ( is_tag() ) {
-						printf( __( 'Tag Archives: %s', 'twentytwelve' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+						printf( __( 'Topic: %s', 'twentytwelve' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 					} elseif ( is_category() ) {
-						printf( __( 'Category Archives: %s', 'twentytwelve' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+						printf( __( 'Section: %s', 'twentytwelve' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 					} else {
 						_e( 'Blog Archives', 'twentytwelve' );
 					}
-				?></h1>
+				?></h3>
 
 				<?php
 					// Show an optional tag description.
