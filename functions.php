@@ -45,7 +45,7 @@ function get_the_feed() {
 	<?php
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		if ($currentPostNumber == 4) {
-			get_the_feed_insert();
+			//get_the_feed_insert(); //TODO: do we want to do something with this?
 		}
 
 		echo '<tr><td>';
