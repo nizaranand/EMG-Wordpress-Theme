@@ -18,21 +18,19 @@ get_header();
 
 </section>
 
-
+<!--
 <section class="span10">
 	<div id="myCarousel" class="carousel slide">
-	  <!-- Carousel items -->
 	  <div class="carousel-inner">
 	    <div class="active item">one</div>
 	    <div class="item">two</div>
 	    <div class="item">three</div>
 	  </div>
-	  <!-- Carousel nav -->
 	  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 	  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 	</div>
 </section>
-
+-->
 
 <?php
 get_sidebar();
