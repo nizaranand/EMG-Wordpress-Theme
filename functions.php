@@ -49,7 +49,7 @@ function get_the_feed() {
 		}
 
 		echo '<tr><td>';
-		echo $currentPostNumber.". ";
+		//echo $currentPostNumber.". ";
 		echo '<a href="';
 		echo the_permalink();
 		echo '">';
