@@ -15,10 +15,28 @@
 			<?php if ( is_single() ) : ?>
 		
 				<h2 class="entry-title"><?php the_title(); ?></h2>
-				<?php the_post_thumbnail(array(820,700)); ?>
-				<p>
-					<small><?php the_post_thumbnail_caption(); ?></small>
-				</p>
+				
+				<?php 
+					if ( get_post_meta($post->ID, 'show_featured_image', true)  && 
+						   get_post_meta($post->ID, 'show_featured_image', true ) == "false") {
+									      // do not show featured image
+					} else {
+						if ( has_post_thumbnail() ) { 
+				?>
+							<div class="post-featured-image">
+								<?php the_post_thumbnail(array(820,700)); ?>
+							</div>
+							<p>
+								<small class="post-featured-image-caption">
+									<?php the_post_thumbnail_caption(); ?>
+								</small>
+							</p>
+				<?php
+						} // close the if that checked we actually have a post thumbnail before we write it out.
+					} // close the if that checked if we were going to hide the image based on the custom filed "show_featured_image"
+				?>
+				
+				
 				<div class="well well-small">
 					By <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php printf( __( '%s', 'twentytwelve' ), get_the_author() ); ?></a>.
 				    <?php echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; //TODO: cleanup?>
