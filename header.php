@@ -16,7 +16,6 @@
 <title><?php wp_title( '| Oregon Daily Emerald', true, 'right' ); ?></title>
 
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap-responsive.css" type="text/css" media="all" />
 
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
@@ -33,19 +32,25 @@
 
 <body>
 	<div class="container">
+		
+		
+		
 		<header class="row">
-				
-			<div class="span12 hidden-phone"><!-- hide this on small screens -->
+	
+			<div class="span14" style="height:20px"></div>
+	
+			<div id="flag" class="span3">
+				<a href="/">
+					<img src="<?php bloginfo('template_directory'); ?>/images/daily-emerald-logo.png" />
+				</a>
+			</div>
+			
+			<div class="hidden-phone pull-right"><!-- hide this on small screens -->
 				<?php get_adtag_leaderboard(); // inc/get_adtag.php ?>
 			</div>
-			<div class="span2 hidden-phone"><!-- hide this on small screens -->
-				<?php get_social_buttons(); // functions.php (?) ?>
-			</div>
-		
-			<div id="flag" class="span14">
-				<h2><a href="/">DailyEmerald.com</a></h2>
-			</div>
-		
+			
+			<div class="span14" style="height:20px"></div>
+
 			<div class="span14">
 				<div class="navbar">
 					<div class="navbar-inner">
@@ -56,6 +61,7 @@
 					</div> <!-- .navbar-inner -->
 				</div> <!-- .navbar -->
 			</div>
+			
 		</header><!-- #masthead -->
 
 		<div class="row">

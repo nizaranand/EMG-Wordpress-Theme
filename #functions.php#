@@ -70,12 +70,12 @@ function get_the_feed() {
 
 
 function get_the_editors_picks() {
-	$the_query = new WP_Query("category_name=editors-picks&posts_per_page=6");
+	$the_query = new WP_Query("category_name=editors-picks");
 	?>
 	<table class="table">
 	<thead>
 	    <tr>
-	      <th>Top stories</th>
+	      <th>Editor's Picks</th>
 	    </tr>
     </thead>
 	<tbody>

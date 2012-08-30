@@ -6,13 +6,13 @@
 get_header();
 ?>
 <!-- template-home.php -->
-<section id="home-left-column" class="span4">
+<section id="home-left-column" class="span3">
 	
 	<?php get_the_feed(); ?>
 		
 </section>
 
-<section id="home-center-column" class="span6">
+<section id="home-center-column" class="span7">
 	
 	<?php get_the_editors_picks(); ?>
 

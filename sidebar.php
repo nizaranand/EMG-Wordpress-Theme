@@ -37,10 +37,37 @@
 	<div class="ad">
 		<?php get_adtag_300_2(); ?>
 	</div>
+
 	
-	<div class="well">
-	
-	</div>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 5,
+  interval: 30000,
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#ffffff',
+      color: '#000000'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#004F27'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().setUser('dailyemerald').start();
+</script>	
+
 	
 	<div class="ad">
 		<?php get_adtag_300_3(); ?>
