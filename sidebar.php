@@ -11,29 +11,12 @@
 ?>
 
 <div class="sidebar span4">
+		
+	<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017"></fb:recommendations>
 
-	<?php get_search_form(); ?>
-	
-	<fb:activity site="http://www.dailyemerald.com" app_id="197312536953017"></fb:activity>
-
-	<blockquote>
-	  <p></p>
-	</blockquote>
-
-	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-		<aside class="widget span4">
-			<?php dynamic_sidebar( 'sidebar-1' ); ?>
-		</aside><!-- #secondary .widget-area -->		
-	<?php endif; ?>
-	
 	<div class="ad">
 		<?php get_adtag_300_1(); ?>
-	</div>
-	
-	<blockquote>
-	  <p></p>
-	</blockquote>
-		
+	</div>	
 	<div class="ad">
 		<?php get_adtag_300_2(); ?>
 	</div>
@@ -44,10 +27,10 @@
 new TWTR.Widget({
   version: 2,
   type: 'profile',
-  rpp: 5,
+  rpp: 18,
   interval: 30000,
-  width: 250,
-  height: 300,
+  width: 300,
+  height: 600,
   theme: {
     shell: {
       background: '#ffffff',
@@ -60,7 +43,7 @@ new TWTR.Widget({
     }
   },
   features: {
-    scrollbar: false,
+    scrollbar: true,
     loop: false,
     live: true,
     behavior: 'all'
@@ -72,11 +55,6 @@ new TWTR.Widget({
 	<div class="ad">
 		<?php get_adtag_300_3(); ?>
 	</div>
-	
-	<div class="well">
-		
-	</div>
-	
 	<div class="ad">
 		<?php get_adtag_300_4(); ?>
 	</div>

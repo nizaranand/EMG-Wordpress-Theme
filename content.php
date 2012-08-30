@@ -38,8 +38,16 @@
 				
 				
 				<div class="well well-small">
-					By <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php printf( __( '%s', 'twentytwelve' ), get_the_author() ); ?></a>.
-				    <?php echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; //TODO: cleanup?>
+					Posted by <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
+						<?php printf( __( '%s', 'twentytwelve' ), get_the_author() ); ?>
+					</a>
+				    
+					<?php //echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; ?>
+				    <?php echo ' on '.get_the_modified_time("l, M. j \a\\t g:i a").'.'; ?>
+				
+					<div class="facebook-like-wrapper pull-right">
+						<fb:like href="<?php the_permalink(); ?>" send="true" layout="button_count" width="100" show_faces="false"></fb:like>
+					</div>
 				</div>
 
 			<?php else : ?>
