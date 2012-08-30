@@ -83,11 +83,12 @@ function get_the_editors_picks() {
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		echo '<tr><td>';
 
-	echo '<small class="pull-right">Posted <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></small><br>';
 		
 		echo '<a href="'.get_permalink().'">';
 		echo '  <h4 style="margin:0">'.get_the_title().'</h4>';
 		echo '</a>';
+
+		echo '<small>Posted <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></small><br>';
 
 		echo '<a href="'.get_permalink().'">';
 		the_post_thumbnail(array(540,500));
