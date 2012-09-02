@@ -12,7 +12,13 @@
 
 	<div class="row">
 		<footer class="span14">
-			<div class="well">Emerald Media Group. &copy; 2012.</div>
+			<div class="well">
+				Emerald Media Group. &copy; 2012.<br>
+				<a href="https://github.com/dailyemerald">Check us out</a> on GitHub.
+				<div class="pull-right" style="margin-top:-16px">
+					<a href="https://mixpanel.com/f/partner"><img src="https://mixpanel.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
+				</div>
+			</div>
 		</footer><!-- #colophon -->
 	</div>
 	

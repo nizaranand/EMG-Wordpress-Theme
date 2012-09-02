@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<section id="primary" class="site-content">
+	<section id="primary" class="site-content span10">
 		<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -36,8 +36,6 @@ get_header(); ?>
 				rewind_posts();
 			?>
 
-			<?php twentytwelve_content_nav( 'nav-above' ); ?>
-
 			<?php
 			// If a user has filled out their description, show a bio on their entries.
 			if ( get_the_author_meta( 'description' ) ) : ?>
@@ -58,8 +56,6 @@ get_header(); ?>
 				<?php get_template_part( 'content', get_post_format() ); ?>
 			
 			<?php endwhile; ?>
-
-			<?php twentytwelve_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 			

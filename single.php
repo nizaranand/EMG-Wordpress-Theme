@@ -9,7 +9,15 @@
 
 get_header(); ?>
 	<!-- start single.php -->
-	<section id="primary" class="site-content span10">
+	
+	<?php // TODO: there must be a better way to do this. (there's also a check lower to not laod the sidebar) 
+		if (is_single() && in_category('multimedia')) { // we clear out the sidebar, so let the post be 14 column?> 
+	<section id="primary" class="site-content span14">
+	<?php } else { // this the default behavior ?>
+	<section id="primary" class="site-content span10">			
+	<?php } ?>
+	
+	
 		<div id="content" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -36,6 +44,25 @@ get_header(); ?>
 
 		</div><!-- #content -->
 	</section><!-- #primary .site-content -->
+
+	<script type="text/javascript">
+  	mixpanel.track("Viewed Post", {
+	         "Title": "<?php single_post_title(); ?>",
+            "Author": "<?php the_author(); ?>",
+          "Category": "<?php $category = get_the_category(); echo $category[0]->cat_name; ?>",
+              "Date": "<?php the_date('l'); ?>",
+		 "HourOfDay": "<?php the_date('H'); ?>"
+  	});
+	</script>
+
 	<!-- end single.php -->
-<?php get_sidebar(); ?>
+	
+<?php 
+	if (is_single() && in_category('multimedia')) {
+		// don't show the sidebar
+	} else {
+		get_sidebar(); 
+	}
+?>
 <?php get_footer(); ?>
+
