@@ -4,6 +4,7 @@ require( get_template_directory() . '/inc/get_adtag.php' );
 require( get_template_directory() . '/inc/get_vendor_javascript_setups.php' );
 
 add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote' ) );
+add_theme_support( 'post-thumbnails' ); 
 
 register_nav_menu( 'primary', __( 'Primary Menu', 'EMG' ) );
 
