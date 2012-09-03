@@ -5449,3 +5449,9 @@ button.close {
     overflow: visible !important;
   }
 }
+
+
+
+.aligncenter {
+  margin: 0 auto;
+}
