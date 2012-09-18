@@ -29,5 +29,12 @@
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.js"></script> <?php //TODO: add as wp_footer action  ?>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/0.9.3/jquery.timeago.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/dailyemerald.js"></script> <?php //TODO: add as wp_footer action  ?>
+<script src="http://dev.dailyemerald.com:5335/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://dev.dailyemerald.com:5335/users')
+  socket.on('connect', function () {
+    socket.emit('hello', window.location.pathname);
+  });
+</script>
 </body>
 </html>
