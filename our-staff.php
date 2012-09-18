@@ -1,6 +1,6 @@
 <?php
 /*
-* Template: Our Staff
+* Template Name: Our Staff
 */
 ?>
 
