@@ -1,6 +1,6 @@
 <?php
 /*
-* The page template for displaying the staff photos in a grid format.
+* Template: Our Staff
 */
 ?>
 
