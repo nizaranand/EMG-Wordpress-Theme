@@ -33,8 +33,9 @@ function get_the_feed_insert() {
 }
 
 function get_the_feed() {
+
 	$currentPostNumber = 1;	
-	$the_query = new WP_Query("category=news");
+	$the_query = new WP_Query("category=news&orderby=modified");
 	?>
 	<table class="table table-striped">
 	<thead>
@@ -97,7 +98,7 @@ function get_the_editors_picks() {
 		//the_excerpt();
 		
 		$embedHtmlFields = get_post_custom_values("embed_html");
-		foreach ( $embedHtmlFields as $key => $value ) {
+		foreach ( $embedHtmlFields as $value ) {
 		    echo '<div class="embeded-html">';
 		    echo $value;
 		    echo '</div>'; 
@@ -111,4 +112,17 @@ function get_the_editors_picks() {
 	<?php
 	// Reset Post Data
 	wp_reset_postdata();
+}
+
+
+
+function emg_content_nav( $nav_id ) {
+	global $wp_query;
+
+	if ( $wp_query->max_num_pages > 1 ) : ?>
+		<nav id="<?php echo $nav_id; ?>" class="navigation well" role="navigation">
+			<div class="nav-previous alignleft pull-left"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentytwelve' ) ); ?></div>
+			<div class="nav-next alignright pull-right"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?></div>
+		</nav><!-- #<?php echo $nav_id; ?> .navigation -->
+	<?php endif;
 }

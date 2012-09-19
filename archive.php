@@ -29,7 +29,7 @@ get_header(); ?>
 					} elseif ( is_tag() ) {
 						printf( __( 'Topic: %s', 'twentytwelve' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 					} elseif ( is_category() ) {
-						printf( __( 'Section: %s', 'twentytwelve' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+						printf( __( '%s', 'twentytwelve' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 					} else {
 						_e( 'Blog Archives', 'twentytwelve' );
 					}
@@ -54,21 +54,64 @@ get_header(); ?>
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
-
+		
 				/* Include the post format-specific template for the content. If you want to
 				 * this in a child theme then include a file called called content-___.php
 				 * (where ___ is the post format) and that will be used instead.
 				 */
-				get_template_part( 'content', get_post_format() );
+				//get_template_part( 'content', get_post_format() );
+			?>
+				<article id="post-<?php the_ID(); ?>" class="">
+					<h2 class="entry-title">
+						<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
+							<?php the_title(); ?>
+						</a>
+					</h2>
 
+					<?php 
+						if ( get_post_meta($post->ID, 'show_featured_image', true)  && 
+							   get_post_meta($post->ID, 'show_featured_image', true ) == "false") {
+										      // do not show featured image
+						} else {
+							if ( has_post_thumbnail() ) { 
+						// TODO: the images are disabled for now
+					?>
+					<!--
+								<div class="post-featured-image">
+									<?php the_post_thumbnail(array(100,100)); ?>
+								</div>
+								<p>
+									<small class="post-featured-image-caption">
+										<?php the_post_thumbnail_caption(); ?>
+									</small>
+								</p>
+					-->
+					<?php
+							} // close the if that checked we actually have a post thumbnail before we write it out.
+						} // close the if that checked if we were going to hide the image based on the custom filed "show_featured_image"
+					?>
+
+
+					<div class="well well-small">
+						By <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
+							<?php printf( __( '%s', 'twentytwelve' ), get_the_author() ); ?>
+						</a>
+						<?php //echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; ?>
+					    <?php echo ' on '.get_the_modified_time("l, M. j \a\\t g:i a").'.'; ?>
+					</div>
+					<div>
+					    <?php the_excerpt(); ?>
+					</div>
+					<hr>
+				
+				</article><!-- #post -->
+			<?php
 			endwhile;
 
-			//twentytwelve_content_nav( 'nav-below' );
+			emg_content_nav( 'nav-below' );
+			
+			endif;
 			?>
-
-		<?php else : ?>
-			<?php get_template_part( 'content', 'none' ); ?>
-		<?php endif; ?>
 
 		</div><!-- #content -->
 	</section><!-- #primary .site-content -->
