@@ -8,3 +8,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.entry-content a {
+  text-decoration: underline; /* always underline links, even when not hovered upon, for readability*/
+}
