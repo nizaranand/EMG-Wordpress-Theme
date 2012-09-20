@@ -12,6 +12,17 @@
 
 <div class="sidebar span4">
 		
+	<?php get_search_form(); ?>	
+			
+	<div id="socialmedia" class="well well-small">
+			<div style="" class="pull-left">
+				<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.1340179658.html#_=1340391604138&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=dailyemerald&amp;show_count=false&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button" style="width: 139px; height: 20px; " title="Twitter Follow Button"></iframe>
+			</div>
+			<div class="pull-right" >
+				<div class="fb-like" data-href="http://facebook.com/dailyemerald" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+			</div>
+	</div><!--social media -->	
+				
 	<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017"></fb:recommendations>
 
 	<div class="ad">

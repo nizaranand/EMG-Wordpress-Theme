@@ -40,7 +40,11 @@
 <?php get_facebook_and_twitter_setup(); ?>
 <?php get_mixpanel_setup(); ?>
 <!--about to call wp_head -->
-<?php wp_head(); ?>
+<?php wp_head(); 
+
+date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix the iso1860 output. need to fix.
+
+?>
 </head>
 
 <body>

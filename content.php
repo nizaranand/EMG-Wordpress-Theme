@@ -38,8 +38,13 @@
 				
 				
 				<div class="well well-small">
-					Posted by <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-						<?php printf( __( '%s', 'twentytwelve' ), get_the_author() ); ?>
+					Posted by
+						<?php //printf( __( '%s', 'twentytwelve' ), get_the_author() ); 
+							if(function_exists('coauthors_posts_links'))
+							    coauthors_posts_links();
+							else
+							    the_author_posts_link();
+						?>
 					</a>
 				    
 					<?php //echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; ?>
