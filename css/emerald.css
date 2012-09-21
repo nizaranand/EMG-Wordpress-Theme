@@ -10,5 +10,24 @@
 }
 
 .entry-content a {
-  text-decoration: underline; /* always underline links, even when not hovered upon, for readability*/
+  text-decoration: underline; /* always underline links, even when not hovered upon, for readability */
+}
+
+.alignleft {
+  float: left;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.alignright {
+  float: right;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.aligncenter {
+  margin: 0 auto;
+  display: block;
 }
