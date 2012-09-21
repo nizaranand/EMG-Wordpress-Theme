@@ -19,18 +19,17 @@
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/emerald.css" type="text/css" media="all" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-<!-- TODO move this to the footer -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap.js"></script> <?php //TODO: add as wp_footer action  ?>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/0.9.3/jquery.timeago.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/dailyemerald.js"></script> <?php //TODO: add as wp_footer action  ?>
-<script src="http://dev.dailyemerald.com:5335/socket.io/socket.io.js"></script>
-<script>
-  var socket = io.connect('http://dev.dailyemerald.com:5335/users')
-  socket.on('connect', function () {
-    socket.emit('hello', window.location.pathname);
-  });
-</script>
+<?php
+
+wp_enqueue_script("jquery", "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", true);
+wp_enqueue_script("bootstrap", get_template_directory_uri() . '/js/bootstrap.js', true);
+wp_enqueue_script("jquery-timeago", "http://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/0.9.3/jquery.timeago.js", true);
+wp_enqueue_script("dailyemerald", get_template_directory_uri() . '/js/dailyemerald.js', true);
+wp_enqueue_script("socketio", "http://dev.dailyemerald.com:5335/socket.io/socket.io.js", true);
+wp_enqueue_script("tracker", get_template_directory_uri() . "/js/tracker.js", true);
+
+?>
+
 
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>

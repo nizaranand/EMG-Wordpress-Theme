@@ -1,195 +1,130 @@
 <?php
 /*
-* Template Name: Our Staff
-*/
+ * Template Name: Our Staff
+ */
 ?>
 
 <?php
-// pre-processing
+/*
+ * Loops over the directories under the img/staff-photos/ directory in the theme folder to gather image filenames. 
+ * Then constructs a grid of images for each folder in the order declared below.
+ * 
+ */
 $settings = array(
-        'dir_prefix' => get_theme_root() . '/EMG-Wordpress-Theme/img/staff-photos/',
-        'url_prefix' => get_template_directory_uri() . '/img/staff-photos/',
-	'ad_prefix' => 'ad-staff/',
-	'board_prefix' => 'board/',
-	'pro_staff_prefix' => 'pro-staff/',
-	'newsroom_prefix' => 'newsroom/',
-	'marketing_prefix' => 'marketing/',
-	'editors_prefix' => 'editors/', 
-	'rows' => 7,
-        'columns' => 6,
+    'dir_prefix' => get_theme_root() . '/EMG-Wordpress-Theme/img/staff-photos/',
+    'url_prefix' => get_template_directory_uri() . '/img/staff-photos/',
+    'columns' => 5, //column number must be a divisor of 10;
 );
-/* column number must be an integer divisor of 12 */
-
-$images = array();
-$images['editors'] = scandir($settings['dir_prefix'] . $settings['editors_prefix']);
-$images['newsroom'] = scandir($settings['dir_prefix'] . $settings['newsroom_prefix']);
-$images['pro-staff'] = scandir($settings['dir_prefix'] . $settings['pro_staff_prefix']);
-$images['ad-staff'] = scandir($settings['dir_prefix'] . $settings['ad_prefix']);
-$images['marketing'] = scandir($settings['dir_prefix'] . $settings['marketing_prefix']);
-$images['board'] = scandir($settings['dir_prefix'] . $settings['board_prefix']);
+/* to change the order rearrange the set of key/value pairs below in $subdir */
+$subdir = array(
+    'newsroom_editors',
+    'newsroom_staff',
+    'professional-staff',
+    'ad-staff',
+    'marketing',
+    'board'
+);
 
 ?>
 
 <?php get_header(); ?>
-	<div id="primary" class="site-content" >
-		<div id="content" >
-			<div class="container" >
-			<?php
-			// images are printed in the order of their key declaration above within $images
-			$index = 0;
-			
-			if(count($images['editors']) > 2){
-			echo "<div id='editors' >";
-			foreach($images['editors'] as $image){
-				if($image === "." || $image === ".." || $image{0} == '.'){ 
-					// skip if image is a directory reference or hidden
-					continue;
-				}
-				if($index % $settings['columns'] == 0){
-					// new row
-					echo "<div class='row' > ";
-					$columns = 0;
-				}
-				
-				echo "<div class='span". 12 / $settings['columns'] ."' >";
-				echo "<p><img class='staff-photo' src='". $settings['url_prefix'] . $settings['editors_prefix'] . $image ."' title='". str_replace('.jpg', '', $image) ."' ></p>";
-				echo "</div>";
-				
-				$columns++;
 
-				if($columns == $settings['columns']){
-					//end row
-					echo "</div>";
-				}
-				$index++;
-      			}
-			echo "</div></div>";
-			}
-			$index = 0;
+<?php
+        wp_enqueue_script("bootstrap-tooltip", get_template_directory_uri() . "/js/bootstrap-tooltip.js", true);
+        wp_enqueue_script("bootstrap-popover", get_template_directory_uri() . "/js/bootstrap-popover.js", true);
+	wp_enqueue_script("our-staff", get_template_directory_uri() . "/js/our-staff.js", true);
 
-			if(count($images['newsroom']) > 2){
-			echo "<hr />";
-			echo "<div id='newsroom' >";
-			foreach($images['newsroom'] as $image){
-                                if($image === "." || $image === ".." || $image{0} == '.'){
-                                        // skip if image is a directory reference or hidden
-                                        continue;
-                                }
-                                if($index % $settings['columns'] == 0){
-                                        // new row
-                                        echo "<div class='row' > ";
-                                        $columns = 0;
-                                }
+?>
 
-                                echo "<div class='span". 12 / $settings['columns'] ."' >";
-                                echo "<p><img class='staff-photo' src='". $settings['url_prefix'] . $settings['newsroom_prefix'] . $image ."' title='". str_replace('.jpg', '', $image) . "' /></p>";
-                                echo "</div>";
-
-                                $columns++;
-
-                                if($columns == $settings['columns']){
-                                        //end row
-                                        echo "</div>";
-                                }
-                                $index++;
-                        }
-			echo "</div></div>";
-			}		
-			$index = 0;
-
-			if(count($images['ad-staff']) > 2){
-                        echo "<hr />";
-			echo "<div id='ad-staff' >";
-                        foreach($images['ad-staff'] as $image){
-                                if($image === "." || $image === ".." || $image{0} == '.'){
-                                        // skip if image is a directory reference or hidden
-                                        continue;
-                                }
-                                if($index % $settings['columns'] == 0){
-                                        // new row
-                                        echo "<div class='row' > ";
-                                        $columns = 0;
-                                }
-
-                                echo "<div class='span". 12 / $settings['columns'] ."' >";
-                                echo "<p><img class='staff-photo' src='". $settings['url_prefix'] . $settings['ad_prefix'] . $image ."' title='". str_replace('.jpg', '', $image) ."' /></p>";
-                                echo "</div>";
-
-                                $columns++;
-
-                                if($columns == $settings['columns']){
-                                        //end row
-                                        echo "</div>";
-                                }
-                                $index++;
-                        }
-			echo "</div></div>";
-			}
-			$index = 0;
-
-			if(count($images['marketing']) > 2){
-                        echo "<hr />";
-			echo "<div id='marketing' >";
-                        foreach($images['marketing'] as $image){
-                                if($image === "." || $image === ".." || $image{0} == '.'){
-                                        // skip if image is a directory reference or hidden
-                                        continue;
-                                }
-                                if($index % $settings['columns'] == 0){
-                                        // new row
-                                        echo "<div class='row' > ";
-                                        $columns = 0;
-                                }
-
-                                echo "<div class='span". 12 / $settings['columns'] ."' >";
-                                echo "<p><img class='staff-photo' src='". $settings['url_prefix'] . $settings['marketing_prefix'] . $image ."' title='". str_replace('.jpg', '', $image) ."' /></p>";
-                                echo "</div>";
-
-                                $columns++;
-
-                                if($columns == $settings['columns']){
-                                        //end row
-                                        echo "</div>";
-                                }
-                                $index++;
-                        }			
-			echo "</div></div>";
-			}
-			$index = 0;
-			if(count($images['board']) > 2){
-                        echo "<hr />";
-			echo "<div id='board' >";
-                        foreach($images['board'] as $image){
-                                if($image === "." || $image === ".." || $image{0} == '.'){
-                                        // skip if image is a directory reference or hidden
-                                        continue;
-                                }
-                                if($index % $settings['columns'] == 0){
-                                        // new row
-                                        echo "<div class='row' > ";
-                                        $columns = 0;
-                                }
-
-                                echo "<div class='span". 12 / $settings['columns'] ."' >";
-                                echo "<p><img class='staff-photo' src='". $settings['url_prefix'] . $settings['board_prefix'] . $image ."' title='". str_replace('.jpg', '', $image) ."' /></p>";
-                                echo "</div>";
-
-                                $columns++;
-
-                                if($columns == $settings['columns']){
-                                        //end row
-                                        echo "</div>";
-                                }
-                                $index++;
-                        }
-			echo "</div></div>";
-			}	
+<?php while ( have_posts() ) : the_post(); ?>
+<h3 class='archive-title' ><span><?php the_title(); ?></span></h3>
+<?php endwhile; ?>
 
 
-			?>
-			</div>
-		</div>
+<div id="primary" class="site-content" >
+    <div id="container" class="row" >
+        <div class="span10" >
+            <?php
+            
+            $dir_index = 0;
+            $img_index = 0;
+            foreach ($subdir as $dir) {
+                $img_index = 0;
+                $images = scandir($settings['dir_prefix'] . $dir);
+                if (count($images) > 2) {
+                    echo "<hr>";
+		    /* 
+		     *  Write out the header for the section
+		     *  Andy, you suck for making me do it this way.
+		     *
+		     * ... that's what she said.
+		     */
+		    echo "<div class='row' >";
+		    $dir_split = explode("-", $dir );
+		    if(strcmp($dir_split[0], $dir) == 0){
+		      $dir_split = explode("_", $dir);
+		      if(strcmp($dir_split[0], $dir) == 0){
+			$group = $dir;
+		      }else{
+			$group = $dir_split[0] . " | " . $dir_split[1];
+		      }
+      		      $group = ucwords($group); 
+		    }else{
+		      $group = ucwords($dir_split[0] . " " . $dir_split[1]);
+		    }
+
+      		    echo "<div class='span10' ><h4>" . $group  . "</h4></div>";
+		    echo "</div>";
+                }
+
+                echo "<div id='" . $dir . "' class='row' >";
+		echo "<div class='span10' >";
+
+                foreach ($images as $image) {
+                    if ($image === "." || $image === ".." || $image{0} == '.') {
+                        continue;   // skip if $image is a directory reference or hidden
+                    }
+
+                    if ($img_index % $settings['columns'] == 0) {
+                        echo "<div class='row' >";  // new row
+                        $columns = 0;
+                    }
+                    
+                    $matches = array();
+                    if (preg_match('/\d+/', $image, $matches)) {
+                        $user_id = $matches[0];
+                        $user = get_user_by('id', $user_id);
+                    } else {
+                        $user = false;
+                    }
+
+                    echo "<div class='span" . 10 / $settings['columns'] . "' >"; // 10 is the max number of columns
+                    if ($user) {
+		      echo "<p><img title='" . $user->first_name . " " . $user->last_name . "' data-content='" . htmlspecialchars($user->description) . "' class='hover' src='" . $settings['url_prefix'] . $dir . "/" . $image . "' /></p>";
+                    }else{
+                        echo "<p><img src='" . $settings['url_prefix'] . $dir . "/" . $image . "' class='hover' title='" . str_replace('.jpg', '', $image) . "' ></p>";
+                    }
+                    echo "</div>";
+
+                    $columns++;
+                    $img_index++;
+
+                    if ($columns == $settings['columns'] || count($images) - 2 == $img_index) {
+                        echo "</div>"; // end row
+                    }
+                }
+		echo "</div>";    // end span10 wrapper
+                echo "</div>";    // end row wrapper
+                $dir_index++;
+            }
+            ?>
+        </div>
+	<div class="span4" >
+	      <?php get_sidebar(); ?>
 	</div>
+    </div>
+</div>
+
 <?php get_footer(); ?>
 
 

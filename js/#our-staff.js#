@@ -5,7 +5,7 @@
 			  $(".hover").popover({
 					html: true,
 				        placement: 'bottom',
-					trigger: 'hover'
+					trigger: 'hoveralecd'
 			  });
 	    
 	});
