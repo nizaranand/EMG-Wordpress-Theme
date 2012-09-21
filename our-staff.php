@@ -36,14 +36,13 @@ $subdir = array(
 
 ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
-<h3 class='archive-title' ><span><?php the_title(); ?></span></h3>
-<?php endwhile; ?>
-
-
 <div id="primary" class="site-content" >
-    <div id="container" class="row" >
         <div class="span10" >
+
+			<?php while ( have_posts() ) : the_post(); ?>
+			<h3 class='archive-title' ><span><?php the_title(); ?></span></h3>
+			<?php endwhile; ?>
+
             <?php
             
             $dir_index = 0;
@@ -100,7 +99,7 @@ $subdir = array(
 
                     echo "<div class='span" . 10 / $settings['columns'] . "' >"; // 10 is the max number of columns
                     if ($user) {
-		      echo "<p><img title='" . $user->first_name . " " . $user->last_name . "' data-content='" . htmlspecialchars($user->description) . "' class='hover' src='" . $settings['url_prefix'] . $dir . "/" . $image . "' /></p>";
+		      			echo "<p><img title='" . $user->first_name . " " . $user->last_name . "' data-content='" . htmlspecialchars($user->description) . "' class='hover' src='" . $settings['url_prefix'] . $dir . "/" . $image . "' /></p>";
                     }else{
                         echo "<p><img src='" . $settings['url_prefix'] . $dir . "/" . $image . "' class='hover' title='" . str_replace('.jpg', '', $image) . "' ></p>";
                     }
@@ -118,13 +117,10 @@ $subdir = array(
                 $dir_index++;
             }
             ?>
-        </div>
-	<div class="span4" >
-	      <?php get_sidebar(); ?>
-	</div>
-    </div>
-</div>
+        </div> <!-- .span10 -->
+</div><!-- #primary -->
 
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
 
 
