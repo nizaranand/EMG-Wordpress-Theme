@@ -35,7 +35,7 @@ function get_the_feed_insert() {
 function get_the_feed() {
 
 	$currentPostNumber = 1;	
-	$the_query = new WP_Query("category=news&orderby=modified");
+	$the_query = new WP_Query("category=news");//"&orderby=modified");
 	?>
 	<table class="table table-striped">
 	<thead>
@@ -57,7 +57,7 @@ function get_the_feed() {
 		echo '">';
 		the_title();
 		echo '</a><br>';
-		echo '<small><time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></small>';
+		echo '<small><time class="timeago" datetime="'.get_the_time("c").'">'.get_the_time("l, M. j \a\\t g:i a").' mod:'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></small>';
 		echo '</td></tr>';
 		$currentPostNumber++;
 		
