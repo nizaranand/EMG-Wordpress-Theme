@@ -74,5 +74,7 @@
 			</div><!-- div.entry-content -->
 		<?php endif; ?>
 
+		<br/><br/>
+
 	</article><!-- #post -->
     <!-- end of content.php -->
