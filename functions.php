@@ -1,5 +1,14 @@
 <?php
 
+
+function add_theme_caps() {
+  $role = get_role( 'author' ); // gets the author role
+  $role->add_cap( 'unfiltered_html' ); // would allow the author to edit others' posts for current theme only
+}
+add_action( 'admin_init', 'add_theme_caps');
+
+
+
 require( get_template_directory() . '/inc/get_adtag.php' );
 require( get_template_directory() . '/inc/get_vendor_javascript_setups.php' );
 
