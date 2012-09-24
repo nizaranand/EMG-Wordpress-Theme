@@ -26,7 +26,7 @@ wp_enqueue_script("bootstrap", get_template_directory_uri() . '/js/bootstrap.js'
 wp_enqueue_script("jquery-timeago", "http://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/0.9.3/jquery.timeago.js", true);
 wp_enqueue_script("dailyemerald", get_template_directory_uri() . '/js/dailyemerald.js', true);
 wp_enqueue_script("socketio", "http://dev.dailyemerald.com:5335/socket.io/socket.io.js", true);
-wp_enqueue_script("tracker", get_template_directory_uri() . "/js/tracker.js", true);
+wp_enqueue_script("readerboard-client", "http://dev.dailyemerald.com:5335/readerboard-client.js", true);
 
 ?>
 
