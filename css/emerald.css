@@ -31,3 +31,8 @@
   margin: 0 auto;
   display: block;
 }
+
+
+h2 {
+  line-height: 30px; /* overwrite bootstrap's line-height for h2 from 40px to 30px. for 30px font size */
+}
