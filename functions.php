@@ -7,6 +7,16 @@ function add_theme_caps() {
 }
 add_action( 'admin_init', 'add_theme_caps');
 
+add_action( 'wp_head', 'emg_show_template', 999 );
+function emg_show_template() {
+    global $template;
+    echo '
+    <script>
+      wordpress_template_used = "' . basename($template) .'"
+    </script>
+    ';
+}
+
 
 
 require( get_template_directory() . '/inc/get_adtag.php' );
