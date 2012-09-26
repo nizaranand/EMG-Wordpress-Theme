@@ -21,6 +21,8 @@ function emg_show_template() {
 
 require( get_template_directory() . '/inc/get_adtag.php' );
 require( get_template_directory() . '/inc/get_vendor_javascript_setups.php' );
+require( get_template_directory() . '/inc/description_walker_for_nav_bar.php');
+
 
 add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote' ) );
 add_theme_support( 'post-thumbnails' ); 
@@ -71,12 +73,48 @@ function get_the_feed() {
 
 		echo '<tr><td>';
 		//echo $currentPostNumber.". ";
+		
+		echo '<div class="feed-header">';
+		$category_outputted = false;
+		foreach(get_the_category() as $category) {
+			switch ($category->cat_name) {
+				case "Ducks Inc.": 
+					echo "DUCKS, INC. &bull; ";
+				 	break;
+				case "News":
+					echo "NEWS &bull; ";
+					break;
+				case "Video":
+					if ($category_outputted === false) {
+						echo "VIDEO &bull; ";
+					}
+					break;				
+				case "Sports":
+					$category_outputted = true;
+					echo "SPORTS &bull; ";
+					break;
+				case "Photo":
+					echo "PHOTO &bull; ";
+					break;
+				case "Wknd":
+					echo "WKND &bull; ";
+					break;
+				case "Back to the Books":
+					echo "WKND &bull; ";
+					break;
+				case "Special Sections":
+					echo "WKND &bull; ";
+					break;
+			}
+		}
+
+		echo '<time class="timeago" datetime="'.get_the_time("c").'">'.get_the_time("l, M. j \a\\t g:i a").'</time>';
+		echo '</div> <!-- -->';
 		echo '<a href="';
 		echo the_permalink();
 		echo '">';
 		the_title();
 		echo '</a><br>';
-		echo '<small><time class="timeago" datetime="'.get_the_time("c").'">'.get_the_time("l, M. j \a\\t g:i a").' mod:'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></small>';
 		echo '</td></tr>';
 		$currentPostNumber++;
 		
@@ -103,13 +141,12 @@ function get_the_editors_picks() {
 	<?php
 	while ( $the_query->have_posts() ) : $the_query->the_post();
 		echo '<tr><td>';
-
 		
 		echo '<a href="'.get_permalink().'">';
 		echo '  <h2 style="margin:0">'.get_the_title().'</h2>';
 		echo '</a>';
 
-		echo '<small>Posted <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></small><br>';
+		echo '<div class="feed-header">Posted <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></div>';
 
 		echo '<a href="'.get_permalink().'">';
 		the_post_thumbnail(array(540,500));
@@ -118,7 +155,7 @@ function get_the_editors_picks() {
 		
 		$embedHtmlFields = get_post_custom_values("embed_html");
 		foreach ( $embedHtmlFields as $value ) {
-		    echo '<div class="embeded-html">';
+		    echo '<div class="embedded-html">';
 		    echo $value;
 		    echo '</div>'; 
 		}

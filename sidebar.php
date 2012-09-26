@@ -11,8 +11,8 @@
 ?>
 
 <div class="sidebar span4">
-		
-	<?php get_search_form(); ?>	
+	
+	<?php get_search_form(); ?>		
 			
 	<div id="socialmedia" class="well well-small">
 			<div style="" class="pull-left">
@@ -21,13 +21,31 @@
 			<div class="pull-right" >
 				<div class="fb-like" data-href="http://facebook.com/dailyemerald" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
 			</div>
+			
 	</div><!--social media -->	
 				
 	<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017"></fb:recommendations>
-
+	
 	<div class="ad">
 		<?php get_adtag_300_1(); ?>
 	</div>	
+
+	<!--<div class="email-newsletter">
+		<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:300px;}
+			/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+			   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+		</style>
+		<div id="mc_embed_signup">
+		<form action="http://dailyemerald.us2.list-manage2.com/subscribe/post?u=bc301242e4224997e2e590f38&amp;id=d1d250c9c1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			<label for="mce-EMAIL">Subscribe to our email newsletter</label>
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+			<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+		</form>
+		</div>
+	</div>-->
+
 	<div class="ad">
 		<?php get_adtag_300_2(); ?>
 	</div>

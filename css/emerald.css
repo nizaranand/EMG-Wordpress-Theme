@@ -34,5 +34,22 @@
 
 
 h2 {
-  line-height: 30px; /* overwrite bootstrap's line-height for h2 from 40px to 30px. for 30px font size */
+  line-height: 32px; /* overwrite bootstrap's line-height for h2 from 40px to 30px. for 30px font size */
+}
+
+.feed-header {
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #999999;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+#menu-wrapper li.dropdown:hover ul.dropdown-menu{
+    display: block;    
+    margin-top: -1px;
+}
+a.menu:after, .dropdown-toggle:after {
+  content: none;
 }

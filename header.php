@@ -48,10 +48,10 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 
 <body>
 	<div class="container">
-		
-		
-		
+			
 		<header class="row">
+	
+
 	
 			<div class="span14" style="height:20px"></div>
 	
@@ -65,19 +65,29 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 				<?php get_adtag_leaderboard(); // inc/get_adtag.php ?>
 			</div>
 			
-			<div class="span14" style="height:20px"></div>
-
-			<div class="span14">
-				<div class="navbar">
-					<div class="navbar-inner">
-						<ul class="nav">
-							<?php wp_nav_menu( array( 'theme_location' => 'primary','items_wrap' => '%3$s','container' => false) ); // strip the ul, we're going to build it ourselve ?>
-							<li><?php //get_search_form(); ?></li>
-						</ul>
-					</div> <!-- .navbar-inner -->
-				</div> <!-- .navbar -->
+			<div class="span14" style="height:20px"></div>			
+			<div class="house-ad-teaser span14">
+				<a href="http://on.fb.me/SxmDtL">
+					<img src="<?php bloginfo('template_directory'); ?>/images/120925_release_party_banner.jpg" />
+				</a>	
 			</div>
+			<div class="span14" style="height:20px"></div>
 			
+			<div id="menu-wrapper" class="span14">
+					<?php wp_nav_menu( 
+					    	array( 
+					    		'menu' => 'main_nav', /* menu name */
+					    		'menu_class' => 'nav nav-tabs',
+					    		'theme_location' => 'primary', /* where in the theme it's assigned */
+					    		'container' => 'false', /* container class */
+					    		'fallback_cb' => 'bones_main_nav_fallback', /* menu fallback */
+					    		'depth' => '2', /* suppress lower levels for now */
+					    		'walker' => new description_walker()
+					    	)
+					    );
+					?>
+			</div>
+								
 		</header><!-- #masthead -->
 
 		<div class="row">
