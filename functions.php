@@ -56,7 +56,7 @@ function get_the_feed_insert() {
 function get_the_feed() {
 
 	$currentPostNumber = 1;	
-	$the_query = new WP_Query("category=news");//"&orderby=modified");
+	$the_query = new WP_Query("category=news&posts_per_page=40");//"&orderby=modified");
 	?>
 	<table class="table table-striped">
 	<thead>
