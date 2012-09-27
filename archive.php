@@ -74,7 +74,7 @@ get_header(); ?>
 					<?php
 						} else {
 					?>
-						<div class="no-featured-image" style="opacity: 0.2" >
+						<div class="no-featured-image" style="opacity: 0.2" class="hidden-phone" >
 						    <img width="220px" height="200px" rel="placeholder" src="<?php echo get_template_directory_uri() . '/images/ArchivePlaceholder.jpg'; ?>" />
                                                 </div>
 					<?php

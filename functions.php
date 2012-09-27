@@ -71,7 +71,7 @@ function get_the_feed() {
 			//get_the_feed_insert(); //TODO: do we want to do something with this?
 		}
 
-		echo '<tr><td>';
+		echo '<tr class="feed-post-left" ><td>';
 		//echo $currentPostNumber.". ";
 		
 		echo '<div class="feed-header">';
