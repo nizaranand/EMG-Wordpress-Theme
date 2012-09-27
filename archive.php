@@ -66,9 +66,7 @@ get_header(); ?>
 					<div class="row">
 					<div class="span3">
 					<?php 
-						if ( get_post_meta($post->ID, 'show_featured_image', true)  && 
-							 //get_post_meta($post->ID, 'show_featured_image', true ) === "true" &&
-							 has_post_thumbnail()) {
+						if (has_post_thumbnail()) {
 					?>
 						<div class="post-featured-image">
 							<?php the_post_thumbnail(array(220,200)); ?>
