@@ -68,13 +68,15 @@ get_header(); ?>
 					<?php 
 						if (has_post_thumbnail()) {
 					?>
-						<div class="post-featured-image">
+						<div class="post-featured-image"><a href="<?php the_permalink(); ?>" rel="bookmark">
 							<?php the_post_thumbnail(array(220,200)); ?>
-						</div>
+						</a></div>
 					<?php
 						} else {
 					?>
-						<div class="no-featured-image">&nbsp;</div>
+						<div class="no-featured-image" style="opacity: 0.2" >
+						    <img width="220px" height="200px" rel="placeholder" src="<?php echo get_template_directory_uri() . '/images/ArchivePlaceholder.jpg'; ?>" />
+                                                </div>
 					<?php
 						} 
 					?>
