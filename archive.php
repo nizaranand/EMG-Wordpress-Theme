@@ -62,48 +62,47 @@ get_header(); ?>
 				//get_template_part( 'content', get_post_format() );
 			?>
 				<article id="post-<?php the_ID(); ?>" class="">
-					<h2 class="entry-title">
-						<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
-							<?php the_title(); ?>
-						</a>
-					</h2>
-
+					
+					<div class="row">
+					<div class="span3">
 					<?php 
 						if ( get_post_meta($post->ID, 'show_featured_image', true)  && 
-							   get_post_meta($post->ID, 'show_featured_image', true ) == "false") {
-										      // do not show featured image
-						} else {
-							if ( has_post_thumbnail() ) { 
-						// TODO: the images are disabled for now
+							 //get_post_meta($post->ID, 'show_featured_image', true ) === "true" &&
+							 has_post_thumbnail()) {
 					?>
-					<!--
-								<div class="post-featured-image">
-									<?php the_post_thumbnail(array(100,100)); ?>
-								</div>
-								<p>
-									<small class="post-featured-image-caption">
-										<?php the_post_thumbnail_caption(); ?>
-									</small>
-								</p>
-					-->
+						<div class="post-featured-image">
+							<?php the_post_thumbnail(array(220,200)); ?>
+						</div>
 					<?php
-							} // close the if that checked we actually have a post thumbnail before we write it out.
-						} // close the if that checked if we were going to hide the image based on the custom filed "show_featured_image"
+						} else {
 					?>
-
-
-					<div class="well well-small">
-						By <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-							<?php printf( __( '%s', 'twentytwelve' ), get_the_author() ); ?>
-						</a>
-						<?php //echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; ?>
-					    <?php echo ' on '.get_the_modified_time("l, M. j \a\\t g:i a").'.'; ?>
-					</div>
-					<div>
-					    <?php the_excerpt(); ?>
-					</div>
+						<div class="no-featured-image">&nbsp;</div>
+					<?php
+						} 
+					?>
+					</div><!-- .span3 -->
+					
+					<div class="span7">
+						<h2 class="entry-title">
+							<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
+								<?php the_title(); ?>
+							</a>
+						</h2>
+						
+						<div class="feed-header">
+							By <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
+								<?php printf( __( '%s', 'twentytwelve' ), get_the_author() ); ?>
+							</a>
+							<?php //echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; ?>
+						    <?php echo ' on '.get_the_modified_time("l, M. j \a\\t g:i a").'.'; ?>
+						</div>
+						<div>
+						    <p><?php the_excerpt(); ?></p>
+						</div>
+						
+					</div><!-- .span7 -->
+					</div><!-- .row -->
 					<hr>
-				
 				</article><!-- #post -->
 			<?php
 			endwhile;
