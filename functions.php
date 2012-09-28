@@ -174,11 +174,25 @@ function get_the_editors_picks() {
 
 function emg_content_nav( $nav_id ) {
 	global $wp_query;
+	
+	$big = 99999999999;
 
+	$paginate_args = array(
+			       'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			       'format' => '/page/%#%',
+			       'show_all' => false,
+			       'total' => $wp_query->max_num_pages,
+			       'current' => max(1, get_query_var('paged')),
+			       'prev_next' => true,
+			       'type' => 'list'
+        );
+
+	$links = paginate_links($paginate_args);
+	
 	if ( $wp_query->max_num_pages > 1 ) : ?>
-		<nav id="<?php echo $nav_id; ?>" class="navigation well" role="navigation">
-			<div class="nav-previous alignleft pull-left"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentytwelve' ) ); ?></div>
-			<div class="nav-next alignright pull-right"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?></div>
+		<nav id="<?php echo $nav_id; ?>" class="navigation pagination" role="navigation">
+		   <?php echo $links; ?>
 		</nav><!-- #<?php echo $nav_id; ?> .navigation -->
 	<?php endif;
 }
+
