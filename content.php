@@ -48,7 +48,7 @@
 					</a>
 				    
 					<?php //echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; ?>
-				    <?php echo ' on '.get_the_modified_time("l, M. j \a\\t g:i a").'.'; ?>
+				    <?php echo ' on '.get_the_time("l, M. j \a\\t g:i a").'.'; ?>
 				
 					<div class="facebook-like-wrapper pull-right">
 						<fb:like href="<?php the_permalink(); ?>" send="true" layout="button_count" width="100" show_faces="false"></fb:like>
