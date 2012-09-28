@@ -184,6 +184,8 @@ function emg_content_nav( $nav_id ) {
 			       'total' => $wp_query->max_num_pages,
 			       'current' => max(1, get_query_var('paged')),
 			       'prev_next' => true,
+			       'next_text' => 'Older',
+			       'prev_text' => 'Newer',
 			       'type' => 'list'
         );
 
