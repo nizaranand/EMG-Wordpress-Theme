@@ -1,30 +1,15 @@
-
 /*
  * Aligns the center and left sections on the home page to have the same height.
  * The feed height will always be slightly less than the center height.
- */
+ */ 
 
-(function($){
-
-    $(document).ready(function(){
-			  var centerHeight = $("#home-center-column").height();
-			  var $posts = $("tr.feed-post-left");
-			  var totalHeight = 0;
-			  var hidden = false;
-			  $posts.each(function(index){
-		              var $post = $(this);
-			      if(hidden){
-				  $post.css("display", "none");
-				  return true; //continue
-			      }
-			      var currHeight = $post.height();
-			      totalHeight += currHeight;
-					  console.log("totalHeight: "+totalHeight+"\nCurrheight: "+currHeight);
-			      if(totalHeight > centerHeight){
-				  $post.css("display", "none");
-				  hidden = true;
-			      }
-			  });
-        });
-    
+(function ($) {
+    $(document).ready(function () {
+        if (wordpress_template_used === "template-home.php") {
+          var home_col_center_height = $("#home-center-column").height();
+          while (home_col_center_height < $("#home-left-column").height()) {
+            $(".feed-post-left").last().remove();
+          }
+        }
+    });
 })(jQuery);
