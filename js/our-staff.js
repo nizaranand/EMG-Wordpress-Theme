@@ -1,41 +1,64 @@
 
+
 (function($){
 
-    $(document).ready(function(){
-			  /*
-			   * This is incredibly hackish. Ivar, I wouldn't worry about wrapping your head around this.
-			   */
-			  $(".hover").popover({
-                                        placement: 'bottom',
-                                        trigger: 'manual'
-                          });
+     
+var StaffPage = function(hover_class_name){
+    var timer = false;
+    var that = {
+	  
+	    refreshHover: function(){
+		$('.' + hover_class_name).popover('destroy');
+	        $("." + hover_class_name).popover({
+                    placement: 'bottom',
+                    trigger: 'manual'
+                });	
 
+	    }, 
 
-			  $(".hover").mouseenter(function(){
-                              $curr = $(this);
-			      $curr.css('cursor', 'pointer');
-                           
-			      $('.hover').popover('destroy');
-			      $(".hover").popover({
-                                        placement: 'bottom',
-                                        trigger: 'manual'
-                              });
-			      $curr.popover('show');
-		           });
+	    startTimer: function(duration){
+		timer = setTimeout(function(){
+		            that.refreshHover();
+		        }, duration);
 
-			   $(document).click(function(){
-                               $('.hover').popover('destroy');
-			       $(".hover").popover({
-                                        placement: 'bottom',
-                                        trigger: 'manual'
-                               });
-			    });
+	    },
 
-		        $(".hover").mouseleave(function(){
-                              $(this).css('cursor', 'auto'); 
-                        });
-
-	    
-	});
+	    stopTimer: function(){
+		if(timer)
+		    clearTimeout(timer);
+		
+	    }
+	
+     };
     
-})(jQuery);
+    that.refreshHover();
+
+
+    $(document).click(function(){
+        that.refreshHover();
+    });
+
+    $('.' + hover_class_name).mouseenter(function(){
+	that.stopTimer();
+	that.refreshHover();
+        $(this).popover('show');					  
+   
+    });
+
+    $('.' + hover_class_name).mouseleave(function(){
+	that.startTimer(5000);
+
+    });
+
+
+    return that;
+};
+
+$(document).ready(function(){
+    var page = new StaffPage('hover');
+
+});
+
+
+
+}(jQuery));
