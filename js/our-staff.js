@@ -46,7 +46,7 @@ var StaffPage = function(hover_class_name){
     });
 
     $('.' + hover_class_name).mouseleave(function(){
-	that.startTimer(5000);
+	that.startTimer(6000);
 
     });
 
