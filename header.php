@@ -66,13 +66,7 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 			</div>
 			
 			<div class="span14" style="height:20px"></div>			
-			<div class="house-ad-teaser span14">
-				<a href="http://on.fb.me/SxmDtL">
-					<img src="<?php bloginfo('template_directory'); ?>/images/120925_release_party_banner.jpg" />
-				</a>	
-			</div>
-			<div class="span14" style="height:20px"></div>
-			
+						
 			<div id="menu-wrapper" class="span14">
 					<?php wp_nav_menu( 
 					    	array( 
