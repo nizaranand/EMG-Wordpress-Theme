@@ -32,7 +32,7 @@ $subdir = array(
 <?php
         wp_enqueue_script("bootstrap-tooltip", get_template_directory_uri() . "/js/bootstrap-tooltip.js", true);
         wp_enqueue_script("bootstrap-popover", get_template_directory_uri() . "/js/bootstrap-popover.js", true);
-	wp_enqueue_script("our-staff", get_template_directory_uri() . "/js/our-staff.js", true);
+        wp_enqueue_script("our-staff", get_template_directory_uri() . "/js/our-staff.js", true);
 
 ?>
 
@@ -99,9 +99,9 @@ $subdir = array(
 
                     echo "<div class='span" . 10 / $settings['columns'] . "' >"; // 10 is the max number of columns
                     if ($user) {
-		      			echo "<p><img title='" . $user->first_name . " " . $user->last_name . "' data-content='" . htmlspecialchars($user->description) . "' class='hover' src='" . $settings['url_prefix'] . $dir . "/" . $image . "' /></p>";
+		      echo "<p><img class='hover' title='" . $user->first_name . " " . $user->last_name . "' data-content='" . htmlspecialchars($user->description) . "' src='" . $settings['url_prefix'] . $dir . "/" . $image . "' /></p>";
                     }else{
-                        echo "<p><img src='" . $settings['url_prefix'] . $dir . "/" . $image . "' class='hover' title='" . str_replace('.jpg', '', $image) . "' ></p>";
+		      echo "<p><img class='hover' src='" . $settings['url_prefix'] . $dir . "/" . $image . "' title='" . str_replace('.jpg', '', $image) . "'/ ></p>";
                     }
                     echo "</div>";
 
