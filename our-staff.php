@@ -54,9 +54,6 @@ $subdir = array(
                     echo "<hr>";
 		    /* 
 		     *  Write out the header for the section
-		     *  Andy, you suck for making me do it this way.
-		     *
-		     * ... that's what she said.
 		     */
 		    echo "<div class='row' >";
 		    $dir_split = explode("-", $dir );
