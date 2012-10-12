@@ -146,7 +146,7 @@ function get_the_editors_picks() {
 		echo '  <h2 style="margin:0">'.get_the_title().'</h2>';
 		echo '</a>';
 
-		echo '<div class="feed-header">Posted <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></div>';
+		echo '<div class="feed-header">Posted <time class="timeago" datetime="'.get_the_time("c").'">'.get_the_time("l, M. j \a\\t g:i a").'</time></div>';
 
 		echo '<a href="'.get_permalink().'">';
 		the_post_thumbnail(array(540,500));
