@@ -146,7 +146,7 @@ function get_the_editors_picks() {
 		echo '  <h2 style="margin:0">'.get_the_title().'</h2>';
 		echo '</a>';
 
-		echo '<div class="feed-header">Posted <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time></div>';
+		echo '<div class="feed-header">Posted <time class="timeago" datetime="'.get_the_time("c").'">'.get_the_time("l, M. j \a\\t g:i a").'</time></div>';
 
 		echo '<a href="'.get_permalink().'">';
 		the_post_thumbnail(array(540,500));
@@ -198,3 +198,36 @@ function emg_content_nav( $nav_id ) {
 	<?php endif;
 }
 
+/**
+ * Include Facebook Open Graph metadata for sharing
+ */
+function emg_head_fb_open_graph() {
+
+	$properties = array(
+		'fb:admins' => '100001785043323',
+		'fb:app_id' => '197312536953017',
+		'og:title' => get_bloginfo( 'name' ),
+		'og:description' => get_bloginfo( 'description' ),		
+		'og:url' => get_bloginfo( 'url' ),
+		'og:type' => 'website',
+		'og:image' => get_bloginfo( 'template_directory' ) . '/images/ArchivePlaceholder.jpg',
+	);
+
+	if ( is_single() ) {
+		global $post;
+		$properties['og:title'] = $post->post_title;
+		if ( !empty( $post->post_excerpt ) )
+			$properties['og:description'] = strip_tags( $post->post_excerpt );
+		else
+			$properties['og:description'] = substr( strip_tags( $post->post_content ), 0, 255 ) . '...';
+		//$properties['og:permalink'] = get_permalink(); //og:permalink is not a valid meta tag for facebook
+		$properties['og:url'] = get_permalink(); //IV, 20120105
+		if ( has_post_thumbnail() )	
+			$properties['og:image'] = wp_get_attachment_thumb_url( get_post_thumbnail_id( $post->ID ) );
+	}
+
+
+	foreach( $properties as $property => $content ) {
+		echo '<meta property="' . $property . '" content="' . $content . '" />' . "\n";
+	}	
+}

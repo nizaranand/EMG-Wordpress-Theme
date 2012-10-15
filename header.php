@@ -21,6 +21,8 @@
 
 <?php
 
+emg_head_fb_open_graph();
+
 wp_enqueue_script("jquery", "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", true);
 wp_enqueue_script("bootstrap", get_template_directory_uri() . '/js/bootstrap.js', true);
 wp_enqueue_script("jquery-timeago", "http://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/0.9.3/jquery.timeago.js", true);

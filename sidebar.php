@@ -23,6 +23,13 @@
 			</div>
 			
 	</div><!--social media -->	
+	
+	<div class="gameday-ad" style="margin-bottom:20px;">
+		<a href="http://bit.ly/NYQE0J">
+			<img src="<?php echo get_template_directory_uri(); ?>/images/gameday-ad.png" />
+		</a>
+	</div>
+	
 				
 	<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017"></fb:recommendations>
 	
