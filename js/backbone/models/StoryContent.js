@@ -1,5 +1,10 @@
 
-var StoryContent = Backbone.Model.extend({
+
+(function($, _, Backbone){
+
+    var StoryContent = Backbone.Model.extend({
     
 
-});
+    });
+
+}(jQuery, _, Backbone));

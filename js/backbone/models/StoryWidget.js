@@ -1,5 +1,9 @@
 
-var StoryWidget = Backbone.Model.extend({
+(function($, _, Backbone){
+
+    var StoryWidget = Backbone.Model.extend({
 
 
-});
+    });
+
+}(jQuery, _, Backbone));

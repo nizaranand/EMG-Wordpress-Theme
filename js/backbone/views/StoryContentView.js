@@ -1,6 +1,10 @@
 
-var StoryContentView = Backbone.View.extend({
+(function($, _, Backbone){
+
+    var StoryContentView = Backbone.View.extend({
     
 
 
-});
+    });
+
+}(jQuery, _, Backbone));

@@ -1,6 +1,9 @@
 
+(function($, _, Backbone){
 
-var StoriesRouter = Backbone.Router.extend({
+    var StoriesRouter = Backbone.Router.extend({
 
 
-});
+    });
+
+}(jQuery, _, Backbone));
