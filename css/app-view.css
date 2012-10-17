@@ -1,6 +1,6 @@
 
 
-#app-view{
+#app-content{
 	
 	
 }
@@ -11,12 +11,21 @@
 }
 
 .story-widget{
+	padding: 0.3em;
 	
-	
+}
+
+#widgets-list{
+	list-style: none;
 }
 
 /* wrapper element for stories, does not have a corresponding model. this is what's populated when StoryContent renders */
 #stories{
+	
+	
+}
+
+.clock-icon{
 	
 	
 }

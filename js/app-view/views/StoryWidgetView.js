@@ -44,8 +44,19 @@ var StoryWidgetView = Backbone.View.extend({
 		},
 		initialize: function(){
 			return Backbone.StateManager.addStateManager(this);
-		}
+		}	
+	},
+	initialize: function(){
+		
+		
+	},
+	
+	render: function(){
+		
 		
 	}
+	
+	
+	
 
 });

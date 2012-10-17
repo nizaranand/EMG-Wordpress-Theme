@@ -1,0 +1,13 @@
+
+
+<script type="text/template" id="storywidgets-template" >
+	<div id="story-widgets" class="span3" >
+		<ul id="widgets-list" >
+			<!-- make sure widgets contains an array of widget objects -->
+			<!-- don't do it this way... move the template rendering to the actual view --> 
+			<% widgets.each(function(widget){ %>
+				<% print("<li id='story-'" + widget.id + " >") %><% _.template( $("#story-" + widget.id) , widget) %></li>
+			<% }); %>
+		</ul>
+	</div>
+</script>

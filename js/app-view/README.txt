@@ -16,5 +16,10 @@ StoryWidget
 	 |
 StoryContent
 	
+	
+
+have each model create it's view upon initializing
+do not render the view though
+store references between model/view pairs
 
 

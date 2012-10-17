@@ -32,7 +32,7 @@
 
 <div id="primary" class="site-content" >
 	<div class="span10" >
-		<div id="app-view" class="row" >
+		<div id="app-view" >
 			
 			
 		</div>	
