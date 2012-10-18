@@ -1,5 +1,6 @@
 
 var StoryWidgetView = Backbone.View.extend({
+	
     states: {
 		hovered: {
 			enter: function(){
@@ -54,7 +55,17 @@ var StoryWidgetView = Backbone.View.extend({
 	render: function(){
 		
 		
-	}
+	},
+	
+	events: {
+		'hover': hovered(), // for sliding arrow
+		'click': selected(), 
+	},
+	
+	selected: function(){
+		
+		
+	},
 	
 	
 	
