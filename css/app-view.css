@@ -1,18 +1,18 @@
 
 
 #app-content{
-	
+	background: #EEE;
 	
 }
 
 #story-widgets{
-	
-	
+	background-color: #DDD;
 }
 
 .story-widget{
 	padding: 0.3em;
-	
+	border-bottom: solid white;
+	margin-right: 0.15em
 }
 
 #widgets-list{
@@ -21,13 +21,25 @@
 
 /* wrapper element for stories, does not have a corresponding model. this is what's populated when StoryContent renders */
 #stories{
+	border: silver solid 2px;
 	
+}
+
+.storywidget-title{
+	font-size: large;
+	color: #333;
 	
 }
 
 .clock-icon{
-	
-	
+	float: left;
+	margin-right: 0.15em;
+}
+
+.storywidget-timestamp{
+	float: left;
+	font-size: medium;
+	font-style: italic;
 }
 
 #arrow{

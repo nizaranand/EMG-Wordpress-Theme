@@ -1,12 +1,5 @@
 
 
-
-/*
- * should story content have it's own view
- * 
- * 
- * 
- */
 (function($, _, Backbone){
 	
 	$(document).ready(function(){

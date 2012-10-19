@@ -11,6 +11,7 @@
 	wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery-ui-1.8.2.custom.min.js", true);
 	wp_enqueue_script("mousewheel", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mousewheel.min.js", true);
 	wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.min.js", true);
+	wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 	wp_enqueue_script("underscore", get_template_directory_uri() . "/js/app-view/libs/underscore/underscore.min.js", true);
 	wp_enqueue_script("backbone", get_template_directory_uri() . "/js/app-view/libs/backbone/backbone.min.js", true);
 	wp_enqueue_script("backbone-state", get_template_directory_uri() . "/js/app-view/libs/state-manager/backbone-statemanager.js", true);
@@ -31,10 +32,11 @@
 ?>
 
 <div id="primary" class="site-content" >
-	<div class="span10" >
-		<div id="app-view" >
-			
-			
+	<div class="span10" ><!-- leave room for sidebar -->
+		<div class="row" >
+			<div id="app-view" class="span10" >
+				
+			</div>
 		</div>	
 	</div><!-- .span10 -->
 </div><!-- #primary -->
