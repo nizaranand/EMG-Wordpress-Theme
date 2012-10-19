@@ -2,6 +2,7 @@
 var StoryWidgetView = Backbone.View.extend({
 	$el: false,
 	$template: $("#storywidget-template"),
+	$content_template: $("#storycontent-template"),
 	$story_content: $("#story-content"),
 	
     states: {
@@ -22,7 +23,7 @@ var StoryWidgetView = Backbone.View.extend({
 		selected: {
 			enter: function(){
 				// have the new story appear in the content
-				var view = _.template(this.$template, this.template_view_params);
+				var view = _.template(this.$content_template, this.content_view_params);
 				this.$story_content.html(view);
 			}, 
 			
@@ -57,7 +58,7 @@ var StoryWidgetView = Backbone.View.extend({
 			widget_timestamp: timeago,
 			widget_id: this.model.id
 		};
-		this.template_view_params = {
+		this.content_view_params = {
 			story_title: this.model.title,
 			story_content: this.model.content,
 			story_author: this.model.author
