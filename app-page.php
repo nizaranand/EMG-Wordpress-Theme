@@ -23,7 +23,7 @@
 	wp_enqueue_script("storycontent-view", get_template_directory_uri() . "/js/app-view/views/StoryContentView.js", true);
 	wp_enqueue_script("storywidgets-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetsView.js", true);
 	wp_enqueue_script("storywidget-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetView.js", true);
-	wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/StoriesRouter.js", true);
+	wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/routers/StoriesRouter.js", true);
 	wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
 	wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 	
