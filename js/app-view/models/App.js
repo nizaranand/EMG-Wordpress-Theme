@@ -1,19 +1,15 @@
 
 
 
-var App = Backbone.Model.extend({
-	el: $("#app-view"), 
-	
+var App = Backbone.Model.extend({	
 	
 	initialize: function(properties){
-				
-		// maybe don't do this here
-		this.storyWidgets = new StoryWidgets({ url: "http://dailyemerald.com/section/sports/football/json" });
-		this.storyWidgets.parent = this;
-		this.storyWidgets.fetch();
-		
-	},
-	
-	
+		this.view = new AppView({ model: this });		
+		this.view.render();
+		this.view.triggerState("loading"); // redo this w/ events
+		this.storyWidgets = new StoryWidgets({ url: "/section/sports/football/json" });
+		//this.router = new StoriesRouter({ app: this });
+		this.view.triggerState("normal"); // redo this w/ events
+	}
 
 });

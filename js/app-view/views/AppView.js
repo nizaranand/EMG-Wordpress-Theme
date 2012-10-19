@@ -1,20 +1,25 @@
 
 var AppView = Backbone.View.extend({
+	$el: $("#app-view"), 
+	$template: $("#app-template"),
+	
 	states: {
 		loading: {
 			enter: function(){
-			
+				this.$el.animate({ opacity: "0.5" }, 300);
+				this.spinner.spin(this.el);
 			}, 
 			
 			exit: function(){
-				
+				this.$el.animate({ opacity: "1.0" }, 500);
+				this.spinner.stop();
+				this.triggerState("normal");
 			},
 			
 			transitions: {
 						
 			}
 		},
-		
 		normal: {
 			enter: function(){
 				
@@ -27,18 +32,13 @@ var AppView = Backbone.View.extend({
 			transitions: {
 					
 			}
-		},
-		initialize: function(){
-			return Backbone.StateManager.addStateManager(this);
 		}
-		
 	},
 	
 	initialize: function(){
-		
-		
+		Backbone.StateManager.addStateManager(this);
+		this.createSpinner();
 	},
-	
 	
 	createSpinner: function(){
 		var opts = {
@@ -49,7 +49,7 @@ var AppView = Backbone.View.extend({
   			corners: 1, // Corner roundness (0..1)
   			rotate: 0, // The rotation offset
   			color: '#333', // #rgb or #rrggbb
-  			speed: 1, // Rounds per second
+  			speed: 2, // Rounds per second
   			trail: 60, // Afterglow percentage
 			shadow: false, // Whether to render a shadow
   			hwaccel: false, // Whether to use hardware acceleration
@@ -58,21 +58,13 @@ var AppView = Backbone.View.extend({
   			top: 'auto', // Top position relative to parent in px
   			left: 'auto' // Left position relative to parent in px
 		};
-		this.spinner = new Spinner(opts)
+		this.spinner = new Spinner(opts);
 	},
 	
-	startSpinner: function(){
-		this.el.animate({ opacity: "0.5" }, 300);
-		this.spinner.spin(this.el);
-	},
-	
-	stopSpinner: function(){
-		this.el.animate({ opacity: "1.0" }, 500);
-		this.spinner.stop();
+	render: function(){
+		var view = _.template(this.$template, {});
+		this.$el.html(view);
 	}
 	
-	
-	
-	
-
+	// add timer to refresh too
 });
