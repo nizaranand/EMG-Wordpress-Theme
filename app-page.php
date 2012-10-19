@@ -28,6 +28,7 @@
 	wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
 	wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 	
+	wp_enqueue_style('custom-scroll', get_template_directory_uri() . "/css/jquery.mCustomScrollbar.css", "all");
 	wp_enqueue_style('app-view', get_template_directory_uri() . "/css/app-view.css", "all");
 ?>
 
