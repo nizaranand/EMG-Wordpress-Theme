@@ -2,8 +2,7 @@
 (function($, _, Backbone){
 
 var StoryWidget = Backbone.Model.extend({
-	url: "",
-
+	
 	initialize: function(){
 		// the view rendering is done in the each loop of the collection
 	}

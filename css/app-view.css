@@ -1,28 +1,33 @@
 
 
 #app-content{
-	background: #EEE;
-	
+	background: #EEE;	
 }
 
 #story-widgets{
 	background-color: #DDD;
+	height: 600px;
 }
 
 .story-widget{
 	padding: 0.3em;
 	border-bottom: solid white;
-	margin-right: 0.15em
+	margin-right: 0.15em;
+	height: 60px;
+	overflow: hidden;
 }
 
 #widgets-list{
 	list-style: none;
+	height: 100%;
+	width: 100%;
 }
 
 /* wrapper element for stories, does not have a corresponding model. this is what's populated when StoryContent renders */
 #stories{
 	border: silver solid 2px;
-	
+	height: 100%;
+	width: 100%;
 }
 
 .storywidget-title{

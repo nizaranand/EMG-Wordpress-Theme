@@ -2,7 +2,6 @@
 (function($, _, Backbone){
 var StoryWidgetsView = Backbone.View.extend({
 	// $arrow: $("<div id='arrow' ><img src='blah' ></div>"),
-	$el: $("#story-widgets"),
 	$template: $("#storywidgets-template"),
 	timer: false,
 	template_options: {},
@@ -30,27 +29,39 @@ var StoryWidgetsView = Backbone.View.extend({
 	initialize: function(){
 		this.collection.on('add', this.addOne, this);
 		this.collection.on('reset', this.addAll, this);
-		this.$el.mCustomScrollbar(this.scrollbar_opts);
 		this.timer = setInterval(this.refresh, 60 * 1000);
+		window.showStory = this.showStory;
 		// stories are fetched by collection initially
 	},
 	
 	render: function(){
 		var view = _.template(this.$template.html(), this.template_options);
-		this.$el.html(view);
+		console.log("el and widgets view:");
+		console.log(this.el);
+		console.log(view);
+		$("#story-widgets").html(view);
+		$("#widgets-list").mCustomScrollbar(this.scrollbar_opts);
 	},
 	
 	addAll: function(){
-		this.$el.html("");
+		$("#widgets-list").html("");
 		this.collection.each(this.addOne, this);
+		//console.log(this.collection);
+		$("li.story-widget").click(function(){
+		    showStory($(this).attr("id"));				
+        });
 	},
 	
 	addOne: function(story_widget){
-		story_widget.parent = this;
-		story_widget.view = new WidgetView({ model: story_widget });
-		story_widget.view.render();
+		story_widget.set({ parent:  this });
+		var widget = new StoryWidgetView({ model: story_widget });
+		story_widget.set({ view: widget });
+		story_widget.get("view").render();
+		console.log("widget html: ");
+		console.log("ID: "+ story_widget.id);
+		console.log(story_widget.get("view").$el);
 		// this is just gross
-		this.$el.children("#widgets-list").append(story_widget.view.$el);
+		$("#widgets-list").append(story_widget.get("view").$el);
 	},
 	
 	scrolled: function(){
@@ -63,8 +74,20 @@ var StoryWidgetsView = Backbone.View.extend({
 	
 	refresh: function(){
 		this.collection.fetch();
-	}
+	},
 	
+	showStory: function(id){
+		console.log(id);
+		var model = app.storyWidgets.get(id);
+		var $content_template = $("#storycontent-template");
+		var content_opts = {
+			story_title: model.get("title"),
+            story_content: model.get("content"),
+            story_author: model.get("author")
+		};
+		var content = _.template($content_template.html(), content_opts);
+		$("#story-content").html(content);
+	}
 	
 
 });

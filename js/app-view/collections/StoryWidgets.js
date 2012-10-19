@@ -3,7 +3,7 @@
 
 var StoryWidgets = Backbone.Collection.extend({
 	model: StoryWidget,
-    url: "http://testingalec.dailyemerald.com/section/sports/football/json/",    
+    url: "http://dailyemerald.com/section/sports/football/json?callback=?",    
 
 	fetchOptions: {
 		success: function(collection, response){
@@ -11,13 +11,16 @@ var StoryWidgets = Backbone.Collection.extend({
 		},
 		
 		error: function(collection, response){
-			alert("error fetching stories" + response);
+			alert("error fetching stories" + response.toJSON());
 		}
 	},
 	
 	initialize: function(models, options){
-		this.view = new StoryWidgetsView({ collection: this });
+		// make el's all strings, then reference them w/ jquery wrappers
+		this.view = new StoryWidgetsView({ el: "#story-widgets", collection: this });
 		this.view.render();
+		console.log("Rendered widgets view:");
+		console.log(this.view.$el);
 		this.fetch(this.fetchOptions);
 	}
 

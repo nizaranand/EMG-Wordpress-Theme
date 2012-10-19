@@ -1,42 +1,11 @@
 
 (function($, _, Backbone){
-var AppView = Backbone.View.extend({
-	$el: $("#app-view"), 
+var AppView = Backbone.View.extend({ 
 	$template: $("#app-template"),
 	
-	states: {
-		loading: {
-			enter: function(){
-				this.$el.animate({ opacity: "0.5" }, 300);
-				this.spinner.spin(this.el);
-			}, 
-			
-			exit: function(){
-				this.$el.animate({ opacity: "1.0" }, 500);
-				this.spinner.stop();
-			},
-			
-			transitions: {
-						
-			}
-		},
-		normal: {
-			enter: function(){
-				
-			}, 
-			
-			exit: function(){
-				
-			},
-			
-			transitions: {
-					
-			}
-		}
-	},
 	
 	initialize: function(){
-		Backbone.StateManager.addStateManager(this);
+		this.$el = $("#app-view");
 		this.createSpinner();
 	},
 	
@@ -62,9 +31,26 @@ var AppView = Backbone.View.extend({
 	},
 	
 	render: function(){
+		console.log("app el and view:");
+		console.log(this.$el);
 		var view = _.template(this.$template.html(), {});
 		this.$el.html(view);
+		console.log("rendered app view:");
+		console.log(view);
+		console.log(this.$el);
+	},
+
+    startSpinner: function(){
+		this.$el.animate({ opacity: "0.5" }, 300);
+        this.spinner.spin(this.el);
+	},
+
+    stopSpinner: function(){
+	    this.$el.animate({ opacity: "1.0" }, 500);
+        this.spinner.stop();
+
 	}
+	
 	
 	// add timer to refresh too
 });
