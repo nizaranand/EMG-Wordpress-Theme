@@ -1,4 +1,5 @@
 
+(function($, _, Backbone){
 
 var StoryWidgets = Backbone.Collection.extend({
 	model: StoryWidget,
@@ -19,4 +20,5 @@ var StoryWidgets = Backbone.Collection.extend({
 	}
 
 });
-
+return StoryWidgets;
+}(jQuery, _, Backbone));

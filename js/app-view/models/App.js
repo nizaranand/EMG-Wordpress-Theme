@@ -1,6 +1,6 @@
 
 
-
+(function($, _, Backbone){
 var App = Backbone.Model.extend({	
 	
 	initialize: function(properties){
@@ -13,3 +13,5 @@ var App = Backbone.Model.extend({
 	}
 
 });
+return App;
+}(jQuery, _, Backbone));

@@ -1,5 +1,5 @@
 
-
+(function($, _, Backbone){
 var StoryWidgetsView = Backbone.View.extend({
 	// $arrow: $("<div id='arrow' ><img src='blah' ></div>"),
 	$el: $("#story-widgets"),
@@ -68,3 +68,5 @@ var StoryWidgetsView = Backbone.View.extend({
 	
 
 });
+return StoryWidgetsView;
+}(jQuery, _, Backbone));

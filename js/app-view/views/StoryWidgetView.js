@@ -1,4 +1,6 @@
 
+
+(function($, _, Backbone){
 var StoryWidgetView = Backbone.View.extend({
 	$el: false,
 	$template: $("#storywidget-template"),
@@ -76,3 +78,5 @@ var StoryWidgetView = Backbone.View.extend({
 	}
 	
 });
+return StoryWidgetView;
+}(jQuery, _, Backbone));

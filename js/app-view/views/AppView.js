@@ -1,4 +1,5 @@
 
+(function($, _, Backbone){
 var AppView = Backbone.View.extend({
 	$el: $("#app-view"), 
 	$template: $("#app-template"),
@@ -68,3 +69,5 @@ var AppView = Backbone.View.extend({
 	
 	// add timer to refresh too
 });
+return AppView;
+}(jQuery, _, Backbone));
