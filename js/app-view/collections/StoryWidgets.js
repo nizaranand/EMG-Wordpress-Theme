@@ -3,13 +3,15 @@
 
 var StoryWidgets = Backbone.Collection.extend({
 	model: StoryWidget,
+    url: "http://testingalec.dailyemerald.com/section/sports/football/json/",    
+
 	fetchOptions: {
 		success: function(collection, response){
 			// do nothing for now
 		},
 		
 		error: function(collection, response){
-			alert("error fetching stories");
+			alert("error fetching stories" + response);
 		}
 	},
 	
@@ -20,5 +22,5 @@ var StoryWidgets = Backbone.Collection.extend({
 	}
 
 });
-return StoryWidgets;
+window.StoryWidgets = StoryWidgets;
 }(jQuery, _, Backbone));

@@ -36,7 +36,7 @@ var StoryWidgetsView = Backbone.View.extend({
 	},
 	
 	render: function(){
-		var view = _.template(this.$template, this.template_options);
+		var view = _.template(this.$template.html(), this.template_options);
 		this.$el.html(view);
 	},
 	
@@ -68,5 +68,5 @@ var StoryWidgetsView = Backbone.View.extend({
 	
 
 });
-return StoryWidgetsView;
+window.StoryWidgetsView = StoryWidgetsView;
 }(jQuery, _, Backbone));

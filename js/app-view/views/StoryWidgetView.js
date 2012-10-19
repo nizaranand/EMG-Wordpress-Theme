@@ -25,12 +25,13 @@ var StoryWidgetView = Backbone.View.extend({
 		selected: {
 			enter: function(){
 				// have the new story appear in the content
-				var view = _.template(this.$content_template, this.content_view_params);
+				var view = _.template(this.$content_template.html(), this.content_view_params);
 				this.$story_content.html(view);
-			}, 
+			    // change color
+            }, 
 			
 			exit: function(){
-				this.triggerState("normal");
+
 			},
 			
 			transitions: {
@@ -69,7 +70,7 @@ var StoryWidgetView = Backbone.View.extend({
 	
 	render: function(){
 		// pass in title, time, id
-		this.$el = _.template(this.$template , this.widget_view_params);
+		this.$el = _.template(this.$template.html(), this.widget_view_params);
 	},
 	
 	events: {
@@ -78,5 +79,5 @@ var StoryWidgetView = Backbone.View.extend({
 	}
 	
 });
-return StoryWidgetView;
+window.StoryWidgetView = StoryWidgetView;
 }(jQuery, _, Backbone));

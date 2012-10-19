@@ -14,7 +14,6 @@ var AppView = Backbone.View.extend({
 			exit: function(){
 				this.$el.animate({ opacity: "1.0" }, 500);
 				this.spinner.stop();
-				this.triggerState("normal");
 			},
 			
 			transitions: {
@@ -63,11 +62,11 @@ var AppView = Backbone.View.extend({
 	},
 	
 	render: function(){
-		var view = _.template(this.$template, {});
+		var view = _.template(this.$template.html(), {});
 		this.$el.html(view);
 	}
 	
 	// add timer to refresh too
 });
-return AppView;
+window.AppView = AppView;
 }(jQuery, _, Backbone));
