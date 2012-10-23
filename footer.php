@@ -58,5 +58,7 @@
   })(window);
 </script>
 
+<script src="http://www.goducks.com/mediaPortal/scripts/inline.js"></script>
+
 </body>
 </html>

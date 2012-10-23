@@ -231,3 +231,32 @@ function emg_head_fb_open_graph() {
 		echo '<meta property="' . $property . '" content="' . $content . '" />' . "\n";
 	}	
 }
+
+
+
+
+function get_goducks_video_player() {
+?>
+
+<div class="goducks-video-player">
+
+	<!-- begin player embed code -->
+	<table width="300" border="0" cellspacing="0" cellpadding="0">
+		<tr><td>
+		<object width="300" height="318" id="iptvsyndicated" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+		<param name="movie" value="http://image.cdnl3.xosnetwork.com/mediaPortal/inline.swf" />
+		<param name="flashVars" value="playerId=20507&server=http://www.goducks.com/XML/titanv3/&pageurl=http://www.goducks.com/mediaPortal/&sitename=aff.oregon.dailyemerald&locimage=http://image.cdnl3.xosnetwork.com/mediaPortal/&jtv=500&skin=500&gaa=UA-8512810-1&companion=true&htmlid=iptvsyndicated&brandTextColor=0xCCCCCC&brandTextSelectedColor=0xFFFFFF&autostart=true&mute=true" />
+		<param name="quality" value="high" />
+		<param name="allowFullScreen" value="true" />
+		<param name="allowScriptAccess" value="always" />
+		<embed name="iptvsyndicated" pluginspage="http://www.adobe.com/go/getflashplayer" src="http://image.cdnl3.xosnetwork.com/mediaPortal/inline.swf" type="application/x-shockwave-flash" width="300" height="318" quality="high" allowFullScreen="true" allowScriptAccess="always" flashVars="playerId=20507&server=http://www.goducks.com/XML/titanv3/&pageurl=http://www.goducks.com/mediaPortal/&sitename=aff.oregon.dailyemerald&locimage=http://image.cdnl3.xosnetwork.com/mediaPortal/&jtv=500&skin=500&gaa=UA-8512810-1&companion=true&htmlid=iptvsyndicated&brandTextColor=0xCCCCCC&brandTextSelectedColor=0xFFFFFF&autostart=true&mute=true"></embed>
+		</object>
+		</td>
+		</tr>
+	</table>
+	<!-- end player embed code -->
+
+</div><!-- .goducks-video-player -->
+
+<?php
+}

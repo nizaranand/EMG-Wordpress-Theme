@@ -57,6 +57,8 @@
 		<?php get_adtag_300_2(); ?>
 	</div>
 
+	<?php get_goducks_video_player(); ?>
+
 	
 <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
 <script>
