@@ -3,7 +3,7 @@ var app = app || {};
 
 (function($, _, Backbone){
 
-app.StoryWidgets = Backbone.Collection.extend({
+var StoryWidgets = Backbone.Collection.extend({
 	model: app.StoryWidget,
     url: "http://dailyemerald.com/section/sports/football/json?callback=?",    
 
@@ -20,9 +20,8 @@ app.StoryWidgets = Backbone.Collection.extend({
 	initialize: function(models, options){
 		this.view = new app.StoryWidgetsView();
 		this.view.render();
-		this.fetch(this.fetchCallbacks);
 	}
 	
 });
-
+app.widgets = new StoryWidgets();
 }(jQuery, _, Backbone));
