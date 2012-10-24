@@ -36,6 +36,7 @@ app.StoryWidgetsView = Backbone.View.extend({
 	},
 	
 	render: function(){
+		$(this.el).html("");
 		var view = _.template(this.$template.html(), this.template_options);
 		console.log(view);
 		//$view = $(view);
@@ -45,6 +46,7 @@ app.StoryWidgetsView = Backbone.View.extend({
 	},
 	
 	addAll: function(){
+		this.render(); // reset the whole view
 		$(this.el).children("#widgets-list").html("");
 		app.widgets.each(this.addOne, this);
 		/*$("li.story-widget").click(function(){
