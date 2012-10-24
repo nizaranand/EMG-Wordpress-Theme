@@ -1,12 +1,16 @@
 
 (function($, _, Backbone){
 var AppView = Backbone.View.extend({ 
-	$template: $("#app-template"),
-	
 	
 	initialize: function(){
-		this.$el = $("#app-view");
+		this.el = "#app-view";
+		this.$template = $("#app-template"),
 		this.createSpinner();
+	},
+	
+	render: function(){
+		var view = _.template(this.$template.html(), {});
+		$(this.el).html(view);
 	},
 	
 	createSpinner: function(){
@@ -29,30 +33,31 @@ var AppView = Backbone.View.extend({
 		};
 		this.spinner = new Spinner(opts);
 	},
-	
-	render: function(){
-		console.log("app el and view:");
-		console.log(this.$el);
-		var view = _.template(this.$template.html(), {});
-		this.$el.html(view);
-		console.log("rendered app view:");
-		console.log(view);
-		console.log(this.$el);
-	},
 
     startSpinner: function(){
-		this.$el.animate({ opacity: "0.5" }, 300);
-        this.spinner.spin(this.el);
+		$(this.el).animate({ opacity: "0.5" }, 300);
+        this.spinner.spin($(this.el));
 	},
 
     stopSpinner: function(){
-	    this.$el.animate({ opacity: "1.0" }, 500);
+	    $(this.el).animate({ opacity: "1.0" }, 500);
         this.spinner.stop();
-
+	},
+	
+	showStory: function(id){
+		console.log(id);
+		var model = app.storyWidgets.get(id);
+		var $content_template = $("#storycontent-template");
+		var content_opts = {
+			story_title: model.get("title"),
+            story_content: model.get("content"),
+            story_author: model.get("author")
+		};
+		var content = _.template($content_template.html(), content_opts);
+		$("#story-content").html(content);
 	}
 	
 	
-	// add timer to refresh too
 });
 window.AppView = AppView;
 }(jQuery, _, Backbone));
