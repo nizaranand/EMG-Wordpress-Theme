@@ -37,7 +37,7 @@ var StoryWidgetsView = Backbone.View.extend({
 		var view = _.template(this.$template.html(), this.template_options);
 		//$view = $(view);
 		//$view.mCustomScrollbar(this.scrollbar_opts);
-		$(this.el).html($view);
+		$(this.el).html(view);
 		//$(this.el).mCustomScrollbar(this.scrollbar_opts);
 	},
 	
