@@ -8,11 +8,11 @@ app.AppView = Backbone.View.extend({
 	
 	initialize: function(){
 		this.createSpinner();
-		this.startSpinner();
+		//this.startSpinner();
 		this.render();
 		// the router creates itself
-		app.widgets.fetch();
-		this.stopSpinner();
+		//app.widgets.
+		//this.stopSpinner();
 	},
 	
 	render: function(){
