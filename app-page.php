@@ -285,7 +285,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
 	<li class="story-widget row" id="story-<%= widget_id %>" >
-	<a href="#/story/<%= widget_id%>" rel="nofollow" title="<%= widget_title %>" >
+	<a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" >
 	<div id="storywidget-title" class="row" >
 	<div class="span3" >
 	<%= widget_title %>

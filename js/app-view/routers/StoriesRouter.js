@@ -7,7 +7,7 @@ var StoriesRouter = Backbone.Router.extend({
 	},
 	
 	show: function(id){
-		this.app.showStory(id);
+		app.showStory(id);
 	},
 	
 	initialize: function(){
