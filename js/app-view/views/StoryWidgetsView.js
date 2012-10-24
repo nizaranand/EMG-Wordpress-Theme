@@ -3,7 +3,7 @@ var app = app || {};
 
 (function($, _, Backbone){	
 	
-var StoryWidgetsView = Backbone.View.extend({
+app.StoryWidgetsView = Backbone.View.extend({
 	// $arrow: $("<div id='arrow' ><img src='blah' ></div>"),
 	$template: $("#storywidgets-template"),
 	el: "#story-widgets",
@@ -87,5 +87,4 @@ var StoryWidgetsView = Backbone.View.extend({
 	}
 
 });
-app.widgets.view = new StoryWidgetsView();
 }(jQuery, _, Backbone));
