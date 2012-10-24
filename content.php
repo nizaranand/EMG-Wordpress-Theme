@@ -36,8 +36,10 @@
 					} // close the if that checked if we were going to hide the image based on the custom filed "show_featured_image"
 				?>
 				
+			
 				
 				<div class="well well-small">
+										
 					Posted by
 						<?php //printf( __( '%s', 'twentytwelve' ), get_the_author() ); 
 							if(function_exists('coauthors_posts_links'))
@@ -45,8 +47,6 @@
 							else
 							    the_author_posts_link();
 						?>
-					</a>
-				    
 					<?php //echo 'Published <time class="timeago" datetime="'.get_the_modified_time("c").'">'.get_the_modified_time("l, M. j \a\\t g:i a").'</time>.'; ?>
 				    <?php echo ' on '.get_the_time("l, M. j \a\\t g:i a").'.'; ?>
 				
@@ -54,7 +54,7 @@
 						<fb:like href="<?php the_permalink(); ?>" send="true" layout="button_count" width="100" show_faces="false"></fb:like>
 					</div>
 				</div>
-
+				
 			<?php else : ?>
 				<h2 class="entry-title">
 					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
@@ -69,6 +69,35 @@
 			</div><!-- div.entry-summary -->
 		<?php else : ?>
 			<div class="entry-content">
+				
+				<?php if (!in_category('multimedia')) { ?>
+				
+				<div class="well pull-left" style="margin-right:20px; max-width:150px;">
+				
+					<?php $embedHtmlFields = get_post_custom_values("infobox");
+							foreach ( $embedHtmlFields as $value ) {
+							    echo $value;
+							    echo "<hr>";
+							}
+					?>
+				
+					<ul class="nav nav-list">
+						<li class="nav-header">Related<li>
+						<li><?php the_category('</li><li>'); ?></li>
+						<li><?php the_tags("", '</li><li>'); ?></li>		
+					</ul>
+				
+				</div>
+				
+				<?php } // close if !in_category('multimedia')?>
+				
+				<!--<div class="btn-group btn-group-vertical post-tags-list pull-left" style="margin-right:20px;">
+					<button class="btn btn-small"><?php the_category('</button><button class="btn btn-small">'); ?></button>
+					<button class="btn btn-small"><?php the_tags("", '</button><button class="btn btn-small">'); ?></button>
+				</div>-->
+				
+				
+				
 				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
 			</div><!-- div.entry-content -->
