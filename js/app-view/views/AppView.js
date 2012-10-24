@@ -1,11 +1,18 @@
 
+var app = app || {};
+
 (function($, _, Backbone){
-var AppView = Backbone.View.extend({ 
+app.AppView = Backbone.View.extend({ 
+	el: "#app-view",
+	$template: $("#app-template"),
 	
 	initialize: function(){
-		this.el = "#app-view";
-		this.$template = $("#app-template"),
 		this.createSpinner();
+		this.startSpinner();
+		this.render();
+		// the router creates itself
+		app.widgets = new app.StoryWidgets();
+		this.stopSpinner();
 	},
 	
 	render: function(){
@@ -42,22 +49,8 @@ var AppView = Backbone.View.extend({
     stopSpinner: function(){
 	    $(this.el).animate({ opacity: "1.0" }, 500);
         this.spinner.stop();
-	},
-	
-	showStory: function(id){
-		console.log(id);
-		var model = app.storyWidgets.get(id);
-		var $content_template = $("#storycontent-template");
-		var content_opts = {
-			story_title: model.get("title"),
-            story_content: model.get("content"),
-            story_author: model.get("author")
-		};
-		var content = _.template($content_template.html(), content_opts);
-		$("#story-content").html(content);
 	}
 	
 	
 });
-window.AppView = AppView;
 }(jQuery, _, Backbone));

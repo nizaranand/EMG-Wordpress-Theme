@@ -1,7 +1,8 @@
 
+var app = app || {};
 
 (function($, _, Backbone){
-var StoryWidgetView = Backbone.View.extend({
+app.StoryWidgetView = Backbone.View.extend({
 	$template: $("#storywidget-template"),
 	
 	initialize: function(){
@@ -19,5 +20,4 @@ var StoryWidgetView = Backbone.View.extend({
 	}
 	
 });
-window.StoryWidgetView = StoryWidgetView;
 }(jQuery, _, Backbone));
