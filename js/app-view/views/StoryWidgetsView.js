@@ -71,7 +71,7 @@ app.StoryWidgetsView = Backbone.View.extend({
 	},
 	
 	refresh: function(){
-		app.widgets.fetch();
+		app.widgets.fetchWithCallbacks();
 	}
 
 });
