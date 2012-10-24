@@ -22,8 +22,8 @@ wp_enqueue_script("backbone-state", get_template_directory_uri() . "/js/app-view
 // add backbone objects
 wp_enqueue_script("storywidget-model", get_template_directory_uri() . "/js/app-view/models/StoryWidget.js", true);
 wp_enqueue_script("storywidget-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetView.js", true);
-wp_enqueue_script("storywidgets-collection", get_template_directory_uri() . "/js/app-view/collections/StoryWidgets.js", true);
 wp_enqueue_script("storywidgets-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetsView.js", true);
+wp_enqueue_script("storywidgets-collection", get_template_directory_uri() . "/js/app-view/collections/StoryWidgets.js", true);
 //wp_enqueue_script("app-model", get_template_directory_uri() . "/js/app-view/models/App.js", true);
 wp_enqueue_script("app-view", get_template_directory_uri() . "/js/app-view/views/AppView.js", true);
 //wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/StoriesRouter.js", true);
