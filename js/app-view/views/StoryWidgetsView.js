@@ -35,16 +35,18 @@ var StoryWidgetsView = Backbone.View.extend({
 	
 	render: function(){
 		var view = _.template(this.$template.html(), this.template_options);
-		$(this.el).html(view);
-		$(this.el).mCustomScrollbar(this.scrollbar_opts);
+		$view = $(view);
+		$view.mCustomScrollbar(this.scrollbar_opts);
+		$(this.el).html($view);
+		//$(this.el).mCustomScrollbar(this.scrollbar_opts);
 	},
 	
 	addAll: function(){
 		$(this.el).children("#widgets-list").html("");
 		app.storyWidgets.each(this.addOne, this);
-		$("li.story-widget").click(function(){
+		/*$("li.story-widget").click(function(){
 		    this.app.showStory($(this).attr("id"));				
-        });
+        });*/
 	},
 	
 	addOne: function(story_widget){

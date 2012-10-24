@@ -52,7 +52,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		padding: 0.3em;
 		border-bottom: solid white;
 		margin-right: 0.15em;
-		height: 100px;
+		height: 115px;
 		overflow: hidden;
 	}
 
@@ -77,6 +77,11 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	.clock-icon {
 		float: left;
 		margin-right: 0.15em;
+	}
+
+	.storywidget-time {
+		position: relative;
+		bottom: 2px;
 	}
 
 	.storywidget-timestamp {
@@ -280,19 +285,19 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
 	<li class="story-widget row" id="story-<%= widget_id %>" >
-	<!-- <% print("<a href='#/story/" + widget_id +"' >") %> -->
+	<a href="#/story/<%= widget_id%>" rel="nofollow" title="<%= widget_title %>" >
 	<div id="storywidget-title" class="row" >
 	<div class="span3" >
 	<%= widget_title %>
 	</div>
 	</div>
-	<div id="storywidget-time" class="row" >
+	<div class="storywidget-time" class="row" >
 	<div class="span3" >
 	<span class="clock-icon" ><i class="icon-time"></i></span>
 	<span class="storywidget-timestamp" > <%= widget_timestamp %></span>
 	</div>
 	</div>
-	<!-- <% print("</a>") %> -->
+	</a>
 	</li>
 </script>
 
