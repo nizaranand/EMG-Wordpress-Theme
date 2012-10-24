@@ -7,6 +7,7 @@ app.AppView = Backbone.View.extend({
 	$template: $("#app-template"),
 	
 	initialize: function(){
+		app.showStory = this.showStory;
 		this.createSpinner();
 		//this.startSpinner();
 		this.render();
@@ -49,6 +50,19 @@ app.AppView = Backbone.View.extend({
     stopSpinner: function(){
 	    $(this.el).animate({ opacity: "1.0" }, 500);
         this.spinner.stop();
+	},
+	
+	showStory: function(id){
+		console.log(id);
+		var model = app.widgets.get(id);
+		var $content_template = $("#storycontent-template");
+		var content_opts = {
+			story_title: model.get("title"),
+            story_content: model.get("content"),
+            story_author: model.get("author")
+		};
+		var content = _.template($content_template.html(), content_opts);
+		$("#story-content").html(content);
 	}
 	
 	

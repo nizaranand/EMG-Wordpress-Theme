@@ -18,7 +18,7 @@ var StoryWidgets = Backbone.Collection.extend({
 	},
 	
 	initialize: function(models, options){
-		this.view = new app.StoryWidgetsView();
+		this.view = new app.StoryWidgetsView({ collection: this });
 		this.view.render();
 		this.fetch(this.fetchCallbacks);
 	}

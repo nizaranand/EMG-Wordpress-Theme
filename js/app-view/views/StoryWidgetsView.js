@@ -30,10 +30,9 @@ app.StoryWidgetsView = Backbone.View.extend({
 	},
 	
 	initialize: function(){
-		app.widgets.on('add', this.addOne, this);
-		app.widgets.on('reset', this.addAll, this);
+		this.collection.on('add', this.addOne, this);
+		this.collection.on('reset', this.addAll, this);
 		this.timer = setInterval(this.refresh, 60 * 1000);
-		app.showStory = this.showStory;
 	},
 	
 	render: function(){
@@ -71,19 +70,6 @@ app.StoryWidgetsView = Backbone.View.extend({
 	
 	refresh: function(){
 		app.widgets.fetch();
-	},
-	
-	showStory: function(id){
-		console.log(id);
-		var model = app.widgets.get(id);
-		var $content_template = $("#storycontent-template");
-		var content_opts = {
-			story_title: model.get("title"),
-            story_content: model.get("content"),
-            story_author: model.get("author")
-		};
-		var content = _.template($content_template.html(), content_opts);
-		$("#story-content").html(content);
 	}
 
 });
