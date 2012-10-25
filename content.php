@@ -72,7 +72,7 @@
 				
 				<?php if (!in_category('multimedia')) { ?>
 				
-				<div class="well pull-left" style="margin-right:20px; max-width:150px;">
+				<div class="well well-small pull-left" style="margin-right:20px; max-width:150px;">
 				
 					<?php $embedHtmlFields = get_post_custom_values("infobox");
 							foreach ( $embedHtmlFields as $value ) {
@@ -83,8 +83,8 @@
 				
 					<ul class="nav nav-list">
 						<li class="nav-header">Related<li>
-						<li><?php the_category('</li><li>'); ?></li>
-						<li><?php the_tags("", '</li><li>'); ?></li>		
+						<li class="infobox-link"><?php the_category('</li><li class="infobox-link">'); ?></li>
+						<li class="infobox-link"><?php the_tags("", '</li><li class="infobox-link">'); ?></li>		
 					</ul>
 				
 				</div>
