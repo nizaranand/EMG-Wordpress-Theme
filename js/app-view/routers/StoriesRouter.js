@@ -1,5 +1,7 @@
 
 
+var app = app || {};
+
 (function($, _, Backbone){
 var StoriesRouter = Backbone.Router.extend({
 	routes: {
@@ -7,13 +9,10 @@ var StoriesRouter = Backbone.Router.extend({
 	},
 	
 	show: function(id){
-		this.app.showStory(id);
-	},
-	
-	initialize: function(){
-		Backbone.history.start();
+		app.showStory(id);
 	}
 
 });
-window.StoriesRouter = StoriesRouter;
+app.router = new StoriesRouter();
+Backbone.history.start();
 }(jQuery, _, Backbone));

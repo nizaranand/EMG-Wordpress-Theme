@@ -1,7 +1,9 @@
 
+var app = app || {};
+
 (function($, _, Backbone){	
 	
-var StoryWidgetsView = Backbone.View.extend({
+app.StoryWidgetsView = Backbone.View.extend({
 	// $arrow: $("<div id='arrow' ><img src='blah' ></div>"),
 	$template: $("#storywidgets-template"),
 	el: "#story-widgets",
@@ -28,33 +30,36 @@ var StoryWidgetsView = Backbone.View.extend({
 	},
 	
 	initialize: function(){
-		app.storyWidgets.on('add', this.addOne, this);
-		app.storyWidgets.on('reset', this.addAll, this);
+		this.collection.on('add', this.addOne, this);
+		this.collection.on('reset', this.addAll, this);
 		this.timer = setInterval(this.refresh, 60 * 1000);
 	},
 	
 	render: function(){
+		$(this.el).html("");
 		var view = _.template(this.$template.html(), this.template_options);
+		console.log(view);
 		//$view = $(view);
 		//$view.mCustomScrollbar(this.scrollbar_opts);
 		$(this.el).html(view);
-		//$(this.el).mCustomScrollbar(this.scrollbar_opts);
+		$(this.el).mCustomScrollbar(this.scrollbar_opts);
 	},
 	
 	addAll: function(){
+		this.render(); // reset the whole view
 		$(this.el).children("#widgets-list").html("");
-		app.storyWidgets.each(this.addOne, this);
+		app.widgets.each(this.addOne, this);
 		/*$("li.story-widget").click(function(){
-		    this.app.showStory($(this).attr("id"));				
+		    app.showStory($(this).attr("id"));				
         });*/
 	},
 	
-	addOne: function(story_widget){
-		story_widget.set({ parent: this });
-		var widget = new StoryWidgetView({ model: story_widget });
-		story_widget.set({ view: widget });
-		story_widget.get("view").render();
-		$(this.el).children("#widgets-list").append(story_widget.get("view").$el);
+	addOne: function(widget){
+		widget.set({ parent: this });
+		var widgetView = new app.StoryWidgetView({ model: widget });
+		widget.set({ view: widgetView });
+		widget.get("view").render();
+		$(this.el).children("#widgets-list").append(widget.get("view").$el);
 	},
 	
 	scrolled: function(){
@@ -62,14 +67,12 @@ var StoryWidgetsView = Backbone.View.extend({
 	},
 	
 	hit_bottom: function(){
-		//this.collection.fetch();
+		//app.widgets.fetch();
 	},
 	
 	refresh: function(){
-		this.app.storyWidgets.fetch();
+		app.widgets.fetchWithCallbacks();
 	}
-	
 
 });
-window.StoryWidgetsView = StoryWidgetsView;
 }(jQuery, _, Backbone));

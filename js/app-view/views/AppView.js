@@ -1,11 +1,19 @@
 
+var app = app || {};
+
 (function($, _, Backbone){
-var AppView = Backbone.View.extend({ 
+app.AppView = Backbone.View.extend({ 
+	el: "#app-view",
+	$template: $("#app-template"),
 	
 	initialize: function(){
-		this.el = "#app-view";
-		this.$template = $("#app-template"),
+		app.showStory = this.showStory;
 		this.createSpinner();
+		//this.startSpinner();
+		this.render();
+		// the router creates itself
+		//app.widgets.
+		//this.stopSpinner();
 	},
 	
 	render: function(){
@@ -46,7 +54,7 @@ var AppView = Backbone.View.extend({
 	
 	showStory: function(id){
 		console.log(id);
-		var model = app.storyWidgets.get(id);
+		var model = app.widgets.get(id);
 		var $content_template = $("#storycontent-template");
 		var content_opts = {
 			story_title: model.get("title"),
@@ -59,5 +67,4 @@ var AppView = Backbone.View.extend({
 	
 	
 });
-window.AppView = AppView;
 }(jQuery, _, Backbone));

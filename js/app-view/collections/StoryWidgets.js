@@ -1,8 +1,10 @@
 
+var app = app || {};
+
 (function($, _, Backbone){
 
 var StoryWidgets = Backbone.Collection.extend({
-	model: StoryWidget,
+	model: app.StoryWidget,
     url: "http://dailyemerald.com/section/sports/football/json?callback=?",    
 
 	fetchCallbacks: {
@@ -16,11 +18,15 @@ var StoryWidgets = Backbone.Collection.extend({
 	},
 	
 	initialize: function(models, options){
-		this.view = new StoryWidgetsView({ collection: this, app: this.app });
-		this.view.render();
+		this.view = new app.StoryWidgetsView({ collection: this });
+		//this.view.render();
+		this.fetchWithCallbacks();
+	},
+	
+	fetchWithCallbacks: function(){
 		this.fetch(this.fetchCallbacks);
 	}
 	
 });
-window.StoryWidgets = StoryWidgets;
+app.widgets = new StoryWidgets();
 }(jQuery, _, Backbone));

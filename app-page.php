@@ -22,9 +22,9 @@ wp_enqueue_script("backbone-state", get_template_directory_uri() . "/js/app-view
 // add backbone objects
 wp_enqueue_script("storywidget-model", get_template_directory_uri() . "/js/app-view/models/StoryWidget.js", true);
 wp_enqueue_script("storywidget-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetView.js", true);
-wp_enqueue_script("storywidgets-collection", get_template_directory_uri() . "/js/app-view/collections/StoryWidgets.js", true);
 wp_enqueue_script("storywidgets-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetsView.js", true);
-wp_enqueue_script("app-model", get_template_directory_uri() . "/js/app-view/models/App.js", true);
+wp_enqueue_script("storywidgets-collection", get_template_directory_uri() . "/js/app-view/collections/StoryWidgets.js", true);
+//wp_enqueue_script("app-model", get_template_directory_uri() . "/js/app-view/models/App.js", true);
 wp_enqueue_script("app-view", get_template_directory_uri() . "/js/app-view/views/AppView.js", true);
 //wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/StoriesRouter.js", true);
 wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
@@ -285,7 +285,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
 	<li class="story-widget row" id="story-<%= widget_id %>" >
-	<a href="#/story/<%= widget_id%>" rel="nofollow" title="<%= widget_title %>" >
+	<a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" >
 	<div id="storywidget-title" class="row" >
 	<div class="span3" >
 	<%= widget_title %>

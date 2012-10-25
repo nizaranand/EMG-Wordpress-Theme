@@ -1,9 +1,10 @@
 
+var app = app || {};
 
 (function($, _, Backbone){
 	
 	$(document).ready(function(){
-		window.app = new App();
+		new app.AppView();
 	});
 	
 }(jQuery, _, Backbone));
