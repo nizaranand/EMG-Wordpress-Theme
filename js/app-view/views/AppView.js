@@ -12,7 +12,6 @@ app.AppView = Backbone.View.extend({
 		//this.startSpinner();
 		this.render();
 		// the router creates itself
-		//app.widgets.
 		//this.stopSpinner();
 	},
 	

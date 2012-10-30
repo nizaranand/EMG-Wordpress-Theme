@@ -259,13 +259,11 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	</div><!-- .span10 -->
 </div><!-- #primary -->
 
-<script type="text/template" id="storywidgets-template" >
-	<ul id="widgets-list" ></ul>
-</script>
-
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
-	<div id="story-widgets" class="span3" ></div>
+	<div id="story-widgets" class="span3" >
+		<ul id="widgets-list" ></ul>
+	</div>
 	<div id="story-content" class="span7" ></div>
 	<div id="right-sidebar" class="span4" ></div>
 </script>
@@ -286,7 +284,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
 	<li class="story-widget row" id="story-<%= widget_id %>" >
-	<a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" >
+	<!-- <a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" > -->
 	<div id="storywidget-title" class="row" >
 	<div class="span3" >
 	<%= widget_title %>
@@ -298,7 +296,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	<span class="storywidget-timestamp" > <%= widget_timestamp %></span>
 	</div>
 	</div>
-	</a>
+	<!-- </a> -->
 	</li>
 </script>
 
