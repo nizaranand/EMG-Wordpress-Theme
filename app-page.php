@@ -251,7 +251,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 </style>
 
 <div id="primary" class="site-content" >
-	<div class="span10" >
+	<div class="span14" >
 		<!-- leave room for sidebar -->
 		<div class="row" id="app-view" >
 
@@ -267,6 +267,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	<!-- wrapper with a span10 -->
 	<div id="story-widgets" class="span3" ></div>
 	<div id="story-content" class="span7" ></div>
+	<div id="right-sidebar" class="span4" ></div>
 </script>
 
 <script type="text/template" id="storycontent-template" >
@@ -301,6 +302,6 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	</li>
 </script>
 
-<?php get_sidebar(); ?>
+	   <?php /*get_sidebar();*/ ?>
 <?php get_footer(); ?>
 
