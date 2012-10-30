@@ -36,22 +36,18 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		background-color: white;
 	}
 
-	#app-content {
-		background: #EEE;
-	}
-
 	#story-widgets {
 		/*
 		 * only show 10 widgets
 		 */
-		height: 1000px;
+		height: 1150px;
+        overflow: hidden;
 		background-color: #DDD;
 	}
 
 	.story-widget {
-		padding: 0.3em;
-		border-bottom: solid white;
-		margin-right: 0.15em;
+	 position: relative;
+		border-bottom: dashed silver 1px;
 		height: 115px;
 		overflow: hidden;
 	}
@@ -69,22 +65,35 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		width: 100%;
 	}
 
+app-view.ps-image{
+  max-width: 540px !important;
+}
+
+img{
+
+}
+
+#widgets-list{
+margin-right: 20px !important; 
+  margin-left: 5px !important;
+}
+
 	.storywidget-title {
-		font-size: large;
+	 position: relative;
+	 top: 0.5em;
 		color: #333;
 	}
 
 	.clock-icon {
 		float: left;
-		margin-right: 0.15em;
 	}
 
 	.storywidget-time {
-		position: relative;
-		bottom: 2px;
+		position: absolute;
+		bottom: 5px;
 	}
 
-	.storywidget-timestamp {
+    .storywidget-timestamp {
 		float: left;
 		font-style: italic;
 	}
@@ -251,12 +260,9 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 </style>
 
 <div id="primary" class="site-content" >
-	<div class="span14" >
-		<!-- leave room for sidebar -->
-		<div class="row" id="app-view" >
-
-		</div>
-	</div><!-- .span10 -->
+	<div class="span10" >
+        <div class="row" id="app-view" ></div>
+	</div>
 </div><!-- #primary -->
 
 <script type="text/template" id="app-template" >
@@ -265,41 +271,31 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		<ul id="widgets-list" ></ul>
 	</div>
 	<div id="story-content" class="span7" ></div>
-	<div id="right-sidebar" class="span4" ></div>
+	<!-- <div id="right-sidebar" class="span4" ></div> -->
 </script>
 
 <script type="text/template" id="storycontent-template" >
 	<!-- -->
-	<div id="storycontent-title" class="row" >
-	<div class="span7" ><%= story_title %></div>
-	</div>
-	<div id="storycontent-author" class="row" >
-	<div class="span7" ><%= story_author %></div>
-	</div>
-	<div id="storycontent-content" class="row" >
-	<div class="span7" ><%= story_content %></div>
-	</div>
+	<div id="storycontent-title" ><h2><%= story_title %></h2></div>
+	<div id="storycontent-author" class="well well-small" ><p><%= story_author %></p></div>
+	<div id="storycontent-content" ><p><%= story_content %></p></div>
 </script>
 
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
-	<li class="story-widget row" id="story-<%= widget_id %>" >
+	<li class="story-widget" id="<%= widget_id %>" >
 	<!-- <a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" > -->
-	<div id="storywidget-title" class="row" >
-	<div class="span3" >
+	<div class="storywidget-title" >
 	<%= widget_title %>
 	</div>
-	</div>
-	<div class="storywidget-time" class="row" >
-	<div class="span3" >
+	<div class="storywidget-time" >
 	<span class="clock-icon" ><i class="icon-time"></i></span>
-	<span class="storywidget-timestamp" > <%= widget_timestamp %></span>
-	</div>
+	<span class="storywidget-timestamp" ><p> <%= widget_timestamp %></p></span>
 	</div>
 	<!-- </a> -->
 	</li>
 </script>
 
-	   <?php /*get_sidebar();*/ ?>
+	   <?php get_sidebar(); ?>
 <?php get_footer(); ?>
 
