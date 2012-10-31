@@ -32,9 +32,6 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 ?>
 
 <style>
-	.widgetselected {
-		background-color: white;
-	}
 
 	#story-widgets {
 		/*
@@ -42,27 +39,23 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		 */
 		height: 1150px;
         overflow: hidden;
-		background-color: #DDD;
+		background-color: #EEE;
 	}
 
 	.story-widget {
 	 position: relative;
-		border-bottom: dashed silver 1px;
+		border-bottom: dashed silver 1.5px;
 		height: 115px;
 		overflow: hidden;
 	}
 
 	#widgets-list {
 		list-style: none;
-		height: 100%;
-		width: 100%;
 	}
 
 	/* wrapper element for stories, does not have a corresponding model. this is what's populated when StoryContent renders */
 	#story-content {
 		border: silver solid 2px;
-		height: 100%;
-		width: 100%;
 	}
 
 app-view.ps-image{
@@ -95,6 +88,7 @@ margin-right: 20px !important;
 
     .storywidget-timestamp {
 		float: left;
+		padding-left: 5px;
 		font-style: italic;
 	}
 
@@ -284,14 +278,14 @@ margin-right: 20px !important;
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
 	<li class="story-widget" id="<%= widget_id %>" >
-	<!-- <a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" > -->
-	<div class="storywidget-title" >
-	<%= widget_title %>
-	</div>
-	<div class="storywidget-time" >
-	<span class="clock-icon" ><i class="icon-time"></i></span>
-	<span class="storywidget-timestamp" ><p> <%= widget_timestamp %></p></span>
-	</div>
+	    <!-- <a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" > -->
+	        <div class="storywidget-title" >
+	            <%= widget_title %>
+	        </div>
+	        <div class="storywidget-time" >
+	            <span class="clock-icon" ><i class="icon-time"></i></span>
+	            <span class="storywidget-timestamp" > <%= widget_timestamp %></span>
+	        </div>
 	<!-- </a> -->
 	</li>
 </script>

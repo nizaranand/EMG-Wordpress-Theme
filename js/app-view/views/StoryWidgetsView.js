@@ -8,7 +8,7 @@ app.StoryWidgetsView = Backbone.View.extend({
 	el: "#widgets-list",
 	timer: false,
 	template_options: {},
-	scrollbar_opts: {
+	/*scrollbar_opts: {
 		set_height: "100%",
 		set_width: "100%",
 		scrollInertia: 400,
@@ -21,19 +21,33 @@ app.StoryWidgetsView = Backbone.View.extend({
     		updateOnBrowserResize:true, 
     		updateOnContentResize:true, 
   		},
-  		callbacks:{
-    		onScroll: this.scrolled, 
+  	    callbacks:{ 
     		onTotalScroll: this.hit_bottom, 
     		onTotalScrollOffset: 50 
   		}
-	},
+	},*/
 	
 	initialize: function(){
 		app.showStory = this.showStory;
 		this.collection.on('add', this.addOne, this);
 		this.collection.on('reset', this.addAll, this);
 		this.timer = setInterval(this.refresh, 60 * 1000);
-		$(this.el).mCustomScrollbar(this.scrollbar_opts);
+		$("#story-widgets").mCustomScrollbar({
+			set_height: "100%",                                                                                                                                                                
+            set_width: "100%",                                                                                                                                                                 
+            scrollInertia: 400,                                                                                                                                                                
+            scrollEasing: "easeOutCirc",
+            autoDraggerLength: true,
+            scrollButtons:{
+                enable: true 
+            },
+            advanced:{                                                                                                                                                                         
+                updateOnBrowserResize:true,
+                updateOnContentResize:true,
+            }
+
+
+        });
 	},
 	
 	render: function(){
@@ -42,7 +56,6 @@ app.StoryWidgetsView = Backbone.View.extend({
 	
 	addAll: function(){
 		$("#widgets-list").html("");
-		console.log(app.widgets.models);
 		app.widgets.each(this.addOne, this);
 		$("li.story-widget").click(function(){
 		    app.showStory($(this).attr("id"));				
@@ -54,7 +67,6 @@ app.StoryWidgetsView = Backbone.View.extend({
 		var widgetView = new app.StoryWidgetView({ model: widget });
 		widget.set({ view: widgetView });
 		widget.get("view").render();
-		console.log(widget.get("view").$el);
 		$("#widgets-list").append(widget.get("view").$el);
 	},
 	
@@ -71,7 +83,6 @@ app.StoryWidgetsView = Backbone.View.extend({
 	},
 												
     showStory: function(id){	
-        console.log(id);
         var model = app.widgets.get(id);
         var $content_template = $("#storycontent-template");
         var content_opts = {
@@ -80,7 +91,11 @@ app.StoryWidgetsView = Backbone.View.extend({
             story_author: model.get("author")
         };
         var content = _.template($content_template.html(), content_opts);
-        $("#story-content").html(content);
+		var $content = $("#story-content");
+		$content.fadeOut(150, function(){
+			$content.html(content);
+			$content.fadeIn(150);
+		});
 	}
 
 
