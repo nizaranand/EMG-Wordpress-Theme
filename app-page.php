@@ -253,19 +253,18 @@ margin-right: 20px !important;
 
 </style>
 
-<div id="primary" class="site-content" >
-	<div class="span10" >
-        <div class="row" id="app-view" ></div>
-	</div>
+<div id="primary" class="site-content app-view span10" >
+
 </div><!-- #primary -->
 
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
-	<div id="story-widgets" class="span3" >
-		<ul id="widgets-list" ></ul>
+	<div class="row">
+		<div id="story-widgets" class="span3" >
+			<ul id="widgets-list" ></ul>
+		</div>
+		<div id="story-content" class="span7" ></div>
 	</div>
-	<div id="story-content" class="span7" ></div>
-	<!-- <div id="right-sidebar" class="span4" ></div> -->
 </script>
 
 <script type="text/template" id="storycontent-template" >
