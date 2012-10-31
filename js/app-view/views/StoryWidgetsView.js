@@ -56,7 +56,7 @@ var app = app || {};
 					app.slideArrow($(this).attr("id"));
 				});
 				$("#story-widgets").mouseleave(function() {
-					app.slideArrow($("#storycontent-title").attr("data-story"));
+					app.slideArrow($("#storycontent-title").data("story"));
 				});
 				var most_recent = $("li.story-widget").first().attr("id");
 				if(this.initial_load){
