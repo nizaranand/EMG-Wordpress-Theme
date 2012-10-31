@@ -43,15 +43,15 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		 * only show 10 widgets
 		 */
 		position: relative;
-		height: 1150px;
-        overflow: hidden;
+        overflow: scroll;
 		background-color: #EEE;
 	}
 
 	.story-widget {
 	 	position: relative;
 		border-bottom: dashed silver 1.5px;
-		overflow: scroll;
+		overflow: hidden;
+	    height: 115px;
 	}
 
 	#widgets-list {
