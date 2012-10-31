@@ -71,14 +71,17 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	#storycontent-time{
 		
 		
-	}
+    }
 
-	.app-view img{
-  		max-width: 860px !important;
-  		
-	}
-	
-	.app-view embed{
+img{
+  max-width: 860px !important;
+ }
+
+.ps-image{
+  max-width: 860px !important;
+ }
+
+	embed{
 		max-width: 860px !important;
 	}
 
