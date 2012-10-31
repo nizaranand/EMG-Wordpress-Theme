@@ -73,12 +73,12 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		
 	}
 
-	app-view.ps-image img{
+	.app-view img{
   		max-width: 860px !important;
   		
 	}
 	
-	embed{
+	.app-view embed{
 		max-width: 860px !important;
 	}
 
