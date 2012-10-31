@@ -13,6 +13,10 @@ var app = app || {};
 				this.collection.on('add', this.addOne, this);
 				this.collection.on('reset', this.addAll, this);
 				this.timer = setInterval(this.refresh, 60 * 1000);
+				this.topOffset = $("#story-content").offset();
+				this.windowHeight = $(window).height();
+				$(window).scroll(this.scrolled);
+				$(this.el).height($(window).height());
 				$("#story-widgets").mCustomScrollbar({
 					set_width : false, /*optional element width: boolean, pixels, percentage*/
 					set_height : false, /*optional element height: boolean, pixels, percentage*/
@@ -62,8 +66,19 @@ var app = app || {};
 				$("#widgets-list").append(widget.get("view").$el);
 			},
 
-			scrolled : function() {
-
+			scrolled: function(e){
+				if($("#story-content").height() > this.windowHeight && !this.window_on_footer && !this.window_on_header){
+					$(this.el).css("top", $(window).scrollTop());
+				}
+			},
+			
+			window_on_footer: function(){
+				var footerOffsetY = $("#app-view").height() + this.topOffset.top;
+				return $(window).scrollTop() + $(window).height() > footerOffsetY; 
+			},
+			
+			window_on_header: function(){
+				return $(window).scrollTop() < this.topOffset.top; // go by top of content and not bottom of header to maintain vertical margins
 			},
 
 			hit_bottom : function() {
