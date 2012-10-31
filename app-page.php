@@ -46,6 +46,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	 	position: relative;
 		border-bottom: dashed silver 1.5px;
 		min-height: 90px;
+		height: auto;
 		overflow: hidden;
 	}
 
@@ -72,8 +73,13 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		
 	}
 
-	app-view.ps-image{
-  		/*max-width: 520px !important;*/
+	app-view.ps-image img{
+  		max-width: 860px !important;
+  		
+	}
+	
+	embed{
+		max-width: 860px !important;
 	}
 
 	#widgets-list{
