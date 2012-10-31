@@ -35,7 +35,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	
 	#app-view{
 		position: relative;
-		
+		overflow: hidden;
 	}
 
 	#story-widgets {
@@ -43,7 +43,6 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		 * only show 10 widgets
 		 */
 		position: relative;
-        overflow: scroll;
 		background-color: #EEE;
 	}
 
@@ -58,9 +57,8 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		list-style: none;
 	}
 
-	/* wrapper element for stories, does not have a corresponding model. this is what's populated when StoryContent renders */
 	#story-content {
-		/*max-width: 520px !important;*/
+				
 	}
 	
 	#storycontent-author-info{

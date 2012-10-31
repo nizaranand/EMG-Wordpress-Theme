@@ -7,6 +7,7 @@ app.AppView = Backbone.View.extend({
 	$template: $("#app-template"),
 	
 	initialize: function(){
+		app.setWindow = this.setWindow;
 		this.createSpinner();
 		//this.startSpinner();
 		this.render();
@@ -17,6 +18,10 @@ app.AppView = Backbone.View.extend({
 	render: function(){
 		var view = _.template(this.$template.html(), {});
 		$(this.el).html(view);
+		$(this.el).height($(window).height());
+		$("#widgets-list").click(){
+			app.setWindow(150);
+		}
 	},
 	
 	createSpinner: function(){
@@ -38,6 +43,10 @@ app.AppView = Backbone.View.extend({
   			left: 'auto' // Left position relative to parent in px
 		};
 		this.spinner = new Spinner(opts);
+	},
+	
+	setWindow: function(duration){
+		$("html, body").animate({scrollTop: $("#app-view").offset().top}, duration);
 	},
 
     startSpinner: function(){

@@ -7,13 +7,7 @@ var app = app || {};
 			el : "#widgets-list",
 			timer : false,
 			template_options : {},
-
-			initialize : function() {
-				app.showStory = this.showStory;
-				this.collection.on('add', this.addOne, this);
-				this.collection.on('reset', this.addAll, this);
-				this.timer = setInterval(this.refresh, 60 * 1000);
-				$("#story-widgets").mCustomScrollbar({
+			scrollbar_options : {
 					set_width : false, /*optional element width: boolean, pixels, percentage*/
 					set_height : false, /*optional element height: boolean, pixels, percentage*/
 					horizontalScroll : false, /*scroll horizontally: boolean*/
@@ -33,7 +27,13 @@ var app = app || {};
 						autoExpandHorizontalScroll : false /*auto expand width for horizontal scrolling: boolean*/
 					}
 					// add callbacks later
-				});
+			},
+
+			initialize : function() {
+				app.showStory = this.showStory;
+				this.collection.on('add', this.addOne, this);
+				this.collection.on('reset', this.addAll, this);
+				this.timer = setInterval(this.refresh, 60 * 1000);
 			},
 
 			render : function() {
@@ -41,6 +41,8 @@ var app = app || {};
 			},
 
 			addAll : function() {
+				$("#story-widgets").mCustomScrollbar(this.scrollbar_options);
+				$("#story-content").mCustomScrollbar(this.scrollbar_options);
 				$("#widgets-list").html("");
 				app.widgets.each(this.addOne, this);
 				$("li.story-widget").click(function() {
