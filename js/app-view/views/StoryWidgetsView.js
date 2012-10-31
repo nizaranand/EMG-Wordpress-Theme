@@ -84,16 +84,22 @@ var app = app || {};
 					story_date : model.get("date")
 				};
 				var content = _.template($content_template.html(), content_opts);
-				var $content = $(content);
-				$content.find("embed").each(function(){
-					// hack the embed max width to keep it under 860px
+				var $content = $("<div></div>");
+                $content.html(content);
+				$content.find("iframe").each(function(index){
+					// hack the iframe size to rezise it down to 860px wide
 					var $curr = $(this);
-					$curr.width("860px");
-					$curr.css("width", "860px !important");
+				    var width = $curr.attr("width"), height = $curr.attr("height");
+                    if(width > 860){
+						var aspect = height / width;
+                        $curr.width("860");						
+						$curr.height(860 * aspect + "");
+                    }
 				});
 				var $story_content = $("#story-content");
 				$story_content.fadeOut(150, function() {
-					$story_content.html($content.html());
+					$story_content.html("");
+                    $story_content.append($content);
 					$story_content.fadeIn(150);
 				});
 			}

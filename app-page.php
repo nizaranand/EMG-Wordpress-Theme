@@ -45,8 +45,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	.story-widget {
 	 	position: relative;
 		border-bottom: dashed silver 1.5px;
-		min-height: 90px;
-		height: auto;
+	    height: 115px;
 		overflow: hidden;
 	}
 
