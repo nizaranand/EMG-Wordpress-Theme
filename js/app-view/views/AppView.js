@@ -22,6 +22,7 @@ app.AppView = Backbone.View.extend({
 		$("#story-widgets").click(function(){
 			app.setWindow(150);
 		});
+		app.setScrollbars();
 	},
 	
 	createSpinner: function(){

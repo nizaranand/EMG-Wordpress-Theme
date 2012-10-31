@@ -29,35 +29,39 @@ wp_enqueue_script("app-view", get_template_directory_uri() . "/js/app-view/views
 //wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/StoriesRouter.js", true);
 wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
 wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
+
+$arrow_src = get_template_directory_uri() . '/img/arrow.png';
 ?>
 
 <style>
 	
 	#app-view{
 		position: relative;
-		overflow: hidden;
-	}
+        margin-bottom: 15px;
+    }
+
 
 	#story-widgets {
 		position: relative;
 		background-color: #EEE;
-        overflow: auto;
+        overflow: hidden;
+        height: inherit !important;
 	}
 
 	.story-widget {
 	 	position: relative;
 		border-bottom: dashed silver 1.5px;
 		overflow: hidden;
-	    height: 115px;
+	    height: 125px;
 	}
 
 	#widgets-list {
+        height: inherit !important;
 		list-style: none;
-        overflow: auto;
 	}
 
-	#story-content {
-        overflow: auto;		
+	#story-content {		
+        height: inherit !important;
 	}
 	
 	#storycontent-author-info{
@@ -66,11 +70,9 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	
 	#storycontent-author{
 		
-		
 	}
 
 	#storycontent-time{
-		
 		
     }
 
@@ -115,7 +117,11 @@ img{
 	}
 
 	#arrow {
-
+background: url(<?php print $arrow_src ?>) no-repeat;
+background-position: center center;
+background-size: contain;
+height: 15px;
+width: 15px;
 	}
 </style>
 

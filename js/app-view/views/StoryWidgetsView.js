@@ -17,34 +17,32 @@ var app = app || {};
 				$(window).resize(app.resizeApp);
 				this.timer = setInterval(this.refresh, 60 * 1000);
 				this.initial_load = true;
-				this.setScrollbars();
 			},
 
 			setScrollbars: function() {
-				//	rendering is done on the individual elements in the collection, this just creates the scrollbars
-				var scrollbar_opts = {
-					set_width : false, /*optional element width: boolean, pixels, percentage*/
-					set_height : false, /*optional element height: boolean, pixels, percentage*/
-					horizontalScroll : false, /*scroll horizontally: boolean*/
-					scrollInertia : 550, /*scrolling inertia: integer (milliseconds)*/
-					scrollEasing : "easeOutCirc", /*scrolling easing: string*/
-					mouseWheel : "auto", /*mousewheel support and velocity: boolean, "auto", integer*/
-					autoDraggerLength : true, /*auto-adjust scrollbar dragger length: boolean*/
-					scrollButtons : {/*scroll buttons*/
-						enable : true, /*scroll buttons support: boolean*/
-						scrollType : "continuous", /*scroll buttons scrolling type: "continuous", "pixels"*/
-						scrollSpeed : 20, /*scroll buttons continuous scrolling speed: integer*/
-						scrollAmount : 40 /*scroll buttons pixels scroll amount: integer (pixels)*/
-						},
-					advanced : {
-						updateOnBrowserResize : true, /*update scrollbars on browser resize (for layouts based on percentages): boolean*/
-						updateOnContentResize : true, /*auto-update scrollbars on content resize (for dynamic c */
-						autoExpandHorizontalScroll : false /*auto expand width for horizontal scrolling: boolean*/
-					}
-				};
-				console.log(scrollbar_opts);
-				$("#widgets-list").mCustomScrollbar(scrollbar_opts);
-				$("#story-content").mCustomScrollbar(scrollbar_opts);
+                var scrollbar_opts = {
+                    set_width : false, /*optional element width: boolean, pixels, percentage*/
+                    set_height : false, /*optional element height: boolean, pixels, percentage*/
+                    horizontalScroll : false, /*scroll horizontally: boolean*/
+                    scrollInertia : 550, /*scrolling inertia: integer (milliseconds)*/
+                    scrollEasing : "easeOutCirc", /*scrolling easing: string*/
+                    mouseWheel : "auto", /*mousewheel support and velocity: boolean, "auto", integer*/
+                    autoDraggerLength : true, /*auto-adjust scrollbar dragger length: boolean*/
+                    scrollButtons : {/*scroll buttons*/
+                        enable : true, /*scroll buttons support: boolean*/
+                        scrollType : "continuous", /*scroll buttons scrolling type: "continuous", "pixels"*/
+                        scrollSpeed : 20, /*scroll buttons continuous scrolling speed: integer*/
+                        scrollAmount : 40 /*scroll buttons pixels scroll amount: integer (pixels)*/
+                        },
+                    advanced : {
+                        updateOnBrowserResize : true, /*update scrollbars on browser resize (for layouts based on percentages): boolean*/
+                        updateOnContentResize : true, /*auto-update scrollbars on content resize (for dynamic c */
+                        autoExpandHorizontalScroll : false /*auto expand width for horizontal scrolling: boolean*/
+                    }
+                };
+                console.log(scrollbar_opts);
+                $("#widgets-list").mCustomScrollbar();
+				$("#story-content").mCustomScrollbar();
 			},
 
 			addAll : function() {
