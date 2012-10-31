@@ -80,7 +80,8 @@ var app = app || {};
 				var content_opts = {
 					story_title : model.get("title"),
 					story_content : model.get("content"),
-					story_author : model.get("author")
+					story_author : model.get("author"),
+					story_date : model.get("date")
 				};
 				var content = _.template($content_template.html(), content_opts);
 				var $content = $("#story-content");

@@ -57,23 +57,33 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	#story-content {
 		border: silver solid 2px;
 	}
+	
+	#storycontent-author-info{
+		
+	}
+	
+	#storycontent-author{
+		
+		
+	}
 
-app-view.ps-image{
-  max-width: 540px !important;
-}
+	#storycontent-time{
+		
+		
+	}
 
-img{
+	app-view.ps-image{
+  		max-width: 540px !important;
+	}
 
-}
-
-#widgets-list{
-margin-right: 20px !important; 
-  margin-left: 5px !important;
-}
+	#widgets-list{
+		margin-right: 20px !important; 
+  		margin-left: 5px !important;
+	}
 
 	.storywidget-title {
-	 position: relative;
-	 top: 0.5em;
+		position: relative;
+		top: 0.5em;
 		color: #333;
 	}
 
@@ -253,24 +263,27 @@ margin-right: 20px !important;
 
 </style>
 
-<div id="primary" class="site-content app-view span10" >
-
+<div id="primary" class="site-content" >
+	<div class="span10" >
+        <div class="row" id="app-view" ></div>
+	</div>
 </div><!-- #primary -->
 
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
-	<div class="row">
-		<div id="story-widgets" class="span3" >
-			<ul id="widgets-list" ></ul>
-		</div>
-		<div id="story-content" class="span7" ></div>
+	<div id="story-widgets" class="span3" >
+		<ul id="widgets-list" ></ul>
 	</div>
+	<div id="story-content" class="span7" ></div>
 </script>
 
 <script type="text/template" id="storycontent-template" >
 	<!-- -->
 	<div id="storycontent-title" ><h2><%= story_title %></h2></div>
-	<div id="storycontent-author" class="well well-small" ><p><%= story_author %></p></div>
+	<div id="storycontent-author-info" class="well well-small" >
+		<span id="storycontent-author" class="pull-left" ><%= story_author %></span>
+		<span id="storycontent-time" class="pull-right" ><i class="icon-time"></i> <%= story_date %></span>
+	</div>
 	<div id="storycontent-content" ><p><%= story_content %></p></div>
 </script>
 
