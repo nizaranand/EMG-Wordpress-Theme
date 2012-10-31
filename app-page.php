@@ -34,95 +34,96 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 ?>
 
 <style>
-	
-	#app-view{
-		position: relative;
-        margin-bottom: 15px;
-    }
 
+#app-view{
+	position: relative;
+	margin-bottom: 15px;
+}
 
-	#story-widgets {
-		position: relative;
-		background-color: #EEE;
-        overflow: hidden;
-        height: inherit !important;
-	}
+#story-widgets {
+	position: relative;
+	background-color: #EEE;
+	overflow: hidden;
+	height: inherit !important;
+}
 
-	.story-widget {
-	 	position: relative;
-		border-bottom: dashed silver 1.5px;
-		overflow: hidden;
-	    height: 125px;
-	}
+.story-widget {
+	position: relative;
+	border-bottom: dashed silver 1.5px;
+	overflow: hidden;
+	height: 125px;
+}
 
-	#widgets-list {
-        height: inherit !important;
-		list-style: none;
-	}
+#widgets-list {
+	height: inherit !important;
+	list-style: none;
+}
 
-	#story-content {		
-        height: inherit !important;
-	}
-	
-	#storycontent-author-info{
-		
-	}
-	
-	#storycontent-author{
-		
-	}
+#story-content {
+	height: inherit !important;
+}
 
-	#storycontent-time{
-		
-    }
+#storycontent-author-info{
+
+}
+
+#storycontent-author{
+
+}
+
+#storycontent-time{
+
+}
 
 img{
-  max-width: 860px !important;
- }
+	max-width: 860px !important;
+}
 
 .ps-image{
-  max-width: 860px !important;
- }
+	max-width: 860px !important;
+}
 
-	embed{
-		max-width: 860px !important;
-	}
+embed{
+	max-width: 860px !important;
+}
 
-	#widgets-list{
-		margin-right: 20px !important; 
-  		margin-left: 5px !important;
-	}
+#widgets-list{
+	margin-right: 20px !important;
+	margin-left: 5px !important;
+}
 
-	.storywidget-title {
-		position: relative;
-		top: 0.5em;
-		color: #333;
-		margin-bottom: 5px;
-	}
+.storywidget-title {
+	position: relative;
+	top: 0.5em;
+	color: #333;
+	margin-bottom: 5px;
+}
 
-	.clock-icon {
-		float: left;
-	}
+.clock-icon {
+	float: left;
+}
 
-	.storywidget-time {
-		position: absolute;
-		bottom: 5px;
-		margin-top: 5px;
-	}
+.storywidget-time {
+	position: absolute;
+	bottom: 5px;
+	margin-top: 5px;
+}
 
-    .storywidget-timestamp {
-		float: left;
-		padding-left: 5px;
-		font-style: italic;
-	}
+.storywidget-timestamp {
+	float: left;
+	padding-left: 5px;
+	font-style: italic;
+}
 
-	#arrow {
-background: url(<?php print $arrow_src ?>) no-repeat;
-background-position: center center;
-background-size: contain;
-height: 15px;
-width: 15px;
-	}
+#arrow {
+	position: absolute;
+	right: 0;
+	background: url(<?php print $arrow_src; ?>) no-repeat;
+	background-position: center center;
+	background-size: contain;
+	height: 15px;
+	width: 15px;
+}
 </style>
 
 <style>
@@ -283,13 +284,14 @@ width: 15px;
 
 <div id="primary" class="site-content" >
 	<div>
-        <div id="app-view" ></div>
+		<div id="app-view" ></div>
 	</div>
 </div><!-- #primary -->
 
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
 	<div id="story-widgets" class="span3" >
+		<div id="arrow" ></div>
 		<ul id="widgets-list" ></ul>
 	</div>
 	<div id="story-content" class="span11" ></div>
@@ -297,7 +299,7 @@ width: 15px;
 
 <script type="text/template" id="storycontent-template" >
 	<!-- -->
-	<div id="storycontent-title" ><h2><%= story_title %></h2></div>
+	<div id="storycontent-title" data-story="<%= story_id %>" ><h2><%= story_title %></h2></div>
 	<div id="storycontent-author-info" class="well well-small" >
 		<span id="storycontent-author" class="pull-left" ><%= story_author %></span>
 		<span id="storycontent-time" class="pull-right" ><i class="icon-time"></i> <%= story_date %></span>
@@ -308,18 +310,18 @@ width: 15px;
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
 	<li class="story-widget" id="<%= widget_id %>" >
-	    <!-- <a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" > -->
-	        <div class="storywidget-title" >
-	            <%= widget_title %>
-	        </div>
-	        <div class="storywidget-time" >
-	            <span class="clock-icon" ><i class="icon-time"></i></span>
-	            <span class="storywidget-timestamp" > <%= widget_timestamp %></span>
-	        </div>
-	<!-- </a> -->
+		<!-- <a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" > -->
+			<div class="storywidget-title" >
+				<%= widget_title %>
+			</div>
+			<div class="storywidget-time" >
+				<span class="clock-icon" ><i class="icon-time"></i></span>
+				<span class="storywidget-timestamp" > <%= widget_timestamp %></span>
+			</div>
+		<!-- </a> -->
 	</li>
 </script>
 
-	   <?php /*get_sidebar();*/ ?>
+<?php /*get_sidebar();*/ ?>
 <?php get_footer(); ?>
 

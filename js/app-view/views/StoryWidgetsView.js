@@ -12,6 +12,7 @@ var app = app || {};
 				app.showStory = this.showStory;
 				app.resizeApp = this.resizeApp;
 				app.setScrollbars = this.setScrollbars;
+				app.slideArrow = this.slideArrow;
 				this.collection.on('add', this.addOne, this);
 				this.collection.on('reset', this.addAll, this);
 				$(window).resize(app.resizeApp);
@@ -51,9 +52,16 @@ var app = app || {};
 				$("li.story-widget").click(function() {
 					app.showStory($(this).attr("id"));
 				});
+				$("li.story-widget").mouseenter(function() {
+					app.slideArrow($(this).attr("id"));
+				});
+				$("#story-widgets").mouseleave(function() {
+					app.slideArrow($("#storycontent-title").attr("data-story"));
+				});
 				var most_recent = $("li.story-widget").first().attr("id");
 				if(this.initial_load){
                     app.showStory(most_recent);
+                    app.slideArrow(most_recent);
 					this.initial_load = false;
                 }
 			},
@@ -83,6 +91,12 @@ var app = app || {};
 		    resizeApp: function(){
 			    $("#app-view").height($(window).height());
 			},
+			
+			slideArrow: function(id){
+				var $curr = $("#" + id);
+				var offset = $curr.offset().top + (0.5 * $curr.height()) - 7.5; // 7.5 is half the height of the arrow
+				$("#arrow").animate({scrollTop: offset}, 150);
+			},
 
 			showStory : function(id) {
 				var model = app.widgets.get(id);
@@ -91,7 +105,8 @@ var app = app || {};
 					story_title : model.get("title"),
 					story_content : model.get("content"),
 					story_author : model.get("author"),
-					story_date : model.get("date")
+					story_date : model.get("date"),
+					story_id : model.id
 				};
 				var content = _.template($content_template.html(), content_opts);
 				var $content = $("<div></div>");
