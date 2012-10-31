@@ -84,10 +84,17 @@ var app = app || {};
 					story_date : model.get("date")
 				};
 				var content = _.template($content_template.html(), content_opts);
-				var $content = $("#story-content");
-				$content.fadeOut(150, function() {
-					$content.html(content);
-					$content.fadeIn(150);
+				var $content = $(content);
+				$content.find("embed").each(function(){
+					// hack the embed max width to keep it under 860px
+					var $curr = $(this);
+					$curr.width("860px");
+					$curr.css("width", "860px !important");
+				});
+				var $story_content = $("#story-content");
+				$story_content.fadeOut(150, function() {
+					$story_content.html($content.html());
+					$story_content.fadeIn(150);
 				});
 			}
 		});
