@@ -14,14 +14,14 @@ app.AppView = Backbone.View.extend({
 		// the router creates itself
 		//this.stopSpinner();
 	},
-	
+
 	render: function(){
 		var view = _.template(this.$template.html(), {});
 		$(this.el).html(view);
 		$(this.el).height($(window).height());
-		$("#widgets-list").click(){
+		$("#story-widgets").click(function(){
 			app.setWindow(150);
-		}
+		});
 	},
 	
 	createSpinner: function(){

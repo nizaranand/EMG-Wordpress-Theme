@@ -13,7 +13,7 @@
 // add ui and dependencies
 wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery-ui-1.8.21.custom.min.js", true);
 wp_enqueue_script("mousewheel", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mousewheel.min.js", true);
-wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.min.js", true);
+wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.js", true);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 wp_enqueue_script("spin", get_template_directory_uri() . "/js/app-view/libs/spin/spin.min.js", true);
 wp_enqueue_script("underscore", get_template_directory_uri() . "/js/app-view/libs/underscore/underscore.min.js", true);
@@ -39,11 +39,9 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	}
 
 	#story-widgets {
-		/*
-		 * only show 10 widgets
-		 */
 		position: relative;
 		background-color: #EEE;
+        overflow: auto;
 	}
 
 	.story-widget {
@@ -55,10 +53,11 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 
 	#widgets-list {
 		list-style: none;
+        overflow: auto;
 	}
 
 	#story-content {
-				
+        overflow: auto;		
 	}
 	
 	#storycontent-author-info{

@@ -7,7 +7,22 @@ var app = app || {};
 			el : "#widgets-list",
 			timer : false,
 			template_options : {},
-			scrollbar_options : {
+
+			initialize : function() {
+				app.showStory = this.showStory;
+				app.resizeApp = this.resizeApp;
+				app.setScrollbars = this.setScrollbars;
+				this.collection.on('add', this.addOne, this);
+				this.collection.on('reset', this.addAll, this);
+				$(window).resize(app.resizeApp);
+				this.timer = setInterval(this.refresh, 60 * 1000);
+				this.initial_load = true;
+				this.setScrollbars();
+			},
+
+			setScrollbars: function() {
+				//	rendering is done on the individual elements in the collection, this just creates the scrollbars
+				var scrollbar_opts = {
 					set_width : false, /*optional element width: boolean, pixels, percentage*/
 					set_height : false, /*optional element height: boolean, pixels, percentage*/
 					horizontalScroll : false, /*scroll horizontally: boolean*/
@@ -20,34 +35,29 @@ var app = app || {};
 						scrollType : "continuous", /*scroll buttons scrolling type: "continuous", "pixels"*/
 						scrollSpeed : 20, /*scroll buttons continuous scrolling speed: integer*/
 						scrollAmount : 40 /*scroll buttons pixels scroll amount: integer (pixels)*/
-					},
+						},
 					advanced : {
 						updateOnBrowserResize : true, /*update scrollbars on browser resize (for layouts based on percentages): boolean*/
-						updateOnContentResize : true, /*auto-update scrollbars on content resize (for dynamic content): boolean*/
+						updateOnContentResize : true, /*auto-update scrollbars on content resize (for dynamic c */
 						autoExpandHorizontalScroll : false /*auto expand width for horizontal scrolling: boolean*/
 					}
-					// add callbacks later
-			},
-
-			initialize : function() {
-				app.showStory = this.showStory;
-				this.collection.on('add', this.addOne, this);
-				this.collection.on('reset', this.addAll, this);
-				this.timer = setInterval(this.refresh, 60 * 1000);
-			},
-
-			render : function() {
-				//	rendering is done on the individual elements in the collection
+				};
+				console.log(scrollbar_opts);
+				$("#widgets-list").mCustomScrollbar(scrollbar_opts);
+				$("#story-content").mCustomScrollbar(scrollbar_opts);
 			},
 
 			addAll : function() {
-				$("#story-widgets").mCustomScrollbar(this.scrollbar_options);
-				$("#story-content").mCustomScrollbar(this.scrollbar_options);
 				$("#widgets-list").html("");
 				app.widgets.each(this.addOne, this);
 				$("li.story-widget").click(function() {
 					app.showStory($(this).attr("id"));
 				});
+				var most_recent = $("li.story-widget").first().attr("id");
+				if(this.initial_load){
+                    app.showStory(most_recent);
+					this.initial_load = false;
+                }
 			},
 
 			addOne : function(widget) {
@@ -70,6 +80,10 @@ var app = app || {};
 
 			refresh : function() {
 				app.widgets.fetchWithCallbacks();
+			},
+
+		    resizeApp: function(){
+			    $("#app-view").height($(window).height());
 			},
 
 			showStory : function(id) {
@@ -98,6 +112,7 @@ var app = app || {};
 				$story_content.fadeOut(150, function() {
 					$story_content.html("");
                     $story_content.append($content);
+					$story_content.height($(window).height());
 					$story_content.fadeIn(150);
 				});
 			}
