@@ -43,9 +43,9 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	}
 
 	.story-widget {
-	 position: relative;
+	 	position: relative;
 		border-bottom: dashed silver 1.5px;
-		height: 115px;
+		min-height: 90px;
 		overflow: hidden;
 	}
 
@@ -55,7 +55,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 
 	/* wrapper element for stories, does not have a corresponding model. this is what's populated when StoryContent renders */
 	#story-content {
-		border: silver solid 2px;
+		/*max-width: 520px !important;*/
 	}
 	
 	#storycontent-author-info{
@@ -73,7 +73,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	}
 
 	app-view.ps-image{
-  		max-width: 540px !important;
+  		/*max-width: 520px !important;*/
 	}
 
 	#widgets-list{
@@ -85,6 +85,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 		position: relative;
 		top: 0.5em;
 		color: #333;
+		margin-bottom: 5px;
 	}
 
 	.clock-icon {
@@ -94,6 +95,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	.storywidget-time {
 		position: absolute;
 		bottom: 5px;
+		margin-top: 5px;
 	}
 
     .storywidget-timestamp {
@@ -264,8 +266,8 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 </style>
 
 <div id="primary" class="site-content" >
-	<div class="span10" >
-        <div class="row" id="app-view" ></div>
+	<div>
+        <div id="app-view" ></div>
 	</div>
 </div><!-- #primary -->
 
@@ -274,7 +276,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	<div id="story-widgets" class="span3" >
 		<ul id="widgets-list" ></ul>
 	</div>
-	<div id="story-content" class="span7" ></div>
+	<div id="story-content" class="span11" ></div>
 </script>
 
 <script type="text/template" id="storycontent-template" >
@@ -302,6 +304,6 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	</li>
 </script>
 
-	   <?php get_sidebar(); ?>
+	   <?php /*get_sidebar();*/ ?>
 <?php get_footer(); ?>
 
