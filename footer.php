@@ -10,7 +10,7 @@
 
 	</div><!-- .row wrapper, opened in header.php -->
 
-	<div class="row">
+	<div class="row" id="main-footer" >
 		<footer class="span14">
 			<div class="well">
 				Emerald Media Group. &copy; 2012.<br>

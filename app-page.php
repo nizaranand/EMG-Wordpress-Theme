@@ -32,11 +32,17 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 ?>
 
 <style>
+	
+	#app-view{
+		position: relative;
+		
+	}
 
 	#story-widgets {
 		/*
 		 * only show 10 widgets
 		 */
+		position: relative;
 		height: 1150px;
         overflow: hidden;
 		background-color: #EEE;
@@ -45,8 +51,7 @@ wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-i
 	.story-widget {
 	 	position: relative;
 		border-bottom: dashed silver 1.5px;
-	    height: 115px;
-		overflow: hidden;
+		overflow: scroll;
 	}
 
 	#widgets-list {
