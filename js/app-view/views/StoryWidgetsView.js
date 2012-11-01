@@ -13,11 +13,18 @@ var app = app || {};
 				app.resizeApp = this.resizeApp;
 				app.setScrollbars = this.setScrollbars;
 				app.slideArrow = this.slideArrow;
+				app.changeArrowDestination = this.changeArrowDestination;
+				app.startArrow = this.startArrow;
+				app.stopArrow = this.stopArrow;
+				app.sliding = false;
+				app.arrowDestination = 0;
+				app.animateTimer = false;
 				this.collection.on('add', this.addOne, this);
 				this.collection.on('reset', this.addAll, this);
 				$(window).resize(app.resizeApp);
 				this.timer = setInterval(this.refresh, 60 * 1000);
 				this.initial_load = true;
+				app.setScrollbars();
 			},
 
 			setScrollbars: function() {
@@ -41,7 +48,7 @@ var app = app || {};
                         autoExpandHorizontalScroll : false /*auto expand width for horizontal scrolling: boolean*/
                     }
                 };
-                console.log(scrollbar_opts);
+                console.log("setting scrollbars");
                 $("#widgets-list").mCustomScrollbar();
 				$("#story-content").mCustomScrollbar();
 			},
@@ -95,9 +102,50 @@ var app = app || {};
 			slideArrow: function(id){
 				var $curr = $("#" + id);
 				var offset = $curr.offset().top + (0.5 * $curr.height()) - 7.5; // 7.5 is half the height of the arrow
-				$("#arrow").animate({scrollTop: offset}, 150);
+				if(app.sliding){
+					app.changeArrowDestination(offset);
+				}else{
+					app.sliding = true;
+					app.changeArrowDestination(offset);
+					app.startArrow();
+				}
 			},
-
+													
+			startArrow: function(){													
+				app.animateTimer = setInterval(function(){
+					var animateConstant = 0.5;
+					var $arrow = $("#arrow");
+					var arrowOffsetY = $arrow.offset().top - $("#widgets-list").offset().top;
+					console.log("offsetY: " + arrowOffsetY + " sliderDestination: " + app.arrowDestination);
+					if(Math.abs(arrowOffsetY - app.arrowDestination) < 2){ // give it a 1 pixel buffer
+						console.log("stopping arrow");
+						app.stopArrow();
+					}else{
+						console.log("compare: " + app.arrowDestination + " >? " + arrowOffsetY);
+						if(app.arrowDestination > arrowOffsetY){
+							// move down
+							console.log("moving down");
+							arrowOffsetY += animateConstant;
+							$arrow.css("top", arrowOffsetY + "px");
+						}else{
+							console.log("moving up");
+							// move up
+							arrowOffsetY -= animateConstant;
+							$arrow.css("top", arrowOffsetY + "px");
+						}
+					}
+				}, 35);
+			},
+														
+			changeArrowDestination: function(offset){
+				app.arrowDestination = offset;
+			},
+														
+			stopArrow: function(){
+				clearInterval(app.animateTimer);
+				app.sliding = false;
+			},
+														
 			showStory : function(id) {
 				var model = app.widgets.get(id);
 				var $content_template = $("#storycontent-template");

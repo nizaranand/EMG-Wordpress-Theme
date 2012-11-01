@@ -42,7 +42,7 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 
 #story-widgets {
 	position: relative;
-	background-color: #EEE;
+	background-color: #DEDEDE;
 	overflow: hidden;
 	height: inherit !important;
 }
@@ -51,6 +51,7 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 	position: relative;
 	border-bottom: dashed silver 1.5px;
 	overflow: hidden;
+    padding: 10px 15px 10px 10px;
 	height: 125px;
 }
 
