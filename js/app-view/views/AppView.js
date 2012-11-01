@@ -5,9 +5,11 @@ var app = app || {}; ( function($, _, Backbone) {
 
 			initialize : function() {
                  app.setWindow = this.setWindow;
-                 app.resizeApp = this.resizeApp;				
-				$(window).resize(app.resizeApp);
-				this.render();
+                 app.resizeApp = this.resizeApp;		
+                 app.startSpinner = this.startSpinner;
+                 app.stopSpinner = this.stopSpinner;		
+				 $(window).resize(app.resizeApp);
+				 this.render();
 			},
 
 			render : function() {
@@ -47,19 +49,18 @@ var app = app || {}; ( function($, _, Backbone) {
 					top : 'auto', // Top position relative to parent in px
 					left : 'auto' // Left position relative to parent in px
 				};
-				app.spinner = new Spinner(opts);
+				this.spinner = new Spinner(opts);
 				$("#story-widgets").animate({
 					opacity : "0.5"
 				}, 200);
-				app.spinner.spin($("#story-widgets"));
-				console.log(app.spinner);
+				this.spinner.spin($("#story-widgets"));
 			},
 
 			stopSpinner : function() {
 				$("#story-widgets").animate({
 					opacity : "1.0"
 				}, 500);
-				app.spinner.stop();
+				this.spinner.stop();
 			}
 			
 		});
