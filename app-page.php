@@ -31,6 +31,7 @@ wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/ap
 wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 
 $arrow_src = get_template_directory_uri() . '/img/arrow.png';
+$mcsb_src = get_template_directory_uri() . '/css/mCSB_buttons.png'; 
 ?>
 
 <style>
@@ -43,7 +44,7 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 #story-widgets {
 	position: relative;
 	background-color: #DEDEDE;
-	overflow: hidden;
+/*overflow: hidden;*/
 	height: inherit !important;
 }
 
@@ -59,7 +60,6 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 #widgets-list {
 	height: inherit !important;
 	list-style: none;
-	overflow-y: scroll;
 }
 
 #story-content {
@@ -292,7 +292,7 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 .mCSB_scrollTools .mCSB_buttonDown,
 .mCSB_scrollTools .mCSB_buttonLeft,
 .mCSB_scrollTools .mCSB_buttonRight{
-        background-image:url(mCSB_buttons.png);
+  background-image:url(<?php print $mcsb_src; ?>);
         background-repeat:no-repeat;
         opacity:0.4;
         filter:"alpha(opacity=40)"; -ms-filter:"alpha(opacity=40)"; /* old ie */
