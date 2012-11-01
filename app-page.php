@@ -44,7 +44,7 @@ $mcsb_src = get_template_directory_uri() . '/img/mCSB_buttons.png';
 	position: relative;
 	background-color: #DEDEDE;
     overflow: hidden;
-	height: inherit !important;
+	height: 100% !important;
 }
 
 .story-widget {
@@ -59,11 +59,15 @@ $mcsb_src = get_template_directory_uri() . '/img/mCSB_buttons.png';
 #widgets-list {
 	height: inherit !important;
 	list-style: none;
+    height: 100% !important;
+overflow-y: scroll;
 }
 
 #story-content {
     position: relative;
-	height: inherit !important;
+	height: 100% !important;
+overflow-y: scroll;
+overflow-x: hidden;
 }
 
 #storycontent-author-info{

@@ -19,6 +19,7 @@ var app = app || {}; ( function($, _, Backbone) {
 				this.collection.on('reset', this.addAll, this);
 				this.timer = setInterval(this.refresh, 120 * 1000);
 				this.initial_load = true;
+				//app.setScrollbars();
 			},
 
 
@@ -41,7 +42,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					this.initial_load = false;
 				}
 				$("#widgets-list").mCustomScrollbar("update");
-				app.stopSpinner();
+				app.stopLoading();
 			},
 
 			addOne : function(widget) {
@@ -63,7 +64,7 @@ var app = app || {}; ( function($, _, Backbone) {
 			},
 
 			refresh : function() {
-				app.startSpinner();
+				app.startLoading();
 				app.widgets.fetchWithCallbacks();
 			},
 
@@ -150,33 +151,8 @@ var app = app || {}; ( function($, _, Backbone) {
 					$story_content.height($(window).height());
 					$story_content.fadeIn(150);
 				});
-			},
-			
-            setScrollbars : function() {
-                var scrollbar_opts = {
-                    set_width : "100%",
-                    set_height : "100%",
-                    horizontalScroll : false,
-                    scrollInertia : 550,
-                    scrollEasing : "easeOutCirc",
-                    mouseWheel : "auto",
-                    autoDraggerLength : true,
-                    scrollButtons : {
-                        enable : false,
-                        scrollType : "continuous",
-                        scrollSpeed : 20,
-                        scrollAmount : 40
-                    },
-                    advanced : {
-                        updateOnBrowserResize : true,
-                        updateOnContentResize : false,
-                        autoExpandHorizontalScroll : false
-                    }
-                };
-                console.log("setting scrollbars");
-                $("#widgets-list").mCustomScrollbar(scrollbar_opts);
-                $("#story-content").mCustomScrollbar(scrollbar_opts);
-            }
+				$("#story-content").mCustomScrollbar("update");
+			}
 
 		});
 	}(jQuery, _, Backbone));
