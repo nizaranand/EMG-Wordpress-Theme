@@ -24,34 +24,33 @@ var app = app || {};
 				$(window).resize(app.resizeApp);
 				this.timer = setInterval(this.refresh, 60 * 1000);
 				this.initial_load = true;
-				//app.setScrollbars();
-				$("#widgets-list").tinyscrollbar();
+				app.setScrollbars();
 			},
 
 			setScrollbars: function() {
                 var scrollbar_opts = {
-                    set_width : false, /*optional element width: boolean, pixels, percentage*/
-                    set_height : false, /*optional element height: boolean, pixels, percentage*/
-                    horizontalScroll : false, /*scroll horizontally: boolean*/
-                    scrollInertia : 550, /*scrolling inertia: integer (milliseconds)*/
-                    scrollEasing : "easeOutCirc", /*scrolling easing: string*/
-                    mouseWheel : "auto", /*mousewheel support and velocity: boolean, "auto", integer*/
-                    autoDraggerLength : true, /*auto-adjust scrollbar dragger length: boolean*/
-                    scrollButtons : {/*scroll buttons*/
-                        enable : true, /*scroll buttons support: boolean*/
-                        scrollType : "continuous", /*scroll buttons scrolling type: "continuous", "pixels"*/
-                        scrollSpeed : 20, /*scroll buttons continuous scrolling speed: integer*/
-                        scrollAmount : 40 /*scroll buttons pixels scroll amount: integer (pixels)*/
+                    set_width : "100%",
+                    set_height : "100%", 
+                    horizontalScroll : false, 
+                    scrollInertia : 550, 
+                    scrollEasing : "easeOutCirc", 
+                    mouseWheel : "auto", 
+                    autoDraggerLength : true, 
+                    scrollButtons : {
+                        enable : false, 
+                        scrollType : "continuous", 
+                        scrollSpeed : 20, 
+                        scrollAmount : 40 
                         },
                     advanced : {
-                        updateOnBrowserResize : true, /*update scrollbars on browser resize (for layouts based on percentages): boolean*/
-                        updateOnContentResize : true, /*auto-update scrollbars on content resize (for dynamic c */
-                        autoExpandHorizontalScroll : false /*auto expand width for horizontal scrolling: boolean*/
+                        updateOnBrowserResize : true, 
+                        updateOnContentResize : false, 
+                        autoExpandHorizontalScroll : false 
                     }
                 };
                 console.log("setting scrollbars");
-               /* $("#widgets-list").mCustomScrollbar(scrollbar_opts);
-				$("#story-content").mCustomScrollbar(scrollbar_opts);*/
+                $("#widgets-list").mCustomScrollbar(scrollbar_opts);
+				$("#story-content").mCustomScrollbar(scrollbar_opts);
 			},
 
 			addAll : function() {
@@ -72,6 +71,7 @@ var app = app || {};
                     app.slideArrow(most_recent);
 					this.initial_load = false;
                 }
+                $("#widgets-list").mCustomScrollbar("update");
 			},
 
 			addOne : function(widget) {
