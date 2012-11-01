@@ -167,18 +167,19 @@ var app = app || {}; ( function($, _, Backbone) {
 					top : 'auto', // Top position relative to parent in px
 					left : 'auto' // Left position relative to parent in px
 				};
-				this.spinner = new Spinner(opts);
-				$("#app-view").animate({
+				app.spinner = new Spinner(opts);
+				$("#story-widgets").animate({
 					opacity : "0.5"
 				}, 200);
-				this.spinner.spin($("#app-view"));
+				app.spinner.spin($("#story-widgets"));
+				console.log(app.spinner);
 			},
 
 			stopSpinner : function() {
-				$("#app-view").animate({
+				$("#story-widgets").animate({
 					opacity : "1.0"
 				}, 500);
-				this.spinner.stop();
+				app.spinner.stop();
 			}
 			
 			

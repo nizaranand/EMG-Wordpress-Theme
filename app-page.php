@@ -43,11 +43,7 @@ $mcsb_src = get_template_directory_uri() . '/img/mCSB_buttons.png';
 #story-widgets {
 	position: relative;
 	background-color: #DEDEDE;
-<<<<<<< HEAD
     overflow: hidden;
-=======
-	overflow: hidden;
->>>>>>> 9eab2d1d28668834856e1b29eabec3d962bf5770
 	height: inherit !important;
 }
 
