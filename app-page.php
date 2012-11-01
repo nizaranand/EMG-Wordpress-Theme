@@ -14,7 +14,6 @@
 wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery-ui-1.8.23.custom.min.js", true);
 wp_enqueue_script("mousewheel", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mousewheel.min.js", true);
 wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.min.js", true);
-//wp_enqueue_script("tiny-scroll", get_template_directory_uri() . "/js/app-view/libs/tiny-scroll/tinyscroll.min.js", true);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 wp_enqueue_script("spin", get_template_directory_uri() . "/js/app-view/libs/spin/spin.min.js", true);
 wp_enqueue_script("underscore", get_template_directory_uri() . "/js/app-view/libs/underscore/underscore.min.js", true);
@@ -31,7 +30,7 @@ wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/ap
 wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 
 $arrow_src = get_template_directory_uri() . '/img/arrow.png';
-$mcsb_src = get_template_directory_uri() . '/css/mCSB_buttons.png'; 
+$mcsb_src = get_template_directory_uri() . '/img/mCSB_buttons.png'; 
 ?>
 
 <style>
