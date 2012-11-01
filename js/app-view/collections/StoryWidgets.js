@@ -23,7 +23,6 @@ var StoryWidgets = Backbone.Collection.extend({
 	},
 	
 	fetchWithCallbacks: function(){
-		app.startSpinner();
 		this.fetch(this.fetchCallbacks);
 	}
 	

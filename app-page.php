@@ -11,9 +11,9 @@
 //wp_enqueue_style('app-view', get_template_directory_uri() . "/css/app-view.css", "all");
 
 // add ui and dependencies
-wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery-ui-1.8.23.custom.min.js", true);
-wp_enqueue_script("mousewheel", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mousewheel.min.js", true);
-wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.min.js", true);
+wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery-ui-1.8.23.custom.min.js", false);
+wp_enqueue_script("mousewheel", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mousewheel.min.js", false);
+wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.min.js", false);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 wp_enqueue_script("spin", get_template_directory_uri() . "/js/app-view/libs/spin/spin.min.js", true);
 wp_enqueue_script("underscore", get_template_directory_uri() . "/js/app-view/libs/underscore/underscore.min.js", true);
@@ -43,7 +43,7 @@ $mcsb_src = get_template_directory_uri() . '/img/mCSB_buttons.png';
 #story-widgets {
 	position: relative;
 	background-color: #DEDEDE;
-/*overflow: hidden;*/
+	overflow: hidden;
 	height: inherit !important;
 }
 
