@@ -7,13 +7,12 @@
 <?php get_header(); ?>
 
 <?php
-//wp_enqueue_style('custom-scroll', get_template_directory_uri() . "/css/jquery.mCustomScrollbar.css", "all");
 //wp_enqueue_style('app-view', get_template_directory_uri() . "/css/app-view.css", "all");
 
 // add ui and dependencies
-wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery-ui-1.8.23.custom.min.js", false);
-wp_enqueue_script("mousewheel", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mousewheel.min.js", false);
-wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.min.js", false);
+wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/jquery-ui/jquery-ui-1.9.1.custom.min.js", true);
+wp_enqueue_script("jquery-ui-punch", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.ui.touch-punch.min.js", true);
+wp_enqueue_script("facescroll", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/facescroll.js", true);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 wp_enqueue_script("spin", get_template_directory_uri() . "/js/app-view/libs/spin/spin.min.js", true);
 wp_enqueue_script("underscore", get_template_directory_uri() . "/js/app-view/libs/underscore/underscore.min.js", true);
@@ -23,14 +22,13 @@ wp_enqueue_script("storywidget-model", get_template_directory_uri() . "/js/app-v
 wp_enqueue_script("storywidget-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetView.js", true);
 wp_enqueue_script("storywidgets-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetsView.js", true);
 wp_enqueue_script("storywidgets-collection", get_template_directory_uri() . "/js/app-view/collections/StoryWidgets.js", true);
-//wp_enqueue_script("app-model", get_template_directory_uri() . "/js/app-view/models/App.js", true);
 wp_enqueue_script("app-view", get_template_directory_uri() . "/js/app-view/views/AppView.js", true);
 //wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/StoriesRouter.js", true);
 wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
 wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 
 $arrow_src = get_template_directory_uri() . '/img/arrow.png';
-$mcsb_src = get_template_directory_uri() . '/img/mCSB_buttons.png'; 
+$scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'; 
 ?>
 
 <style>
@@ -60,14 +58,15 @@ $mcsb_src = get_template_directory_uri() . '/img/mCSB_buttons.png';
 	height: inherit !important;
 	list-style: none;
     height: 100% !important;
-overflow-y: scroll;
+	overflow: scroll;
+	resize: both;
 }
 
 #story-content {
     position: relative;
 	height: 100% !important;
-overflow-y: scroll;
-overflow-x: hidden;
+	overflow: scroll;
+	resize: both;
 }
 
 #storycontent-author-info{
@@ -139,204 +138,25 @@ overflow-x: hidden;
 </style>
 
 <style>
-	/* basic scrollbar styling */
-/* vertical scrollbar */
-.mCSB_container{
-        width:auto;
-        margin-right:30px;
-        overflow:hidden;
-}
-.mCSB_container.mCS_no_scrollbar{
-        margin-right:0;
-}
-.mCustomScrollBox .mCSB_scrollTools{
-        width:16px;
-        height:100%;
-        top:0;
-        right:0;
-}
-.mCSB_scrollTools .mCSB_draggerContainer{
-        height:100%;
-        -webkit-box-sizing:border-box;
-        -moz-box-sizing:border-box;
-        box-sizing:border-box;
-}
-.mCSB_scrollTools .mCSB_buttonUp+.mCSB_draggerContainer{
-        padding-bottom:40px;
-}
-.mCSB_scrollTools .mCSB_draggerRail{
-        width:2px;
-        height:100%;
-        margin:0 auto;
-        -webkit-border-radius:10px;
-        -moz-border-radius:10px;
-        border-radius:10px;
-}
-.mCSB_scrollTools .mCSB_dragger{
-        cursor:pointer;
-        width:100%;
-        height:30px;
-}
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-        width:4px;
-        height:100%;
-        margin:0 auto;
-        -webkit-border-radius:10px;
-        -moz-border-radius:10px;
-        border-radius:10px;
-        text-align:center;
-}
-.mCSB_scrollTools .mCSB_buttonUp,
-.mCSB_scrollTools .mCSB_buttonDown{
-        height:20px;
-        overflow:hidden;
-        margin:0 auto;
-        cursor:pointer;
-}
-.mCSB_scrollTools .mCSB_buttonDown{
-        bottom:0;
-        margin-top:-40px;
-}
-/* horizontal scrollbar */
-.mCSB_horizontal .mCSB_container{
-        height:auto;
-        margin-right:0;
-        margin-bottom:30px;
-        overflow:hidden;
-}
-.mCSB_horizontal .mCSB_container.mCS_no_scrollbar{
-        margin-bottom:0;
-}
-.mCSB_horizontal.mCustomScrollBox .mCSB_scrollTools{
-        width:100%;
-        height:16px;
-        top:auto;
-        right:auto;
-        bottom:0;
-        left:0;
-        overflow:hidden;
-}
-.mCSB_horizontal .mCSB_scrollTools .mCSB_draggerContainer{
-        height:100%;
-        width:auto;
-        -webkit-box-sizing:border-box;
-        -moz-box-sizing:border-box;
-        box-sizing:border-box;
-        overflow:hidden;
-}
-.mCSB_horizontal .mCSB_scrollTools .mCSB_buttonLeft+.mCSB_draggerContainer{
-        padding-bottom:0;
-        padding-right:20px;
-}
-.mCSB_horizontal .mCSB_scrollTools .mCSB_draggerRail{
-        width:100%;
-        height:2px;
-        margin:7px 0;
-        -webkit-border-radius:10px;
-        -moz-border-radius:10px;
-        border-radius:10px;
-}
-.mCSB_horizontal .mCSB_scrollTools .mCSB_dragger{
-        width:30px;
-        height:100%;
-}
-.mCSB_horizontal .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-        width:100%;
-        height:4px;
-        margin:6px auto;
-        -webkit-border-radius:10px;
-        -moz-border-radius:10px;
-        border-radius:10px;
-}
-.mCSB_horizontal .mCSB_scrollTools .mCSB_buttonLeft,
-.mCSB_horizontal .mCSB_scrollTools .mCSB_buttonRight{
-        width:20px;
-        height:100%;
-        overflow:hidden;
-        margin:0 auto;
-        cursor:pointer;
-        float:left;
-}
-.mCSB_horizontal .mCSB_scrollTools .mCSB_buttonRight{
-        right:0;
-        bottom:auto;
-        margin-left:-40px;
-        margin-top:-16px;
-        float:right;
+.styled-v-bar{ /* sample CSS class for a different vertical scrollbar look */
+	background:	url(custom-scroll-bar.png) center top no-repeat;
+	width: 10px;
+	margin-right: 0;
+	margin-bottom: 4px;
 }
 
-/* default scrollbar colors and backgrounds */
-.mCustomScrollBox .mCSB_scrollTools{
-        opacity:0.75;
+.styled-v-bar ins{ /* Style for the "ins" inner element, or bottom of the scrollbar */ 
+	display: block;
+	background:	url(<?php print $scrollbar_src; ?>) center bottom no-repeat;
+	width: 10px;
+	height: 4px;
+	position: absolute;
+	top: 100%;
 }
-.mCustomScrollBox:hover .mCSB_scrollTools{
-        opacity:1;
-}
-.mCSB_scrollTools .mCSB_draggerRail{
-        background:#000; /* rgba fallback */
-        background:rgba(0,0,0,0.4);
-        filter:"alpha(opacity=40)"; -ms-filter:"alpha(opacity=40)"; /* old ie */
-}
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-        background:#fff; /* rgba fallback */
-        background:rgba(255,255,255,0.75);
-        filter:"alpha(opacity=75)"; -ms-filter:"alpha(opacity=75)"; /* old ie */
-}
-.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
-        background:rgba(255,255,255,0.85);
-        filter:"alpha(opacity=85)"; -ms-filter:"alpha(opacity=85)"; /* old ie */
-}
-.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
-.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
-        background:rgba(255,255,255,0.9);
-        filter:"alpha(opacity=90)"; -ms-filter:"alpha(opacity=90)"; /* old ie */
-}
-.mCSB_scrollTools .mCSB_buttonUp,
-.mCSB_scrollTools .mCSB_buttonDown,
-.mCSB_scrollTools .mCSB_buttonLeft,
-.mCSB_scrollTools .mCSB_buttonRight{
-  background-image:url(<?php print $mcsb_src; ?>);
-        background-repeat:no-repeat;
-        opacity:0.4;
-        filter:"alpha(opacity=40)"; -ms-filter:"alpha(opacity=40)"; /* old ie */
-}
-.mCSB_scrollTools .mCSB_buttonUp{
-        background-position:0 0;
-        /* 
-        sprites locations are 0 0/-16px 0/-32px 0/-48px 0 (light) and -80px 0/-96px 0/-112px 0/-128px 0 (dark) 
-        */
-}
-.mCSB_scrollTools .mCSB_buttonDown{
-        background-position:0 -20px;
-        /* 
-        sprites locations are 0 -20px/-16px -20px/-32px -20px/-48px -20px (light) and -80px -20px/-96px -20px/-112px -20px/-128px -20px (dark) 
-        */
-}
-.mCSB_scrollTools .mCSB_buttonLeft{
-        background-position:0 -40px;
-        /* 
-        sprites locations are 0 -40px/-20px -40px/-40px -40px/-60px -40px (light) and -80px -40px/-100px -40px/-120px -40px/-140px -40px (dark) 
-        */
-}
-.mCSB_scrollTools .mCSB_buttonRight{
-        background-position:0 -56px;
-        /* 
-        sprites locations are 0 -56px/-20px -56px/-40px -56px/-60px -56px (light) and -80px -56px/-100px -56px/-120px -56px/-140px -56px (dark) 
-        */
-}
-.mCSB_scrollTools .mCSB_buttonUp:hover,
-.mCSB_scrollTools .mCSB_buttonDown:hover,
-.mCSB_scrollTools .mCSB_buttonLeft:hover,
-.mCSB_scrollTools .mCSB_buttonRight:hover{
-        opacity:0.75;
-        filter:"alpha(opacity=75)"; -ms-filter:"alpha(opacity=75)"; /* old ie */
-}
-.mCSB_scrollTools .mCSB_buttonUp:active,
-.mCSB_scrollTools .mCSB_buttonDown:active,
-.mCSB_scrollTools .mCSB_buttonLeft:active,
-.mCSB_scrollTools .mCSB_buttonRight:active{
-        opacity:0.9;
-        filter:"alpha(opacity=90)"; -ms-filter:"alpha(opacity=90)"; /* old ie */
+
+
+
+
 </style>
 
 <div id="primary" class="site-content" >

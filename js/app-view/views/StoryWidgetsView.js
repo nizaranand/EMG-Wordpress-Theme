@@ -19,7 +19,8 @@ var app = app || {}; ( function($, _, Backbone) {
 				this.collection.on('reset', this.addAll, this);
 				this.timer = setInterval(this.refresh, 120 * 1000);
 				this.initial_load = true;
-				//app.setScrollbars();
+				$("#story-widgets").alternateScroll();
+				$("#story-content").alternateScroll();
 			},
 
 
