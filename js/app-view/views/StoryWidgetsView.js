@@ -24,7 +24,8 @@ var app = app || {};
 				$(window).resize(app.resizeApp);
 				this.timer = setInterval(this.refresh, 60 * 1000);
 				this.initial_load = true;
-				app.setScrollbars();
+				//app.setScrollbars();
+				$("#widgets-list").tinyscrollbar();
 			},
 
 			setScrollbars: function() {
@@ -49,8 +50,8 @@ var app = app || {};
                     }
                 };
                 console.log("setting scrollbars");
-                $("#widgets-list").mCustomScrollbar();
-				$("#story-content").mCustomScrollbar();
+               /* $("#widgets-list").mCustomScrollbar(scrollbar_opts);
+				$("#story-content").mCustomScrollbar(scrollbar_opts);*/
 			},
 
 			addAll : function() {
@@ -101,7 +102,7 @@ var app = app || {};
 			
 			slideArrow: function(id){
 				var $curr = $("#" + id);
-				var offset = $curr.offset().top + (0.5 * $curr.height()) - 7.5; // 7.5 is half the height of the arrow
+				var offset = $curr.offset().top + (0.5 * $curr.height()) - $("#story-widgets").offset().top; // 7.5 is half the height of the arrow
 				if(app.sliding){
 					app.changeArrowDestination(offset);
 				}else{
@@ -111,30 +112,28 @@ var app = app || {};
 				}
 			},
 													
-			startArrow: function(){													
+			startArrow: function(){
 				app.animateTimer = setInterval(function(){
-					var animateConstant = 0.5;
+					var animateProportion = 0.125; // in honor of TCP's constant for calculating network congestion
 					var $arrow = $("#arrow");
-					var arrowOffsetY = $arrow.offset().top - $("#widgets-list").offset().top;
-					console.log("offsetY: " + arrowOffsetY + " sliderDestination: " + app.arrowDestination);
-					if(Math.abs(arrowOffsetY - app.arrowDestination) < 2){ // give it a 1 pixel buffer
+					var arrowOffsetY = parseInt($arrow.css("top").replace("px", "")); // b/c of the absolute positioning offset() wont work here
+					if(Math.abs(arrowOffsetY - app.arrowDestination) < 1){ // give it a 1 pixel buffer
 						console.log("stopping arrow");
 						app.stopArrow();
-					}else{
-						console.log("compare: " + app.arrowDestination + " >? " + arrowOffsetY);
+				    }else{
+						var dy = Math.abs(app.arrowDestination - arrowOffsetY);
+						var weightedDist = animateProportion * dy; // linear looks fine, maybe redo with quadratic later
 						if(app.arrowDestination > arrowOffsetY){
 							// move down
-							console.log("moving down");
-							arrowOffsetY += animateConstant;
+							arrowOffsetY += weightedDist + 2; // for some reason moving down doesn't quite move it far enough
 							$arrow.css("top", arrowOffsetY + "px");
 						}else{
-							console.log("moving up");
 							// move up
-							arrowOffsetY -= animateConstant;
+							arrowOffsetY -= weightedDist;
 							$arrow.css("top", arrowOffsetY + "px");
 						}
 					}
-				}, 35);
+				}, 20);
 			},
 														
 			changeArrowDestination: function(offset){
@@ -154,6 +153,7 @@ var app = app || {};
 					story_content : model.get("content"),
 					story_author : model.get("author"),
 					story_date : model.get("date"),
+					story_image : false,
 					story_id : model.id
 				};
 				var content = _.template($content_template.html(), content_opts);

@@ -13,7 +13,8 @@
 // add ui and dependencies
 wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery-ui-1.8.21.custom.min.js", true);
 wp_enqueue_script("mousewheel", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mousewheel.min.js", true);
-wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.js", true);
+//wp_enqueue_script("mCustomScrollbar", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.mCustomScrollbar.js", true);
+wp_enqueue_script("tiny-scroll", get_template_directory_uri() . "/js/app-view/libs/tiny-scroll/tinyscroll.min.js", true);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 wp_enqueue_script("spin", get_template_directory_uri() . "/js/app-view/libs/spin/spin.min.js", true);
 wp_enqueue_script("underscore", get_template_directory_uri() . "/js/app-view/libs/underscore/underscore.min.js", true);
@@ -49,6 +50,7 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 
 .story-widget {
 	position: relative;
+    cursor: pointer;
 	border-bottom: dashed silver 1.5px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
@@ -58,9 +60,11 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 #widgets-list {
 	height: inherit !important;
 	list-style: none;
+overflow-y: scroll;
 }
 
 #story-content {
+    position: relative;
 	height: inherit !important;
 }
 
@@ -76,7 +80,11 @@ $arrow_src = get_template_directory_uri() . '/img/arrow.png';
 
 }
 
-img{
+.story-image{
+  
+}
+
+#story-content img{
 	max-width: 860px !important;
 }
 
@@ -84,7 +92,7 @@ img{
 	max-width: 860px !important;
 }
 
-embed{
+#story-content iframe{
 	max-width: 860px !important;
 }
 
@@ -119,6 +127,7 @@ embed{
 #arrow {
 	position: absolute;
 	right: 0;
+    top: 0;
 	background: url(<?php print $arrow_src; ?>) no-repeat;
 	background-position: center center;
 	background-size: contain;
@@ -299,8 +308,11 @@ embed{
 </script>
 
 <script type="text/template" id="storycontent-template" >
-	<!-- -->
+	<!-- wrapped with a span11 -->
 	<div id="storycontent-title" data-story="<%= story_id %>" ><h2><%= story_title %></h2></div>
+	<% if(story_image){ %>
+        <div class="story-image ps-image" ><img src="<%= story_image %>" /></div>
+	<% }; %>
 	<div id="storycontent-author-info" class="well well-small" >
 		<span id="storycontent-author" class="pull-left" ><%= story_author %></span>
 		<span id="storycontent-time" class="pull-right" ><i class="icon-time"></i> <%= story_date %></span>

@@ -9,10 +9,10 @@ app.AppView = Backbone.View.extend({
 	initialize: function(){
 		app.setWindow = this.setWindow;
 		this.createSpinner();
-		//this.startSpinner();
+		this.startSpinner();
 		this.render();
 		// the router creates itself
-		//this.stopSpinner();
+		this.stopSpinner();
 	},
 
 	render: function(){
@@ -22,7 +22,6 @@ app.AppView = Backbone.View.extend({
 		$("#story-widgets").click(function(){
 			app.setWindow(150);
 		});
-		app.setScrollbars();
 	},
 	
 	createSpinner: function(){
