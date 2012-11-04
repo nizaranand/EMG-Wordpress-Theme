@@ -58,15 +58,13 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 	height: inherit !important;
 	list-style: none;
     height: 100% !important;
-	overflow: scroll;
-	resize: both;
+overflow:scroll;
 }
 
 #story-content {
     position: relative;
 	height: 100% !important;
-	overflow: scroll;
-	resize: both;
+overflow: hidden;
 }
 
 #storycontent-author-info{
@@ -79,6 +77,10 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 #storycontent-time{
 
+}
+
+#storycontent-content{
+overflow: scroll;
 }
 
 .story-image{
