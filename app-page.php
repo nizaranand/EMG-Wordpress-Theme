@@ -23,7 +23,7 @@ wp_enqueue_script("storywidget-view", get_template_directory_uri() . "/js/app-vi
 wp_enqueue_script("storywidgets-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetsView.js", true);
 wp_enqueue_script("storywidgets-collection", get_template_directory_uri() . "/js/app-view/collections/StoryWidgets.js", true);
 wp_enqueue_script("app-view", get_template_directory_uri() . "/js/app-view/views/AppView.js", true);
-//wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/StoriesRouter.js", true);
+wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/routers/StoriesRouter.js", true);
 wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
 wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 
@@ -130,7 +130,7 @@ overflow: scroll;
 	position: absolute;
 	bottom: 5px;
 	margin-top: 5px;  
-    color: #777;
+    color: #666;
 }
 
 .storywidget-timestamp {
@@ -182,10 +182,7 @@ overflow: scroll;
 
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
-	<div id="story-widgets" class="span4" >
-		<div id="arrow" ></div>
-		<ul id="widgets-list" ></ul>
-	</div>
+	<div id="story-widgets" class="span4" ></div>
 	<div id="story-content" class="span10" ></div>
 </script>
 

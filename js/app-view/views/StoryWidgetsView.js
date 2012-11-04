@@ -1,7 +1,7 @@
 var app = app || {}; ( function($, _, Backbone) {
 
 		app.StoryWidgetsView = Backbone.View.extend({
-			el : "#widgets-list",
+			$list : $("<ul id='widgets-list' ></ul>"),
 			timer : false,
 			template_options : {},
 
@@ -19,16 +19,16 @@ var app = app || {}; ( function($, _, Backbone) {
 				this.collection.on('reset', this.addAll, this);
 				this.timer = setInterval(this.refresh, 120 * 1000);
 				this.initial_load = true;
-				$("#widgets-list").alternateScroll();
 			},
 
 
 			addAll : function() {
-				$("#widgets-list").html("");
+				$("#story-widgets").html("");
+				$("#story-widgets").append(this.$el);
 				app.widgets.each(this.addOne, this);
-				$("li.story-widget").click(function() {
+				/*$("li.story-widget").click(function() {
 					app.showStory($(this).attr("id"));
-				});
+				});*/
 				$("li.story-widget").mouseenter(function() {
 					//app.slideArrow($(this).attr("id"));
 					$(this).addClass("widget-selected");								
@@ -43,6 +43,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					app.slideArrow(most_recent);
 					this.initial_load = false;
 				}
+				$("#widgets-list").alternateScroll();
 				app.stopLoading();
 			},
 

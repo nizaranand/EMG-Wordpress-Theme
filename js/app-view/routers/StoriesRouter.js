@@ -9,6 +9,7 @@ var StoriesRouter = Backbone.Router.extend({
 	},
 	
 	show: function(id){
+		console.log("router showing story: " + id);
 		app.showStory(id);
 	}
 
