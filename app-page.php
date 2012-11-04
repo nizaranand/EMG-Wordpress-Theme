@@ -48,6 +48,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 .story-widget {
 	position: relative;
     cursor: pointer;
+    color: #333;
 	border-bottom: dashed silver 1.5px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
@@ -58,16 +59,28 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 	height: inherit !important;
 	list-style: none;
     height: 100% !important;
+<<<<<<< HEAD
 overflow:scroll;
+=======
+	overflow: scroll;
+>>>>>>> a34e71c7c8463c09021bebe9855d00cb69b8e4b2
 }
 
 #story-content {
     position: relative;
 	height: 100% !important;
+<<<<<<< HEAD
 overflow: hidden;
+=======
+	overflow: scroll;
+>>>>>>> a34e71c7c8463c09021bebe9855d00cb69b8e4b2
 }
 
-#storycontent-author-info{
+#storycontent-content{
+	
+}
+
+#storycontent-story-info{
 
 }
 
@@ -100,7 +113,7 @@ overflow: scroll;
 }
 
 #widgets-list{
-	margin-right: 20px !important;
+	margin-right: 5px !important; /* 5 w/o arrow, 25 w/ arrow*/
 	margin-left: 5px !important;
 }
 
@@ -128,6 +141,7 @@ overflow: scroll;
 }
 
 #arrow {
+	display: none; /* try it without the arrow */ 
 	position: absolute;
 	right: 0;
     top: 0;
@@ -162,9 +176,7 @@ overflow: scroll;
 </style>
 
 <div id="primary" class="site-content" >
-	<div>
 		<div id="app-view" ></div>
-	</div>
 </div><!-- #primary -->
 
 <script type="text/template" id="app-template" >
@@ -182,7 +194,7 @@ overflow: scroll;
 	<% if(story_image){ %>
         <div class="story-image ps-image" ><img src="<%= story_image %>" /></div>
 	<% }; %>
-	<div id="storycontent-author-info" class="well well-small" >
+	<div id="storycontent-story-info" class="well well-small" >
 		<span id="storycontent-author" class="pull-left" ><%= story_author %></span>
 		<span id="storycontent-time" class="pull-right" ><i class="icon-time"></i> <%= story_date %></span>
 	</div>
@@ -192,7 +204,7 @@ overflow: scroll;
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
 	<li class="story-widget" id="<%= widget_id %>" >
-		<!-- <a href="#/story/<%= widget_id %>" rel="nofollow" title="<%= widget_title %>" > -->
+		<a href="#/story/<%= widget_id %>" title="<%= widget_title %>" >
 			<div class="storywidget-title" >
 				<%= widget_title %>
 			</div>
@@ -200,7 +212,7 @@ overflow: scroll;
 				<span class="clock-icon" ><i class="icon-time"></i></span>
 				<span class="storywidget-timestamp" > <%= widget_timestamp %></span>
 			</div>
-		<!-- </a> -->
+		</a>
 	</li>
 </script>
 
