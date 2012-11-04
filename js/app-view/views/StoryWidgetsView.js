@@ -19,8 +19,7 @@ var app = app || {}; ( function($, _, Backbone) {
 				this.collection.on('reset', this.addAll, this);
 				this.timer = setInterval(this.refresh, 120 * 1000);
 				this.initial_load = true;
-				$("#story-widgets").alternateScroll();
-				$("#story-content").alternateScroll();
+				$("#widgets-list").alternateScroll();
 			},
 
 
@@ -31,10 +30,12 @@ var app = app || {}; ( function($, _, Backbone) {
 					app.showStory($(this).attr("id"));
 				});
 				$("li.story-widget").mouseenter(function() {
-					app.slideArrow($(this).attr("id"));
+					//app.slideArrow($(this).attr("id"));
+					$(this).addClass("widget-selected");								
 				});
-				$("#story-widgets").mouseleave(function() {
-					app.slideArrow($("#storycontent-title").data("story"));
+				$("li.story-widget").mouseleave(function() {
+					//app.slideArrow($("#storycontent-title").data("story"));
+					$(this).removeClass("widget-selected");
 				});
 				var most_recent = $("li.story-widget").first().attr("id");
 				if (this.initial_load) {
@@ -42,7 +43,6 @@ var app = app || {}; ( function($, _, Backbone) {
 					app.slideArrow(most_recent);
 					this.initial_load = false;
 				}
-				$("#widgets-list").mCustomScrollbar("update");
 				app.stopLoading();
 			},
 
@@ -152,7 +152,6 @@ var app = app || {}; ( function($, _, Backbone) {
 					$story_content.height($(window).height());
 					$story_content.fadeIn(150);
 				});
-				$("#story-content").mCustomScrollbar("update");
 			}
 
 		});

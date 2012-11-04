@@ -40,40 +40,38 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 #story-widgets {
 	position: relative;
-	background-color: #DEDEDE;
+	background-color: #EEE;
     overflow: hidden;
 	height: 100% !important;
 }
 
 .story-widget {
 	position: relative;
-    cursor: pointer;
-    color: #333;
+    background: #EEE;
 	border-bottom: dashed silver 1.5px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
-	height: 125px;
+	height: 90px;
 }
 
 #widgets-list {
 	height: inherit !important;
-	list-style: none;
-    height: 100% !important;
-<<<<<<< HEAD
-overflow:scroll;
-=======
-	overflow: scroll;
->>>>>>> a34e71c7c8463c09021bebe9855d00cb69b8e4b2
+    list-style: none;
+    overflow:scroll;
+}
+
+#widgets-list a{
+  text-decoration: none;
+}
+
+.widget-selected{
+     background: #EEE;
 }
 
 #story-content {
     position: relative;
 	height: 100% !important;
-<<<<<<< HEAD
-overflow: hidden;
-=======
-	overflow: scroll;
->>>>>>> a34e71c7c8463c09021bebe9855d00cb69b8e4b2
+    overflow: scroll;
 }
 
 #storycontent-content{
@@ -120,8 +118,8 @@ overflow: scroll;
 .storywidget-title {
 	position: relative;
 	top: 0.5em;
-	color: #333;
 	margin-bottom: 5px;
+    color: #333;
 }
 
 .clock-icon {
@@ -131,13 +129,16 @@ overflow: scroll;
 .storywidget-time {
 	position: absolute;
 	bottom: 5px;
-	margin-top: 5px;
+	margin-top: 5px;  
+    color: #777;
 }
 
 .storywidget-timestamp {
 	float: left;
 	padding-left: 5px;
 	font-style: italic;
+    font-size: small;
+    font-variant: small-caps;
 }
 
 #arrow {
@@ -181,11 +182,11 @@ overflow: scroll;
 
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
-	<div id="story-widgets" class="span3" >
+	<div id="story-widgets" class="span4" >
 		<div id="arrow" ></div>
 		<ul id="widgets-list" ></ul>
 	</div>
-	<div id="story-content" class="span11" ></div>
+	<div id="story-content" class="span10" ></div>
 </script>
 
 <script type="text/template" id="storycontent-template" >
