@@ -28,7 +28,7 @@ var app = app || {}; ( function($, _, Backbone) {
 			},
 			
 			resizeApp : function() {
-				$("#story-widgets").height($(window).height());
+				$("#widgets-list").height($(window).height());
 			},
 
 			startLoading : function(){

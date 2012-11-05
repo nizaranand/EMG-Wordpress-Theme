@@ -40,24 +40,26 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 #story-widgets {
 	position: relative;
-	background-color: #EEE;
-    overflow: hidden;
-	height: 100% !important;
+	background-color: #FFF;
+    height: inherit;
 }
 
 .story-widget {
 	position: relative;
-    background: #EEE;
+    background: #FFF;
 	border-bottom: dashed silver 1.5px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
 	height: 90px;
 }
 
+
 #widgets-list {
 	height: inherit !important;
     list-style: none;
     overflow:scroll;
+    margin-left: 1px;
+    margin-right: 1px;
 }
 
 #widgets-list a{
@@ -65,22 +67,19 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 }
 
 .widget-selected{
-     background: #EEE;
+     background: #FAFAFA;
 }
 
 #story-content {
     position: relative;
-	height: 100% !important;
-	overflow: hidden;
 }
 
 #storycontent-content{
-	overflow:hidden;
+	
 }
 
 #storycontent-content p{
-margin-left: 13%;
-margin-right: 13%;
+
 }
 
 #storycontent-story-info{
@@ -95,12 +94,12 @@ margin-right: 13%;
 
 }
 
-.story-image{
-  
-}
-
 #story-content p img{
 	max-width: 780px !important;
+}
+
+.widget-first{
+  border-top: silver dashed 1px;
 }
 
 .ps-image{
@@ -109,11 +108,6 @@ margin-right: 13%;
 
 #story-content iframe{
 	width: 780px !important;
-}
-
-#widgets-list{
-	margin-right: 5px !important; /* 5 w/o arrow, 25 w/ arrow*/
-	margin-left: 5px !important;
 }
 
 .storywidget-title {
@@ -171,10 +165,6 @@ margin-right: 13%;
 	position: absolute;
 	top: 100%;
 }
-
-
-
-
 </style>
 
 <div id="primary" class="site-content" >
@@ -184,7 +174,7 @@ margin-right: 13%;
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
 	<div id="story-widgets" class="span4" >
-		<ul id="widgets-list" ></ul>
+	    <ul id="widgets-list" ></ul>
 	</div>
 	<div id="story-content" class="span10" ></div>
 </script>
@@ -204,7 +194,7 @@ margin-right: 13%;
 
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
-    <a href="#/story/<%= widget_id %>" title="<%= widget_title %>" >
+    <a href="javascript:void(0)" >
 	    <li class="story-widget" id="<%= widget_id %>" >
 			<div class="storywidget-title" >
 				<%= widget_title %>

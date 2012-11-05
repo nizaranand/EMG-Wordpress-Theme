@@ -7,6 +7,8 @@ var app = app || {}; ( function($, _, Backbone) {
 			initialize : function() {
 				app.showStory = this.showStory;
 				app.setScrollbars = this.setScrollbars;
+				app.headerShown = this.headerShown;
+				app.footerShown = this.footerShown;
 				this.collection.on('add', this.addOne, this);
 				this.collection.on('reset', this.addAll, this);
 				$(window).scroll(this.scrollApp);
@@ -15,12 +17,13 @@ var app = app || {}; ( function($, _, Backbone) {
 			},
 
 			scrollApp: function(){
-				// check if header,footer is on screen
-				// if not then set position: fixed on widgets else set it to relative
-				if(this.headerShown() || this.footerShown()){
-					$("#widgets-list").css("position", "relative");
+				if(app.headerShown()){
+					$("#widgets-list").css({ position: "relative", top: "" });
+				}else if(app.footerShown()){
+					// using { position: absolute, bottom: 0 } breaks the scrollbar
+					$("#widgets-list").css({ position: "absolute", bottom: "0" });
 				}else{
-					$("#widgets-list").css("position", "fixed");
+					$("#widgets-list").css({ position: "fixed", top: "0px" });
 				}
 			},
 			
@@ -29,11 +32,12 @@ var app = app || {}; ( function($, _, Backbone) {
 			},
 			
 			footerShown: function(){
-				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#app-view").offset().top;
+				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#story-content").height();
 			},
 
 			addAll : function() {
 				app.widgets.each(this.addOne, this);
+				$("li.story-widget").first().addClass("widget-first");
 				$("li.story-widget").click(function() {
 					app.showStory($(this).attr("id"));
 				});
@@ -43,10 +47,9 @@ var app = app || {}; ( function($, _, Backbone) {
 				$("li.story-widget").mouseleave(function() {
 					$(this).removeClass("widget-selected");
 				});
-				var most_recent = $("li.story-widget").first().attr("id");
 				if (this.initial_load) {
-					$("#widgets-list").alternateScroll();
-					app.showStory(most_recent);
+					$("#widgets-list").alternateScroll({ 'auto-size': false });
+					app.showStory($(".widget-first").attr("id"));
 					this.initial_load = false;
 				}
 				app.stopLoading();
@@ -75,10 +78,6 @@ var app = app || {}; ( function($, _, Backbone) {
 				app.widgets.fetchWithCallbacks();
 			},
 
-			resizeApp : function() {
-				$("#app-view").height($(window).height());
-			},
-
 			showStory : function(id) {
 				var model = app.widgets.get(id);
 				var $content_template = $("#storycontent-template");
@@ -87,7 +86,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					story_content : model.get("content"),
 					story_author : model.get("author"),
 					story_date : model.get("date"),
-					story_image : false,
+					story_image : false,  // TODO handle featured images based on post type
 					story_id : model.id
 				};
 				var content = _.template($content_template.html(), content_opts);
@@ -110,8 +109,12 @@ var app = app || {}; ( function($, _, Backbone) {
 				$story_content.fadeOut(150, function() {
 					$story_content.html("");
 					$story_content.append($content);
-					$story_content.height($(window).height());
 					$story_content.fadeIn(150);
+					if($content.height() > $(window).height()){
+						 $("#app-view").height($content.height());
+					}else{
+					     $("#app-view").height($(window).height());	
+					}
 				});
 			}
 
