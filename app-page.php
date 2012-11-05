@@ -23,7 +23,7 @@ wp_enqueue_script("storywidget-view", get_template_directory_uri() . "/js/app-vi
 wp_enqueue_script("storywidgets-view", get_template_directory_uri() . "/js/app-view/views/StoryWidgetsView.js", true);
 wp_enqueue_script("storywidgets-collection", get_template_directory_uri() . "/js/app-view/collections/StoryWidgets.js", true);
 wp_enqueue_script("app-view", get_template_directory_uri() . "/js/app-view/views/AppView.js", true);
-wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/routers/StoriesRouter.js", true);
+//wp_enqueue_script("stories-router", get_template_directory_uri() . "/js/app-view/routers/StoriesRouter.js", true);
 wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
 wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 
@@ -71,11 +71,11 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 #story-content {
     position: relative;
 	height: 100% !important;
-    overflow: scroll;
+	overflow: hidden;
 }
 
 #storycontent-content{
-	
+	overflow:hidden;
 }
 
 #storycontent-story-info{
@@ -90,24 +90,20 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 }
 
-#storycontent-content{
-overflow: scroll;
-}
-
 .story-image{
   
 }
 
 #story-content img{
-	max-width: 860px !important;
+	max-width: 780px !important;
 }
 
 .ps-image{
-	max-width: 860px !important;
+	max-width: 780px !important;
 }
 
 #story-content iframe{
-	max-width: 860px !important;
+	max-width: 780px !important;
 }
 
 #widgets-list{
@@ -182,7 +178,9 @@ overflow: scroll;
 
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
-	<div id="story-widgets" class="span4" ></div>
+	<div id="story-widgets" class="span4" >
+		<ul id="widgets-list" ></ul>
+	</div>
 	<div id="story-content" class="span10" ></div>
 </script>
 

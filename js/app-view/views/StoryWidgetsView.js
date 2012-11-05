@@ -1,7 +1,6 @@
 var app = app || {}; ( function($, _, Backbone) {
 
 		app.StoryWidgetsView = Backbone.View.extend({
-			$list : $("<ul id='widgets-list' ></ul>"),
 			timer : false,
 			template_options : {},
 
@@ -23,13 +22,10 @@ var app = app || {}; ( function($, _, Backbone) {
 
 
 			addAll : function() {
-				$("#story-widgets").html("");
-				console.log(this.$list);
-				$("#story-widgets").append(this.$list);
 				app.widgets.each(this.addOne, this);
-				/*$("li.story-widget").click(function() {
+				$("li.story-widget").click(function() {
 					app.showStory($(this).attr("id"));
-				});*/
+				});
 				$("li.story-widget").mouseenter(function() {
 					//app.slideArrow($(this).attr("id"));
 					$(this).addClass("widget-selected");								
@@ -40,11 +36,12 @@ var app = app || {}; ( function($, _, Backbone) {
 				});
 				var most_recent = $("li.story-widget").first().attr("id");
 				if (this.initial_load) {
+					$("#widgets-list").alternateScroll();
 					app.showStory(most_recent);
 					//app.slideArrow(most_recent);
 					this.initial_load = false;
 				}
-				$("#widgets-list").alternateScroll();
+				$("#storycontent-scroll").alternateScroll();
 				app.stopLoading();
 			},
 
@@ -155,7 +152,6 @@ var app = app || {}; ( function($, _, Backbone) {
 					$story_content.html("");
 					$story_content.append($content);
 					$story_content.height($(window).height());
-					//$story_content.find("#storycontent-scroll").alternateScroll();
 					$story_content.fadeIn(150);
 				});
 			}

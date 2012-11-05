@@ -9,9 +9,6 @@ var app = app || {}; ( function($, _, Backbone) {
                  app.startLoading = this.startLoading;
                  app.stopLoading = this.stopLoading;		
 				 $(window).resize(app.resizeApp);
-				 app.router = new app.StoriesRouter();
-				 console.log(app.router);
-				 Backbone.history.start();
 				 this.render();
 			},
 
