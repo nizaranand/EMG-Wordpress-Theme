@@ -201,8 +201,8 @@ overflow: scroll;
 
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
-	<li class="story-widget" id="<%= widget_id %>" >
-		<a href="#/story/<%= widget_id %>" title="<%= widget_title %>" >
+    <a href="#/story/<%= widget_id %>" title="<%= widget_title %>" >
+	    <li class="story-widget" id="<%= widget_id %>" >
 			<div class="storywidget-title" >
 				<%= widget_title %>
 			</div>
@@ -210,8 +210,8 @@ overflow: scroll;
 				<span class="clock-icon" ><i class="icon-time"></i></span>
 				<span class="storywidget-timestamp" > <%= widget_timestamp %></span>
 			</div>
-		</a>
-	</li>
+	    </li>
+    </a>
 </script>
 
 <?php /*get_sidebar();*/ ?>

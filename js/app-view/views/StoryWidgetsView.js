@@ -155,7 +155,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					$story_content.html("");
 					$story_content.append($content);
 					$story_content.height($(window).height());
-					$story_content.find("#storycontent-scroll").alternateScroll();
+					//$story_content.find("#storycontent-scroll").alternateScroll();
 					$story_content.fadeIn(150);
 				});
 			}
