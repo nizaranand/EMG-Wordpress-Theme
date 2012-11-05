@@ -16,7 +16,7 @@ var app = app || {}; ( function($, _, Backbone) {
 				app.animateTimer = false;
 				this.collection.on('add', this.addOne, this);
 				this.collection.on('reset', this.addAll, this);
-				this.timer = setInterval(this.refresh, 120 * 1000);
+				//this.timer = setInterval(this.refresh, 120 * 1000);
 				this.initial_load = true;
 			},
 
@@ -37,11 +37,11 @@ var app = app || {}; ( function($, _, Backbone) {
 				var most_recent = $("li.story-widget").first().attr("id");
 				if (this.initial_load) {
 					$("#widgets-list").alternateScroll();
+					$("#story-content").alternateScroll();
 					app.showStory(most_recent);
 					//app.slideArrow(most_recent);
 					this.initial_load = false;
 				}
-				$("#storycontent-scroll").alternateScroll();
 				app.stopLoading();
 			},
 
@@ -132,7 +132,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					story_id : model.id
 				};
 				var content = _.template($content_template.html(), content_opts);
-				var $content = $("<div id='storycontent-scroll' ></div>");
+				var $content = $("<div></div>");
 				$content.html(content);
 				$content.find("img, iframe").each(function(index) {
 					// hack the iframe size to rezise it down to 860px wide

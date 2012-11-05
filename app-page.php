@@ -78,6 +78,11 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 	overflow:hidden;
 }
 
+#storycontent-content p{
+margin-left: 13%;
+margin-right: 13%;
+}
+
 #storycontent-story-info{
 
 }
@@ -94,7 +99,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
   
 }
 
-#story-content img{
+#story-content p img{
 	max-width: 780px !important;
 }
 
@@ -103,7 +108,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 }
 
 #story-content iframe{
-	max-width: 780px !important;
+	width: 780px !important;
 }
 
 #widgets-list{
