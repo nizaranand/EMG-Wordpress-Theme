@@ -135,16 +135,19 @@ var app = app || {}; ( function($, _, Backbone) {
 					story_id : model.id
 				};
 				var content = _.template($content_template.html(), content_opts);
-				var $content = $("<div></div>");
+				var $content = $("<div id='storycontent-scroll' ></div>");
 				$content.html(content);
-				$content.find("iframe").each(function(index) {
+				$content.find("img, iframe").each(function(index) {
 					// hack the iframe size to rezise it down to 860px wide
 					var $curr = $(this);
+					var max_width = $("#story-content").width();
 					var width = $curr.attr("width"), height = $curr.attr("height");
-					if (width > 860) {
+					if (width > max_width) {
 						var aspect = height / width;
-						$curr.width("860");
-						$curr.height(860 * aspect + "");
+						$curr.width(max_width);
+						$curr.height(max_width * aspect);
+						$curr.css("width", max_width + "px !important");
+						$curr.css("height", max_width * aspect + "px !important");
 					}
 				});
 				var $story_content = $("#story-content");
@@ -152,6 +155,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					$story_content.html("");
 					$story_content.append($content);
 					$story_content.height($(window).height());
+					$story_content.find("#storycontent-scroll").alternateScroll();
 					$story_content.fadeIn(150);
 				});
 			}

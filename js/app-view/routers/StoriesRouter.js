@@ -3,7 +3,7 @@
 var app = app || {};
 
 (function($, _, Backbone){
-var StoriesRouter = Backbone.Router.extend({
+app.StoriesRouter = Backbone.Router.extend({
 	routes: {
 		"/story/:id": "show" // fired when a widget is clicked
 	},
@@ -14,6 +14,4 @@ var StoriesRouter = Backbone.Router.extend({
 	}
 
 });
-app.router = new StoriesRouter();
-Backbone.history.start();
 }(jQuery, _, Backbone));
