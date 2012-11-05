@@ -24,7 +24,8 @@ var app = app || {}; ( function($, _, Backbone) {
 
 			addAll : function() {
 				$("#story-widgets").html("");
-				$("#story-widgets").append(this.$el);
+				console.log(this.$list);
+				$("#story-widgets").append(this.$list);
 				app.widgets.each(this.addOne, this);
 				/*$("li.story-widget").click(function() {
 					app.showStory($(this).attr("id"));
@@ -40,7 +41,7 @@ var app = app || {}; ( function($, _, Backbone) {
 				var most_recent = $("li.story-widget").first().attr("id");
 				if (this.initial_load) {
 					app.showStory(most_recent);
-					app.slideArrow(most_recent);
+					//app.slideArrow(most_recent);
 					this.initial_load = false;
 				}
 				$("#widgets-list").alternateScroll();
