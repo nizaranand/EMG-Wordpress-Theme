@@ -7,19 +7,30 @@ var app = app || {}; ( function($, _, Backbone) {
 			initialize : function() {
 				app.showStory = this.showStory;
 				app.setScrollbars = this.setScrollbars;
-				app.slideArrow = this.slideArrow;
-				app.changeArrowDestination = this.changeArrowDestination;
-				app.startArrow = this.startArrow;
-				app.stopArrow = this.stopArrow;
-				app.sliding = false;
-				app.arrowDestination = 0;
-				app.animateTimer = false;
 				this.collection.on('add', this.addOne, this);
 				this.collection.on('reset', this.addAll, this);
+				$(window).scroll(this.scrollApp);
 				//this.timer = setInterval(this.refresh, 120 * 1000);
 				this.initial_load = true;
 			},
 
+			scrollApp: function(){
+				// check if header,footer is on screen
+				// if not then set position: fixed on widgets else set it to relative
+				if(this.headerShown() || this.footerShown()){
+					$("#widgets-list").css("position", "relative");
+				}else{
+					$("#widgets-list").css("position", "fixed");
+				}
+			},
+			
+			headerShown: function(){
+				return $(window).scrollTop() < $("#app-view").offset().top;
+			},
+			
+			footerShown: function(){
+				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#app-view").offset().top;
+			},
 
 			addAll : function() {
 				app.widgets.each(this.addOne, this);
@@ -27,19 +38,15 @@ var app = app || {}; ( function($, _, Backbone) {
 					app.showStory($(this).attr("id"));
 				});
 				$("li.story-widget").mouseenter(function() {
-					//app.slideArrow($(this).attr("id"));
 					$(this).addClass("widget-selected");								
 				});
 				$("li.story-widget").mouseleave(function() {
-					//app.slideArrow($("#storycontent-title").data("story"));
 					$(this).removeClass("widget-selected");
 				});
 				var most_recent = $("li.story-widget").first().attr("id");
 				if (this.initial_load) {
 					$("#widgets-list").alternateScroll();
-					$("#story-content").alternateScroll();
 					app.showStory(most_recent);
-					//app.slideArrow(most_recent);
 					this.initial_load = false;
 				}
 				app.stopLoading();
@@ -70,54 +77,6 @@ var app = app || {}; ( function($, _, Backbone) {
 
 			resizeApp : function() {
 				$("#app-view").height($(window).height());
-			},
-
-			slideArrow : function(id) {
-				var $curr = $("#" + id);
-				var offset = $curr.offset().top + (0.5 * $curr.height()) - $("#story-widgets").offset().top;
-				// 7.5 is half the height of the arrow
-				if (app.sliding) {
-					app.changeArrowDestination(offset);
-				} else {
-					app.sliding = true;
-					app.changeArrowDestination(offset);
-					app.startArrow();
-				}
-			},
-
-			startArrow : function() {
-				app.animateTimer = setInterval(function() {
-					var animateProportion = 0.125;
-					var $arrow = $("#arrow");
-					var arrowOffsetY = parseInt($arrow.css("top").replace("px", ""));
-					// offset() wont work here b/c of the absolute positioning
-					if (Math.abs(arrowOffsetY - app.arrowDestination) < 1) {// give it a 1 pixel buffer
-						app.stopArrow();
-					} else {
-						var dy = Math.abs(app.arrowDestination - arrowOffsetY);
-						var weightedDist = animateProportion * dy;
-						// linear looks fine, maybe redo with quadratic later
-						if (app.arrowDestination > arrowOffsetY) {
-							// move down
-							arrowOffsetY += weightedDist + 2;
-							// for some reason moving down doesn't quite move it far enough
-							$arrow.css("top", arrowOffsetY + "px");
-						} else {
-							// move up
-							arrowOffsetY -= weightedDist;
-							$arrow.css("top", arrowOffsetY + "px");
-						}
-					}
-				}, 20);
-			},
-
-			changeArrowDestination : function(offset) {
-				app.arrowDestination = offset;
-			},
-
-			stopArrow : function() {
-				clearInterval(app.animateTimer);
-				app.sliding = false;
 			},
 
 			showStory : function(id) {
