@@ -54,6 +54,7 @@ var app = app || {}; ( function($, _, Backbone) {
 				});
 				if (this.initial_load) {
 					$("#widgets-list").alternateScroll();
+					$("#widgets-list").kinetic();
 					app.showStory($(".widget-first").attr("id"));
 					this.initial_load = false;
 				}

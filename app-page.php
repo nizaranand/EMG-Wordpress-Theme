@@ -12,6 +12,8 @@
 // add ui and dependencies
 wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/jquery-ui/jquery-ui-1.9.1.custom.min.js", true);
 wp_enqueue_script("jquery-ui-punch", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.ui.touch-punch.min.js", true);
+wp_enqueue_script("jquery-mousewheel", get_template_directory_uri() . "/js/app-view/libs/draggable/jquery.mousewheel.min.js", true);
+wp_enqueue_script("draggable", get_template_directory_uri() . "/js/app-view/libs/draggable/jquery.kinetic.js", true);
 wp_enqueue_script("facescroll", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/facescroll.js", true);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 wp_enqueue_script("spin", get_template_directory_uri() . "/js/app-view/libs/spin/spin.min.js", true);
@@ -67,7 +69,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 }
 
 .widget-selected{
-     background: #FAFAFA;
+     background: #EFEFEF;
 }
 
 #story-content {
