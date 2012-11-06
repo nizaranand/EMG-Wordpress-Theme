@@ -44,17 +44,18 @@ var app = app || {}; ( function($, _, Backbone) {
 				app.widgets.each(this.addOne, this);
 				$("li.story-widget").first().addClass("widget-first");
 				$("li.story-widget").click(function() {
+					$(".widget-selected").removeClass("widget-selected");
 					app.showStory($(this).attr("id"));
 				});
 				$("li.story-widget").mouseenter(function() {
-					$(this).addClass("widget-selected");								
+					$(this).toggleClass("widget-selected");								
 				});
 				$("li.story-widget").mouseleave(function() {
-					$(this).removeClass("widget-selected");
+					$(this).toggleClass("widget-selected");
 				});
 				if (this.initial_load) {
 					$("#widgets-list").alternateScroll();
-					$("#widgets-list").kinetic();
+					$("#widgets-list").dragscrollable();
 					app.showStory($(".widget-first").attr("id"));
 					this.initial_load = false;
 				}
@@ -121,7 +122,8 @@ var app = app || {}; ( function($, _, Backbone) {
 					}else{
 					     $("#app-view").height($(window).height());	
 					}
-				});
+					$("#" + id).addClass("widget-selected");
+				});;
 			}
 
 		});

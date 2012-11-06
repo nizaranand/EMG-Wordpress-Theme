@@ -47,17 +47,17 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 .story-widget {
 	position: relative;
-    background: #FFF;
 	border-bottom: dashed silver 1.5px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
-	height: 90px;
+     height: 90px;
+ background: #FAFAFA;
 }
 
 
 #widgets-list {
 	height: inherit !important;
-    list-style: none;
+list-style: none;
     overflow:scroll;
     margin-left: 1px;
     margin-right: 1px;
@@ -68,7 +68,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 }
 
 .widget-selected{
-     background: #EFEFEF;
+  background: #FAFAFA;
 }
 
 #story-content {
@@ -114,9 +114,10 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 .storywidget-title {
 	position: relative;
 	top: 0.5em;
-   font-size: 16px;
+   font-size: 15px;
+   /*font-weight: bold;*/
 	margin-bottom: 5px;
-    color: #333;
+    color: #004F27;
 }
 
 .clock-icon {
@@ -133,6 +134,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 .storywidget-timestamp {
 	float: left;
 	padding-left: 5px;
+ color: #004F27 !important;
 	font-style: italic;
     font-size: small;
     font-variant: small-caps;
