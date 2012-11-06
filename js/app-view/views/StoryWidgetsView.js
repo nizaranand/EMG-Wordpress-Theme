@@ -102,6 +102,9 @@ var app = app || {}; ( function($, _, Backbone) {
 				$content.find("img, iframe").each(function(index) {
 					// hack the iframe size to rezise it down to 860px wide
 					var $curr = $(this);
+					if($curr.is("iframe") || $curr.parent().hasClass("ps-image")){
+						$curr.parent().addClass("story-media");
+					}
 					var max_width = $("#story-content").width();
 					var width = $curr.attr("width"), height = $curr.attr("height");
 					if (width > max_width) {
@@ -111,6 +114,21 @@ var app = app || {}; ( function($, _, Backbone) {
 						$curr.css("width", max_width + "px !important");
 						$curr.css("height", max_width * aspect + "px !important");
 					}
+				});
+				$content.find("#storycontent-content").find("div").each(function(index){
+					// seriously though, why the hell is some of the text in div tags and some in p tags? 
+					var $curr = $(this);
+					console.log("replacing divs");
+					if($curr.hasClass("story-media") || $curr.find("img, iframe").size() > 0){
+						return true; // continue
+					}
+					var text = $curr.text();
+					var $newEl = $("<p></p>");
+					$newEl.text(text);
+					$newEl.insertBefore($curr);
+					console.log("switching to p tag: " + text);
+					console.log($curr);
+					$curr.remove();
 				});
 
 				var $story_content = $("#story-content");

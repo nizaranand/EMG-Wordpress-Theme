@@ -50,7 +50,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
     height: 90px;
-	background: #FAFAFA;
+	
 }
 
 
@@ -98,9 +98,17 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 	max-width: 780px !important;
 }
 
-#story-content p{
+#storycontent-content p{
 	margin-left: 13%;
 	margin-right: 13%;
+}
+
+#storycontent-content div{
+
+}
+
+.story-media{
+    margin: 0 auto !important; 
 }
 
 .widget-first{
