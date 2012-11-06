@@ -113,6 +113,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 .storywidget-title {
 	position: relative;
 	top: 0.5em;
+   font-size: 16px;
 	margin-bottom: 5px;
     color: #333;
 }

@@ -16,15 +16,15 @@ var app = app || {}; ( function($, _, Backbone) {
 				var view = _.template(this.$template.html(), {});
 				$(this.el).html(view);
 				$(this.el).height($(window).height());
-				$("#story-widgets").click(function() {
+				$("#story-widgets").click(function() { 
 					app.setWindow(150);
 				});
 			},
 
 			setWindow : function(duration) {
-				$("html, body").animate({
-					scrollTop : $("#app-view").offset().top
-				}, duration);
+				if($(window).scrollTop() > $("#app-view").offset().top){ // only move the window up, not down
+				    $("html, body").animate({ scrollTop : $("#app-view").offset().top }, duration);
+				}
 			},
 			
 			resizeApp : function() {

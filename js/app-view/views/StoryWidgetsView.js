@@ -21,7 +21,12 @@ var app = app || {}; ( function($, _, Backbone) {
 					$("#widgets-list").css({ position: "relative", top: "" });
 				}else if(app.footerShown()){
 					// using { position: absolute, bottom: 0 } breaks the scrollbar
-					$("#widgets-list").css({ position: "absolute", bottom: "0" });
+					if($("#story-content").height() > $("#app-view").height()){
+						var offset = $("#story-content").height() - $(window).height();
+					}else{
+						var offset = $("#app-view").height() - $(window).height();
+					}
+					$("#widgets-list").css({ position: "relative", top: offset - 15 + "px" }); // add a bit of a margin
 				}else{
 					$("#widgets-list").css({ position: "fixed", top: "0px" });
 				}
@@ -48,7 +53,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					$(this).removeClass("widget-selected");
 				});
 				if (this.initial_load) {
-					$("#widgets-list").alternateScroll({ 'auto-size': false });
+					$("#widgets-list").alternateScroll();
 					app.showStory($(".widget-first").attr("id"));
 					this.initial_load = false;
 				}
