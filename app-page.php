@@ -28,7 +28,6 @@ wp_enqueue_script("app-view", get_template_directory_uri() . "/js/app-view/views
 wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
 wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 
-$arrow_src = get_template_directory_uri() . '/img/arrow.png';
 $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'; 
 ?>
 
@@ -50,14 +49,14 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 	border-bottom: dashed silver 1.5px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
-     height: 90px;
- background: #FAFAFA;
+    height: 90px;
+	background: #FAFAFA;
 }
 
 
 #widgets-list {
 	height: inherit !important;
-list-style: none;
+	list-style: none;
     overflow:scroll;
     margin-left: 1px;
     margin-right: 1px;
@@ -95,8 +94,13 @@ list-style: none;
 
 }
 
-#story-content p img{
+#story-content img{
 	max-width: 780px !important;
+}
+
+#story-content p{
+	margin-left: 13%;
+	margin-right: 13%;
 }
 
 .widget-first{
@@ -104,7 +108,13 @@ list-style: none;
 }
 
 .ps-image{
-	max-width: 780px !important;
+	margin: 0 auto;
+	width: 780px !important;
+}
+
+.ps-image img{
+	width: 780px !important;
+	margin: 0 auto;
 }
 
 #story-content iframe{
@@ -114,8 +124,8 @@ list-style: none;
 .storywidget-title {
 	position: relative;
 	top: 0.5em;
-   font-size: 15px;
-   /*font-weight: bold;*/
+    font-size: 15px;
+    /*font-weight: bold;*/
 	margin-bottom: 5px;
     color: #004F27;
 }
@@ -134,23 +144,12 @@ list-style: none;
 .storywidget-timestamp {
 	float: left;
 	padding-left: 5px;
- color: #004F27 !important;
+    color: #004F27 !important;
 	font-style: italic;
     font-size: small;
     font-variant: small-caps;
 }
 
-#arrow {
-	display: none; /* try it without the arrow */ 
-	position: absolute;
-	right: 0;
-    top: 0;
-	background: url(<?php print $arrow_src; ?>) no-repeat;
-	background-position: center center;
-	background-size: contain;
-	height: 15px;
-	width: 15px;
-}
 </style>
 
 <style>

@@ -112,6 +112,7 @@ var app = app || {}; ( function($, _, Backbone) {
 						$curr.css("height", max_width * aspect + "px !important");
 					}
 				});
+
 				var $story_content = $("#story-content");
 				$story_content.fadeOut(150, function() {
 					$story_content.html("");
@@ -123,7 +124,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					     $("#app-view").height($(window).height());	
 					}
 					$("#" + id).addClass("widget-selected");
-				});;
+				});
 			}
 
 		});
