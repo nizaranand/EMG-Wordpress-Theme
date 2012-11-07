@@ -10,9 +10,10 @@ var app = app || {}; ( function($, _, Backbone) {
 				app.headerShown = this.headerShown;
 				app.footerShown = this.footerShown;
 				app.convertDate = this.convertDate;
+				app.scrollApp = this.scrollApp;
 				this.collection.on('add', this.addOne, this);
 				this.collection.on('reset', this.addAll, this);
-				$(window).scroll(this.scrollApp);
+				$(window).scroll(app.scrollApp);
 				//this.timer = setInterval(this.refresh, 120 * 1000);
 				this.initial_load = true;
 			},
@@ -22,11 +23,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					$("#widgets-list").css({ position: "relative", top: "" });
 				}else if(app.footerShown()){
 					// using { position: absolute, bottom: 0 } breaks the scrollbar
-					if($("#story-content").height() > $("#app-view").height()){	
-						var offset = $("#story-content").height() - $(window).height();
-					}else{
-						var offset = $("#app-view").height() - $(window).height();
-					}
+					var offset = $("#app-view").height() - $(window).height();
 					$("#widgets-list").css({ position: "relative", top: offset - 15 + "px" }); // add a bit of a margin
 				}else{
 					$("#widgets-list").css({ position: "fixed", top: "0px" });
@@ -38,7 +35,7 @@ var app = app || {}; ( function($, _, Backbone) {
 			},
 			
 			footerShown: function(){
-				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#app-view").height();
+				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#story-content").height();
 			},
 
 			addAll : function() {
@@ -56,11 +53,10 @@ var app = app || {}; ( function($, _, Backbone) {
 				});
 				if (this.initial_load) {
 					$("#widgets-list").alternateScroll();
-					//$("#widgets-list").dragscrollable();
+					$("#widgets-list").dragscrollable();
 					app.showStory($(".widget-first").attr("id"));
 					this.initial_load = false;
 				}
-				app.resizeApp();
 				app.stopLoading();
 			},
 
@@ -86,24 +82,25 @@ var app = app || {}; ( function($, _, Backbone) {
 				app.startLoading();
 				app.widgets.fetchWithCallbacks();
 			},
+														
+convertDate: function(date){
+	var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+	var parts = date.split(" ");
+	var _date_parts = parts[0].split("-");
+	var time = parts[1].split(":");
+	var year = _date_parts[0];
+	var month = parseInt(_date_parts[1]);
+	var day = _date_parts[2];
+	if(day.charAt(0) == '0')
+		day = day.substr(1);
+	var suffix = "AM";
+	if(parseInt(time[0]) > 12){	
+		time[0] -= 12;
+		suffix = "PM";
+     }
+	return months[month] + " " + day + " " + year + " " + time[0] + ":" + time[1] + " " + suffix;
+},
 
-			convertDate: function(date){
-			    var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-				var parts = date.split(" ");
-				var _date_parts = parts[0].split("-");
-				var time = parts[1].split(":");
-				var year = _date_parts[0];
-				var month = parseInt(_date_parts[1]);
-				var day = _date_parts[2];
-				if(day.charAt(0) == '0')
-					day = day.substr(1);
-				var suffix = "AM";
-				if(parseInt(time[0]) > 12){
-					time[0] -= 12;
-					suffix = "PM";
-                }
-				return months[month] + " " + day + " " + year + " " + time[0] + ":" + time[1] + " " + suffix;
-			},
 
 			showStory : function(id) {
 				var model = app.widgets.get(id);
@@ -118,8 +115,8 @@ var app = app || {}; ( function($, _, Backbone) {
 					story_content : model.get("content"),
 					story_author : model.get("author"),
 					story_date : app.convertDate(model.get("date")),
-					story_image : thumbnail,  // TODO handle featured images based on post type
-					story_id : model.id
+					story_image : thumbnail,
+					story_id : model.id	
 				};
 				var content = _.template($content_template.html(), content_opts);
 				var $content = $("<div></div>");
@@ -129,7 +126,8 @@ var app = app || {}; ( function($, _, Backbone) {
 					var $curr = $(this);
 					var max_width = $("#story-content").width();
 					if($curr.is("img") && !$curr.parent().hasClass("ps-image")){
-						max_width = 260; 
+						//max_width = 260; 
+						$curr.remove();
 					}
 					if($curr.is("iframe") || $curr.parent().hasClass("ps-image")){
 						$curr.parent().addClass("story-media");
@@ -158,20 +156,25 @@ var app = app || {}; ( function($, _, Backbone) {
 					console.log($curr);
 					$curr.remove();
 				});
-
 				var $story_content = $("#story-content");
 				$story_content.fadeOut(150, function() {
 					$story_content.html("");
 					$story_content.append($content);
-					$story_content.fadeIn(150);
-					if($story_content.height() > $("#app-view").height()){
-						 $("#app-view").height($story_content.height());
-					}else{
-					     $("#app-view").height($(window).height());	
-					}
+					$story_content.fadeIn(150, function(){
+                        if($story_content.height() > $(window).height()){
+                            $("#app-view").height($story_content.height());
+                            $("#story-widgets").height($story_content.height());
+                        }else{
+                            $("#app-view").height($(window).height());
+                            $("#story-widgets").height($(window).height());
+                        }
+					    //$("#widgets-list").animate({ top: '0' }, 100);
+                        app.resizeApp();
+                        $("#" + id).addClass("widget-selected");
+					});
+				
 				});
-			},
-
+			}
 
 		});
 	}(jQuery, _, Backbone));

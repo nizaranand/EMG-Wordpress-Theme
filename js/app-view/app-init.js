@@ -5,7 +5,6 @@ var app = app || {};
 	
 	$(document).ready(function(){
 		//$("header").css("display", "none");
-		//$("#main-footer").css("display", "none");		
 		new app.AppView();
      });
 	 

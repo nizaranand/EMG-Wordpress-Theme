@@ -42,6 +42,8 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 padding-left: 0 !important;
 height: inherit !important;
 margin-bottom: 15px;
+border-top: outset 3px;
+border-bottom: outset 3px;
 }
 
 .story-widget {
@@ -49,11 +51,30 @@ margin-bottom: 15px;
 	border-top: solid #DDD 2px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
-    background: #F5F5F5;    	
+   border-left: outset 4px;
+}
+
+
+#widgets-list {
+	list-style: none;
+    overflow:scroll;
+padding-right: 15px;
+margin: 0 1px 0 1px;
+}
+
+#widgets-list a{
+  text-decoration: none;
+}
+
+.widget-selected{
+  
+}
+
+#story-content {
+    position: relative;
 }
 
 .gradient{
-
  background: rgb(245,245,245);
  background: -moz-linear-gradient(left, rgba(245,245,245,1) 0%, rgba(245,245,245,1) 98%, rgba(170,170,170,1) 100%);
  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(245,245,245,1)), color-stop(98%,rgba(245,245,245,1)), color-stop(100%,rgba(170,170,170,1)));
@@ -62,40 +83,7 @@ margin-bottom: 15px;
  background: -ms-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
  background: linear-gradient(to right, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#aaaaaa',GradientType=1 );
-
-}
-
-.gradient2{
- background: rgb(170,170,170);
- background: -moz-linear-gradient(left, rgba(170,170,170,1) 0%, rgba(245,245,245,1) 2%, rgba(245,245,245,1) 98%, rgba(170,170,170,1) 100%);
- background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(170,170,170,1)), color-stop(2%,rgba(245,245,245,1)), color-stop(98%,rgba(245,245,245,1)), color-stop(100%,rgba(170,170,170,1)));
- background: -webkit-linear-gradient(left, rgba(170,170,170,1) 0%,rgba(245,245,245,1) 2%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
- background: -o-linear-gradient(left, rgba(170,170,170,1) 0%,rgba(245,245,245,1) 2%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
- background: -ms-linear-gradient(left, rgba(170,170,170,1) 0%,rgba(245,245,245,1) 2%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
- background: linear-gradient(to right, rgba(170,170,170,1) 0%,rgba(245,245,245,1) 2%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
- filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#aaaaaa',GradientType=1 );
  }
-
-
-#widgets-list {
-	list-style: none;
-    overflow:scroll;
-padding-right: 15px;
-margin-left: 1px !important;
-
-}
-
-#widgets-list a{
-  text-decoration: none;
-}
-
-.widget-selected{
-  /*font-weight: bold;*/
-}
-
-#story-content {
-    position: relative;
-}
 
 #storycontent-content{
 	
@@ -135,7 +123,7 @@ margin: 10px 0 10px 0;
 }
 
 .widget-first{
-  border-top: none !important;
+  border-top: none;
 }
 
 .ps-image{
@@ -154,10 +142,10 @@ margin: 10px 0 10px 0;
 
 .storywidget-title {
 	position: relative;
+	margin-top: 10px;
     font-size: 15px;
     /*font-weight: bold;*/
 	margin-bottom: 5px;
-    margin-top: 10px;
     color: #004F27;
 }
 
@@ -167,6 +155,7 @@ margin: 10px 0 10px 0;
 
 .storywidget-time {
 	position: relative;
+  margin-bottom: 5px
 	margin-top: 10px;  
 }
 
