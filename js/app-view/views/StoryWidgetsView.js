@@ -1,4 +1,5 @@
-var app = app || {}; ( function($, _, Backbone) {
+var app = app || {};
+( function($, _, Backbone) {
 
 		app.StoryWidgetsView = Backbone.View.extend({
 			timer : false,
@@ -18,23 +19,33 @@ var app = app || {}; ( function($, _, Backbone) {
 				this.initial_load = true;
 			},
 
-			scrollApp: function(){
-				if(app.headerShown()){
-					$("#widgets-list").css({ position: "relative", top: "" });
-				}else if(app.footerShown()){
+			scrollApp : function() {
+				if (app.headerShown()) {
+					$("#widgets-list").css({
+						position : "relative",
+						top : ""
+					});
+				} else if (app.footerShown()) {
 					// using { position: absolute, bottom: 0 } breaks the scrollbar
 					var offset = $("#app-view").height() - $(window).height();
-					$("#widgets-list").css({ position: "relative", top: offset - 15 + "px" }); // add a bit of a margin
-				}else{
-					$("#widgets-list").css({ position: "fixed", top: "0px" });
+					$("#widgets-list").css({
+						position : "relative",
+						top : offset - 15 + "px"
+					});
+					// add a bit of a margin
+				} else {
+					$("#widgets-list").css({
+						position : "fixed",
+						top : "0px"
+					});
 				}
 			},
-			
-			headerShown: function(){
+
+			headerShown : function() {
 				return $(window).scrollTop() < $("#app-view").offset().top;
 			},
-			
-			footerShown: function(){
+
+			footerShown : function() {
 				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#story-content").height();
 			},
 
@@ -46,7 +57,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					app.showStory($(this).attr("id"));
 				});
 				$("li.story-widget").mouseenter(function() {
-					$(this).toggleClass("widget-selected");								
+					$(this).toggleClass("widget-selected");
 				});
 				$("li.story-widget").mouseleave(function() {
 					$(this).toggleClass("widget-selected");
@@ -82,32 +93,31 @@ var app = app || {}; ( function($, _, Backbone) {
 				app.startLoading();
 				app.widgets.fetchWithCallbacks();
 			},
-														
-convertDate: function(date){
-	var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-	var parts = date.split(" ");
-	var _date_parts = parts[0].split("-");
-	var time = parts[1].split(":");
-	var year = _date_parts[0];
-	var month = parseInt(_date_parts[1]);
-	var day = _date_parts[2];
-	if(day.charAt(0) == '0')
-		day = day.substr(1);
-	var suffix = "AM";
-	if(parseInt(time[0]) > 12){	
-		time[0] -= 12;
-		suffix = "PM";
-     }
-	return months[month] + " " + day + " " + year + " " + time[0] + ":" + time[1] + " " + suffix;
-},
 
+			convertDate : function(date) {
+				var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+				var parts = date.split(" ");
+				var _date_parts = parts[0].split("-");
+				var time = parts[1].split(":");
+				var year = _date_parts[0];
+				var month = parseInt(_date_parts[1]);
+				var day = _date_parts[2];
+				if (day.charAt(0) == '0')
+					day = day.substr(1);
+				var suffix = "AM";
+				if (parseInt(time[0]) > 12) {
+					time[0] -= 12;
+					suffix = "PM";
+				}
+				return months[month] + " " + day + " " + year + " " + time[0] + ":" + time[1] + " " + suffix;
+			},
 
 			showStory : function(id) {
 				var model = app.widgets.get(id);
 				var $content_template = $("#storycontent-template");
-				if(model.get("title").indexOf("Video:") != -1){
+				if (model.get("title").indexOf("Video:") != -1) {
 					var thumbnail = false;
-				}else{
+				} else {
 					var thumbnail = model.get("thumbnail") || false;
 				}
 				var content_opts = {
@@ -116,7 +126,7 @@ convertDate: function(date){
 					story_author : model.get("author"),
 					story_date : app.convertDate(model.get("date")),
 					story_image : thumbnail,
-					story_id : model.id	
+					story_id : model.id
 				};
 				var content = _.template($content_template.html(), content_opts);
 				var $content = $("<div></div>");
@@ -125,11 +135,11 @@ convertDate: function(date){
 					// hack the iframe size to rezise it down to 860px wide
 					var $curr = $(this);
 					var max_width = $("#story-content").width();
-					if($curr.is("img") && !$curr.parent().hasClass("ps-image")){
-						//max_width = 260; 
+					if ($curr.is("img") && !$curr.parent().hasClass("ps-image")) {
+						//max_width = 260;
 						$curr.remove();
 					}
-					if($curr.is("iframe") || $curr.parent().hasClass("ps-image")){
+					if ($curr.is("iframe") || $curr.parent().hasClass("ps-image")) {
 						$curr.parent().addClass("story-media");
 					}
 					var width = $curr.attr("width"), height = $curr.attr("height");
@@ -141,12 +151,13 @@ convertDate: function(date){
 						$curr.css("height", max_width * aspect + "px !important");
 					}
 				});
-				$content.find("#storycontent-content").find("div").each(function(index){
-					// seriously though, why the hell is some of the text in div tags and some in p tags? 
+				$content.find("#storycontent-content").find("div").each(function(index) {
+					// seriously though, why the hell is some of the text in div tags and some in p tags?
 					var $curr = $(this);
 					console.log("replacing divs");
-					if($curr.hasClass("story-media") || $curr.find("img, iframe").size() > 0){
-						return true; // continue
+					if ($curr.hasClass("story-media") || $curr.find("img, iframe").size() > 0) {
+						return true;
+						// continue
 					}
 					var text = $curr.text();
 					var $newEl = $("<p></p>");
@@ -160,21 +171,20 @@ convertDate: function(date){
 				$story_content.fadeOut(150, function() {
 					$story_content.html("");
 					$story_content.append($content);
-					$story_content.fadeIn(150, function(){
-                        if($story_content.height() > $(window).height()){
-                            $("#app-view").height($story_content.height());
-                            $("#story-widgets").height($story_content.height());
-                        }else{
-                            $("#app-view").height($(window).height());
-                            $("#story-widgets").height($(window).height());
-                        }
-					    //$("#widgets-list").animate({ top: '0' }, 100);
-                        app.resizeApp();
-                        $("#" + id).addClass("widget-selected");
+					$story_content.fadeIn(150, function() {
+						if ($story_content.height() > $(window).height()) {
+							$("#app-view").height($story_content.height());
+							$("#story-widgets").height($story_content.height());
+						} else {
+							$("#app-view").height($(window).height());
+							$("#story-widgets").height($(window).height());
+						}
+						//$("#widgets-list").animate({ top: '0' }, 100);
+						app.resizeApp();
+						$("#" + id).addClass("widget-selected");
 					});
-				
+
 				});
 			}
-
 		});
 	}(jQuery, _, Backbone));

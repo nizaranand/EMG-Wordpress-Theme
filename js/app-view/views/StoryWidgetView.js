@@ -10,7 +10,8 @@ app.StoryWidgetView = Backbone.View.extend({
 		this.widget_view_params = {
 			widget_title: this.model.get("title"),
 			widget_timestamp: timeago,
-			widget_id: this.model.id
+			widget_id: this.model.id,
+			widget_image: this.model.get("thumbnail") || false
 		};
 	},
 	

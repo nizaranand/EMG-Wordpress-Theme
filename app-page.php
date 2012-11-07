@@ -28,184 +28,186 @@ wp_enqueue_script("app-view", get_template_directory_uri() . "/js/app-view/views
 wp_enqueue_script("app-helpers", get_template_directory_uri() . "/js/app-view/app-helpers.js", true);
 wp_enqueue_script("app-init", get_template_directory_uri() . "/js/app-view/app-init.js", true);
 
-$scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'; 
+$scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png';
 ?>
 
 <style>
+	#app-view {
+		position: relative;
+	}
 
-#app-view{
-	position: relative;
-}
+	#story-widgets {
+		position: relative;
+		padding-left: 0 !important;
+		height: inherit !important;
+		margin-bottom: 15px;
+		border-top: outset 3px;
+		border-bottom: outset 3px;
+	}
 
-#story-widgets {
-	position: relative;
-padding-left: 0 !important;
-height: inherit !important;
-margin-bottom: 15px;
-border-top: outset 3px;
-border-bottom: outset 3px;
-}
+	.story-widget {
+		position: relative;
+		border-top: solid #DDD 2px;
+		overflow: hidden;
+		padding: 10px 15px 10px 10px;
+		border-left: outset 4px;
+	}
 
-.story-widget {
-	position: relative;
-	border-top: solid #DDD 2px;
-	overflow: hidden;
-    padding: 10px 15px 10px 10px;
-   border-left: outset 4px;
-}
+	#widgets-list {
+		list-style: none;
+		overflow: scroll;
+		padding-right: 15px;
+		margin: 0 1px 0 1px;
+	}
 
+	#widgets-list a {
+		text-decoration: none;
+	}
 
-#widgets-list {
-	list-style: none;
-    overflow:scroll;
-padding-right: 15px;
-margin: 0 1px 0 1px;
-}
+	.widget-selected {
 
-#widgets-list a{
-  text-decoration: none;
-}
+	}
 
-.widget-selected{
-  
-}
+	#story-content {
+		position: relative;
+	}
 
-#story-content {
-    position: relative;
-}
+	.gradient {
+		background: rgb(245,245,245);
+		background: -moz-linear-gradient(left, rgba(245,245,245,1) 0%, rgba(245,245,245,1) 98%, rgba(170,170,170,1) 100%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(245,245,245,1)), color-stop(98%,rgba(245,245,245,1)), color-stop(100%,rgba(170,170,170,1)));
+		background: -webkit-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+		background: -o-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+		background: -ms-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+		background: linear-gradient(to right, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#aaaaaa',GradientType=1 );
+	}
 
-.gradient{
- background: rgb(245,245,245);
- background: -moz-linear-gradient(left, rgba(245,245,245,1) 0%, rgba(245,245,245,1) 98%, rgba(170,170,170,1) 100%);
- background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(245,245,245,1)), color-stop(98%,rgba(245,245,245,1)), color-stop(100%,rgba(170,170,170,1)));
- background: -webkit-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
- background: -o-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
- background: -ms-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
- background: linear-gradient(to right, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
- filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#aaaaaa',GradientType=1 );
- }
+	#storycontent-content {
 
-#storycontent-content{
-	
-}
+	}
 
-#storycontent-content p{
+	#storycontent-content p {
 
-}
+	}
 
-#storycontent-story-info{
-margin: 10px 0 10px 0;
-}
+	#storycontent-story-info {
+		margin: 10px 0 10px 0;
+	}
 
-#storycontent-author{
+	#storycontent-author {
 
-}
+	}
 
-#storycontent-time{
+	#storycontent-time {
 
-}
+	}
 
-#story-content img{
-	max-width: 780px !important;
-}
+	#story-content img {
+		max-width: 780px !important;
+	}
 
-#storycontent-content p{
-	margin-left: 13%;
-	margin-right: 13%;
-}
+	#storycontent-content p {
+		margin-left: 13%;
+		margin-right: 13%;
+	}
 
-#storycontent-content div{
+	#storycontent-content div {
 
-}
+	}
 
-.story-media{
-    margin: 0 auto !important; 
-}
+	.story-media {
+		margin: 0 auto !important;
+	}
 
-.widget-first{
-  border-top: none;
-}
+	.widget-first {
+		border-top: none;
+	}
 
-.ps-image{
-	margin: 0 auto;
-	width: 780px !important;
-}
+	.ps-image {
+		margin: 0 auto;
+		width: 780px !important;
+	}
 
-.ps-image img{
-	width: 780px !important;
-	margin: 0 auto;
-}
+	.ps-image img {
+		width: 780px !important;
+		margin: 0 auto;
+	}
 
-#story-content iframe{
-	width: 780px !important;
-}
+	#story-content iframe {
+		width: 780px !important;
+	}
 
-.storywidget-title {
-	position: relative;
-	margin-top: 10px;
-    font-size: 15px;
-    /*font-weight: bold;*/
-	margin-bottom: 5px;
-    color: #004F27;
-}
+	.storywidget-title {
+		position: relative;
+		margin-top: 10px;
+		font-size: 15px;
+		/*font-weight: bold;*/
+		margin-bottom: 5px;
+		color: #004F27;
+	}
 
-.clock-icon {
-	float: left;
-}
+	.clock-icon {
+		float: left;
+	}
 
-.storywidget-time {
-	position: relative;
-  margin-bottom: 5px
-	margin-top: 10px;  
-}
+	.storywidget-time {
+		position: relative;
+		margin-bottom: 5px margin-top : 10px;
+	}
 
-.storywidget-timestamp {
-	float: left;
-	padding-left: 5px;
-    color: #777 !important;
-	font-style: italic;
-    font-size: small;
-    font-variant: small-caps;
-}
-/*
-#app-header{
-	position: fixed;
-	display: block;
-	height: 50px;
-	background: #87C33B;
+	.widget-image {
+		float: left;
+		height: 6em;
+		width: 6em;
+	}
 
-	
-}*/
+	.storywidget-timestamp {
+		float: left;
+		padding-left: 5px;
+		color: #777 !important;
+		font-style: italic;
+		font-size: small;
+		font-variant: small-caps;
+	}
+	/*
+	 #app-header{
+	 position: fixed;
+	 display: block;
+	 height: 50px;
+	 background: #87C33B;
+
+	 }*/
 
 </style>
 
 <style>
 .styled-v-bar{ /* sample CSS class for a different vertical scrollbar look */
-	background:	url(<?php print $scrollbar_src; ?>) center top no-repeat;
-	width: 10px;
-	margin-right: 0;
-	margin-bottom: 4px;
+background:	url(<?php print $scrollbar_src; ?>) center top no-repeat;
+width: 10px;
+margin-right: 0;
+margin-bottom: 4px;
 }
 
-.styled-v-bar ins{ /* Style for the "ins" inner element, or bottom of the scrollbar */ 
-	display: block;
-	background:	url(<?php print $scrollbar_src; ?>) center bottom no-repeat;
-	width: 10px;
-	height: 4px;
-	position: absolute;
-	top: 100%;
+.styled-v-bar ins{ /* Style for the "ins" inner element, or bottom of the scrollbar */
+display: block;
+background:	url(<?php print $scrollbar_src; ?>) center bottom no-repeat;
+width: 10px;
+height: 4px;
+position: absolute;
+top: 100%;
 }
 </style>
 
 <div id="primary" class="site-content" >
-		<!-- <div id="app-header" ></div> -->
-		<div id="app-view" ></div>
+	<!-- <div id="app-header" ></div> -->
+	<div id="app-view" ></div>
 </div><!-- #primary -->
 
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
 	<div id="story-widgets" class="span4 gradient" >
-	    <ul id="widgets-list" ></ul>
+	<ul id="widgets-list" ></ul>
 	</div>
 	<div id="story-content" class="span10" ></div>
 </script>
@@ -213,29 +215,32 @@ margin: 10px 0 10px 0;
 <script type="text/template" id="storycontent-template" >
 	<!-- wrapped with a span11 -->
 	<div id="storycontent-title" data-story="<%= story_id %>" ><h2><%= story_title %></h2></div>
-   <% if(story_image){ %>
-        <div class="story-image ps-image" ><img src="<%= story_image %>" /></div>
+	<% if(story_image){ %>
+	<div class="story-image ps-image" ><img src="<%= story_image %>" /></div>
 	<% }; %>
 	<div id="storycontent-story-info" class="well well-small" >
-		<span id="storycontent-author" class="pull-left" ><%= story_author %></span>
-		<span id="storycontent-time" class="pull-right" ><i class="icon-time"></i> <%= story_date %></span>
+	<span id="storycontent-author" class="pull-left" ><%= story_author %></span>
+	<span id="storycontent-time" class="pull-right" ><i class="icon-time"></i> <%= story_date %></span>
 	</div>
 	<div id="storycontent-content" ><p><%= story_content %></p></div>
 </script>
 
 <script type="text/template" id="storywidget-template" >
 	<!-- wrapped with span3 -->
-    <a href="javascript:void(0)" >
-	    <li class="story-widget" id="<%= widget_id %>" >
-			<div class="storywidget-title" >
-				<%= widget_title %>
-			</div>
-			<div class="storywidget-time" >
-				<span class="clock-icon" ><i class="icon-time"></i></span>
-				<span class="storywidget-timestamp" > <%= widget_timestamp %></span>
-			</div>
-	    </li>
-    </a>
+	<a href="javascript:void(0)" >
+	<li class="story-widget" id="<%= widget_id %>" >
+	<% if(widget_image){ %>
+	<div class="widget-image" ><%= widget_image %></div>
+	<% }; %>
+	<div class="storywidget-title" >
+	<%= widget_title %>
+	</div>
+	<div class="storywidget-time" >
+	<span class="clock-icon" ><i class="icon-time"></i></span>
+	<span class="storywidget-timestamp" > <%= widget_timestamp %></span>
+	</div>
+	</li>
+	</a>
 </script>
 
 <?php /*get_sidebar();*/ ?>
