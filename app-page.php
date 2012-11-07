@@ -39,14 +39,14 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 #story-widgets {
 	position: relative;
-
+padding-left: 0 !important;
 height: inherit !important;
 margin-bottom: 15px;
 }
 
 .story-widget {
 	position: relative;
-	border-top: inset #DDD 2px;
+	border-top: solid #DDD 2px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
     background: #F5F5F5;    	
@@ -80,8 +80,9 @@ margin-bottom: 15px;
 #widgets-list {
 	list-style: none;
     overflow:scroll;
-margin-right: 15px;
-margin-left: 5px !important;
+padding-right: 15px;
+margin-left: 1px !important;
+
 }
 
 #widgets-list a{
@@ -105,7 +106,7 @@ margin-left: 5px !important;
 }
 
 #storycontent-story-info{
-
+margin: 10px 0 10px 0;
 }
 
 #storycontent-author{
@@ -172,7 +173,7 @@ margin-left: 5px !important;
 .storywidget-timestamp {
 	float: left;
 	padding-left: 5px;
-    color: #004F27 !important;
+    color: #777 !important;
 	font-style: italic;
     font-size: small;
     font-variant: small-caps;
@@ -223,7 +224,7 @@ margin-left: 5px !important;
 <script type="text/template" id="storycontent-template" >
 	<!-- wrapped with a span11 -->
 	<div id="storycontent-title" data-story="<%= story_id %>" ><h2><%= story_title %></h2></div>
-	<% if(story_image){ %>
+   <% if(story_image){ %>
         <div class="story-image ps-image" ><img src="<%= story_image %>" /></div>
 	<% }; %>
 	<div id="storycontent-story-info" class="well well-small" >
