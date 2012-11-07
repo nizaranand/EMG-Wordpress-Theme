@@ -35,31 +35,53 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 #app-view{
 	position: relative;
-	margin-bottom: 15px;
 }
 
 #story-widgets {
 	position: relative;
-	background-color: #FFF;
-    height: inherit;
+
+height: inherit !important;
+margin-bottom: 15px;
 }
 
 .story-widget {
 	position: relative;
-	border-bottom: dashed silver 1.5px;
+	border-top: inset #DDD 2px;
 	overflow: hidden;
     padding: 10px 15px 10px 10px;
-    height: 90px;
-	
+    background: #F5F5F5;    	
 }
+
+.gradient{
+
+ background: rgb(245,245,245);
+ background: -moz-linear-gradient(left, rgba(245,245,245,1) 0%, rgba(245,245,245,1) 98%, rgba(170,170,170,1) 100%);
+ background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(245,245,245,1)), color-stop(98%,rgba(245,245,245,1)), color-stop(100%,rgba(170,170,170,1)));
+ background: -webkit-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+ background: -o-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+ background: -ms-linear-gradient(left, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+ background: linear-gradient(to right, rgba(245,245,245,1) 0%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#aaaaaa',GradientType=1 );
+
+}
+
+.gradient2{
+ background: rgb(170,170,170);
+ background: -moz-linear-gradient(left, rgba(170,170,170,1) 0%, rgba(245,245,245,1) 2%, rgba(245,245,245,1) 98%, rgba(170,170,170,1) 100%);
+ background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(170,170,170,1)), color-stop(2%,rgba(245,245,245,1)), color-stop(98%,rgba(245,245,245,1)), color-stop(100%,rgba(170,170,170,1)));
+ background: -webkit-linear-gradient(left, rgba(170,170,170,1) 0%,rgba(245,245,245,1) 2%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+ background: -o-linear-gradient(left, rgba(170,170,170,1) 0%,rgba(245,245,245,1) 2%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+ background: -ms-linear-gradient(left, rgba(170,170,170,1) 0%,rgba(245,245,245,1) 2%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+ background: linear-gradient(to right, rgba(170,170,170,1) 0%,rgba(245,245,245,1) 2%,rgba(245,245,245,1) 98%,rgba(170,170,170,1) 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#aaaaaa',GradientType=1 );
+ }
 
 
 #widgets-list {
-	height: inherit !important;
 	list-style: none;
     overflow:scroll;
-    margin-left: 1px;
-    margin-right: 1px;
+margin-right: 15px;
+margin-left: 5px !important;
 }
 
 #widgets-list a{
@@ -67,7 +89,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 }
 
 .widget-selected{
-  background: #FAFAFA;
+  /*font-weight: bold;*/
 }
 
 #story-content {
@@ -112,7 +134,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 }
 
 .widget-first{
-  border-top: silver dashed 1px;
+  border-top: none !important;
 }
 
 .ps-image{
@@ -131,10 +153,10 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 .storywidget-title {
 	position: relative;
-	top: 0.5em;
     font-size: 15px;
     /*font-weight: bold;*/
 	margin-bottom: 5px;
+    margin-top: 10px;
     color: #004F27;
 }
 
@@ -143,10 +165,8 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 }
 
 .storywidget-time {
-	position: absolute;
-	bottom: 5px;
-	margin-top: 5px;  
-    color: #666;
+	position: relative;
+	margin-top: 10px;  
 }
 
 .storywidget-timestamp {
@@ -194,7 +214,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 <script type="text/template" id="app-template" >
 	<!-- wrapper with a span10 -->
-	<div id="story-widgets" class="span4" >
+	<div id="story-widgets" class="span4 gradient" >
 	    <ul id="widgets-list" ></ul>
 	</div>
 	<div id="story-content" class="span10" ></div>
@@ -229,5 +249,5 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 </script>
 
 <?php /*get_sidebar();*/ ?>
-<?php /*get_footer();*/ ?>
+<?php get_footer(); ?>
 

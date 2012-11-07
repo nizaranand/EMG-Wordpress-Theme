@@ -9,6 +9,7 @@ var app = app || {}; ( function($, _, Backbone) {
 				app.setScrollbars = this.setScrollbars;
 				app.headerShown = this.headerShown;
 				app.footerShown = this.footerShown;
+				app.convertDate = this.convertDate;
 				this.collection.on('add', this.addOne, this);
 				this.collection.on('reset', this.addAll, this);
 				$(window).scroll(this.scrollApp);
@@ -21,7 +22,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					$("#widgets-list").css({ position: "relative", top: "" });
 				}else if(app.footerShown()){
 					// using { position: absolute, bottom: 0 } breaks the scrollbar
-					if($("#story-content").height() > $("#app-view").height()){
+					if($("#story-content").height() > $("#app-view").height()){	
 						var offset = $("#story-content").height() - $(window).height();
 					}else{
 						var offset = $("#app-view").height() - $(window).height();
@@ -37,7 +38,7 @@ var app = app || {}; ( function($, _, Backbone) {
 			},
 			
 			footerShown: function(){
-				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#story-content").height();
+				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#app-view").height();
 			},
 
 			addAll : function() {
@@ -55,10 +56,11 @@ var app = app || {}; ( function($, _, Backbone) {
 				});
 				if (this.initial_load) {
 					$("#widgets-list").alternateScroll();
-					$("#widgets-list").dragscrollable();
+					//$("#widgets-list").dragscrollable();
 					app.showStory($(".widget-first").attr("id"));
 					this.initial_load = false;
 				}
+				app.resizeApp();
 				app.stopLoading();
 			},
 
@@ -85,6 +87,24 @@ var app = app || {}; ( function($, _, Backbone) {
 				app.widgets.fetchWithCallbacks();
 			},
 
+			convertDate: function(date){
+			    var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+				var parts = date.split(" ");
+				var _date_parts = parts[0].split("-");
+				var time = parts[1].split(":");
+				var year = _date_parts[0];
+				var month = parseInt(_date_parts[1]);
+				var day = _date_parts[2];
+				if(day.charAt(0) == '0')
+					day = day.substr(1);
+				var suffix = "AM";
+				if(parseInt(time[0]) > 12){
+					time[0] -= 12;
+					suffix = "PM";
+                }
+				return months[month] + " " + day + " " + year + " " + time[0] + ":" + time[1] + " " + suffix;
+			},
+
 			showStory : function(id) {
 				var model = app.widgets.get(id);
 				var $content_template = $("#storycontent-template");
@@ -92,7 +112,7 @@ var app = app || {}; ( function($, _, Backbone) {
 					story_title : model.get("title"),
 					story_content : model.get("content"),
 					story_author : model.get("author"),
-					story_date : model.get("date"),
+					story_date : app.convertDate(model.get("date")),
 					story_image : false,  // TODO handle featured images based on post type
 					story_id : model.id
 				};
@@ -136,14 +156,14 @@ var app = app || {}; ( function($, _, Backbone) {
 					$story_content.html("");
 					$story_content.append($content);
 					$story_content.fadeIn(150);
-					if($content.height() > $(window).height()){
-						 $("#app-view").height($content.height());
+					if($story_content.height() > $("#app-view").height()){
+						 $("#app-view").height($story_content.height());
 					}else{
 					     $("#app-view").height($(window).height());	
 					}
-					$("#" + id).addClass("widget-selected");
 				});
-			}
+			},
+
 
 		});
 	}(jQuery, _, Backbone));
