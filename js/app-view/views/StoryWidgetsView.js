@@ -108,12 +108,17 @@ var app = app || {}; ( function($, _, Backbone) {
 			showStory : function(id) {
 				var model = app.widgets.get(id);
 				var $content_template = $("#storycontent-template");
+				if(model.get("title").indexOf("Video:") != -1){
+					var thumbnail = false;
+				}else{
+					var thumbnail = model.get("thumbnail") || false;
+				}
 				var content_opts = {
 					story_title : model.get("title"),
 					story_content : model.get("content"),
 					story_author : model.get("author"),
 					story_date : app.convertDate(model.get("date")),
-					story_image : false,  // TODO handle featured images based on post type
+					story_image : thumbnail,  // TODO handle featured images based on post type
 					story_id : model.id
 				};
 				var content = _.template($content_template.html(), content_opts);
@@ -122,10 +127,13 @@ var app = app || {}; ( function($, _, Backbone) {
 				$content.find("img, iframe").each(function(index) {
 					// hack the iframe size to rezise it down to 860px wide
 					var $curr = $(this);
+					var max_width = $("#story-content").width();
+					if($curr.is("img") && !$curr.parent().hasClass("ps-image")){
+						max_width = 260; 
+					}
 					if($curr.is("iframe") || $curr.parent().hasClass("ps-image")){
 						$curr.parent().addClass("story-media");
 					}
-					var max_width = $("#story-content").width();
 					var width = $curr.attr("width"), height = $curr.attr("height");
 					if (width > max_width) {
 						var aspect = height / width;
