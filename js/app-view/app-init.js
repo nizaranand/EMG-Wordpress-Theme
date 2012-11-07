@@ -4,11 +4,8 @@ var app = app || {};
 (function($, _, Backbone){
 	
 	$(document).ready(function(){
+		$("header").css("display", "none");
 		new app.AppView();
-		
-		
-		 // until we can get the header ordeal sorted out...
-		$("header").css({ display: 'none' });
      });
 	 
 
