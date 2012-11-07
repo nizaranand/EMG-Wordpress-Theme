@@ -157,12 +157,21 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
     font-size: small;
     font-variant: small-caps;
 }
+/*
+#app-header{
+	position: fixed;
+	display: block;
+	height: 50px;
+	background: #87C33B;
+
+	
+}*/
 
 </style>
 
 <style>
 .styled-v-bar{ /* sample CSS class for a different vertical scrollbar look */
-	background:	url(custom-scroll-bar.png) center top no-repeat;
+	background:	url(<?php print $scrollbar_src; ?>) center top no-repeat;
 	width: 10px;
 	margin-right: 0;
 	margin-bottom: 4px;
@@ -179,6 +188,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 </style>
 
 <div id="primary" class="site-content" >
+		<!-- <div id="app-header" ></div> -->
 		<div id="app-view" ></div>
 </div><!-- #primary -->
 
@@ -219,5 +229,5 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 </script>
 
 <?php /*get_sidebar();*/ ?>
-<?php get_footer(); ?>
+<?php /*get_footer();*/ ?>
 
