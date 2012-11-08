@@ -34,7 +34,7 @@ var app = app || {};
 					var offset = $("#app-view").height() - $(window).height();
 					$("#widgets-list").css({
 						position : "relative",
-						top : offset - 15 + "px"
+						top : offset + "px"
 					});
 					// add a bit of a margin
 				} else {
@@ -50,7 +50,7 @@ var app = app || {};
 			},
 
 			footerShown : function() {
-				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#story-content").height();
+				return $(window).scrollTop() + $(window).height() > $("#app-view").offset().top + $("#app-view").height();
 			},
 
 			addAll : function() {
@@ -113,7 +113,7 @@ var app = app || {};
 					time[0] -= 12;
 					suffix = "PM";
 				}
-				return months[month] + " " + day + " " + year + " " + time[0] + ":" + time[1] + " " + suffix;
+				return "Published: " + months[month] + " " + day + ", " + year + " at " + time[0] + ":" + time[1] + " " + suffix;
 			},
 
 			showStory : function(id) {
@@ -135,9 +135,18 @@ var app = app || {};
 				var content = _.template($content_template.html(), content_opts);
 				var $content = $("<div></div>");
 				$content.html(content);
+				var images = [];
 				$content.find("img, iframe").each(function(index) {
 					// hack the iframe size to rezise it down to 860px wide
 					var $curr = $(this);
+					if($curr.is("img")){
+					    if(_.contains(images, $curr.attr("src"))){
+						    $curr.remove();
+						    return true;
+                        }else{							
+							images.push($curr.attr("src"));
+						}
+					}
 					var max_width = $("#story-content").width();
 					if ($curr.is("img") && !$curr.parent().hasClass("ps-image")) {
 						//max_width = 260;
@@ -169,6 +178,7 @@ var app = app || {};
 					$curr.remove();
 				});
 				var $story_content = $("#story-content");
+
 				$story_content.fadeOut(150, function() {
 					$story_content.html("");
 					$story_content.append($content);

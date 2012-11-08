@@ -22,11 +22,8 @@ var app = app || {}; ( function($, _, Backbone) {
 			},
 
 			setWindow : function(duration) {
-				if($(window).scrollTop() > $("#app-view").offset().top){ // only move the window up, not down
-					$("#widgets-list").css("position", "fixed");
-				    $("html, body").animate({ scrollTop : $("#app-view").offset().top }, duration, function(){
-						$("#widgets-list").css({ position: "relative", top: "0" });
-                    });
+				if($(window).scrollTop() > $("#app-view").offset().top - 20){ // only move the window up, not down
+				    $("html, body").animate({ scrollTop : $("#app-view").offset().top }, duration);
 				}
 			},
 			

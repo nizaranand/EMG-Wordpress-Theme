@@ -12,7 +12,7 @@
 
 	<div class="row" id="main-footer" >
 		<footer class="span14">
-			<div class="well">
+			<div class="well" id="footer-well" >
 				Emerald Media Group. &copy; 2012.<br>
 				<a href="https://github.com/dailyemerald">Check us out</a> on GitHub.
 				<div class="pull-right" style="margin-top:-16px">

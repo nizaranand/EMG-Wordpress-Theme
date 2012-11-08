@@ -32,8 +32,12 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 ?>
 
 <style>
+ 
+
 	#app-view {
 		position: relative;
+margin-top: -20px;
+
 	}
 
 	#story-widgets {
@@ -41,22 +45,23 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 		padding-left: 0 !important;
 		height: inherit !important;
 		margin-bottom: 15px;
-		border-top: outset 3px;
-		border-bottom: outset 3px;
+		border-top: outset 1px;
+		
 	}
 
 	.story-widget {
 		position: relative;
-		border-top: solid #DDD 2px;
+		border-top: solid #DDD 2.5px;
 		overflow: hidden;
 		padding: 10px 15px 10px 10px;
-		border-left: outset 4px;
-	}
+		border-left: solid #DDD 4px;
+	   
+	 }
 
 	#widgets-list {
 		list-style: none;
 		overflow: scroll;
-		padding-right: 15px;
+		padding-right: 5px;
 		margin: 0 1px 0 1px;
 	}
 
@@ -70,6 +75,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 
 	#story-content {
 		position: relative;
+margin-top: 20px;
 	}
 
 	.gradient {
@@ -84,7 +90,7 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 	}
 
 	#storycontent-content {
-
+padding-bottom: 20px;
 	}
 
 	#storycontent-content p {
@@ -156,14 +162,6 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 		margin-bottom: 5px margin-top : 10px;
 	}
 
-	.widget-image {
-	  margin-top: 10px;
-	  margin-right: 10px;
-		float: left;
-		height: 6em;
-		width: 6em;
-	}
-
 	.storywidget-timestamp {
 		float: left;
 		padding-left: 5px;
@@ -172,6 +170,11 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 		font-size: small;
 		font-variant: small-caps;
 	}
+
+#footer-well{
+  margin-top: -16px;
+}
+
 	/*
 	 #app-header{
 	 position: fixed;
@@ -222,7 +225,7 @@ top: 100%;
 	<% }; %>
 	<div id="storycontent-story-info" class="well well-small" >
 	<span id="storycontent-author" class="pull-left" ><%= story_author %></span>
-	<span id="storycontent-time" class="pull-right" ><i class="icon-time"></i> <%= story_date %></span>
+	<span id="storycontent-time" class="pull-right" ><%= story_date %></span>
 	</div>
 	<div id="storycontent-content" ><p><%= story_content %></p></div>
 </script>
@@ -231,9 +234,6 @@ top: 100%;
 	<!-- wrapped with span3 -->
 	<a href="javascript:void(0)" >
 	<li class="story-widget" id="<%= widget_id %>" >
-	<% if(widget_image){ %>
-	<div class="widget-image" ><img src="<%= widget_image %>" /></div>
-	<% }; %>
 	<div class="storywidget-title" >
 	<%= widget_title %>
 	</div>
