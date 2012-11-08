@@ -157,6 +157,8 @@ $scrollbar_src = get_template_directory_uri() . '/img/custom-scroll-bar.png.png'
 	}
 
 	.widget-image {
+	  margin-top: 10px;
+	  margin-right: 10px;
 		float: left;
 		height: 6em;
 		width: 6em;
@@ -230,7 +232,7 @@ top: 100%;
 	<a href="javascript:void(0)" >
 	<li class="story-widget" id="<%= widget_id %>" >
 	<% if(widget_image){ %>
-	<div class="widget-image" ><%= widget_image %></div>
+	<div class="widget-image" ><img src="<%= widget_image %>" /></div>
 	<% }; %>
 	<div class="storywidget-title" >
 	<%= widget_title %>

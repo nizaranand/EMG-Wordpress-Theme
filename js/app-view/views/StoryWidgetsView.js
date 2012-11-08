@@ -20,6 +20,10 @@ var app = app || {};
 			},
 
 			scrollApp : function() {
+				if($("#story-content").height() > $(window).height() && $("#story-content").height() != $("#app-view").height()){
+				    // hack for the delay when rendering twitter images
+					app.resizeApp();
+				}
 				if (app.headerShown()) {
 					$("#widgets-list").css({
 						position : "relative",
@@ -154,7 +158,6 @@ var app = app || {};
 				$content.find("#storycontent-content").find("div").each(function(index) {
 					// seriously though, why the hell is some of the text in div tags and some in p tags?
 					var $curr = $(this);
-					console.log("replacing divs");
 					if ($curr.hasClass("story-media") || $curr.find("img, iframe").size() > 0) {
 						return true;
 						// continue
@@ -163,8 +166,6 @@ var app = app || {};
 					var $newEl = $("<p></p>");
 					$newEl.text(text);
 					$newEl.insertBefore($curr);
-					console.log("switching to p tag: " + text);
-					console.log($curr);
 					$curr.remove();
 				});
 				var $story_content = $("#story-content");
@@ -172,14 +173,6 @@ var app = app || {};
 					$story_content.html("");
 					$story_content.append($content);
 					$story_content.fadeIn(150, function() {
-						if ($story_content.height() > $(window).height()) {
-							$("#app-view").height($story_content.height());
-							$("#story-widgets").height($story_content.height());
-						} else {
-							$("#app-view").height($(window).height());
-							$("#story-widgets").height($(window).height());
-						}
-						//$("#widgets-list").animate({ top: '0' }, 100);
 						app.resizeApp();
 						$("#" + id).addClass("widget-selected");
 					});

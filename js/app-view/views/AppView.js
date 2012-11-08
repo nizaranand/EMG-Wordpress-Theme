@@ -31,6 +31,13 @@ var app = app || {}; ( function($, _, Backbone) {
 			},
 			
 			resizeApp : function() {
+                if ($("#story-content").height() > $(window).height()) {
+                    $("#app-view").height($("#story-content").height());
+                    $("#story-widgets").height($("#story-content").height());
+                } else {
+                    $("#app-view").height($(window).height());
+                    $("#story-widgets").height($(window).height());
+				}
 				$("#widgets-list").height($(window).height());
 			},
 
