@@ -148,7 +148,7 @@ padding-bottom: 20px;
 		position: relative;
 		margin-top: 10px;
 		font-size: 15px;
-		/*font-weight: bold;*/
+	   /*font-weight: bold;*/
 		margin-bottom: 5px;
 		color: #004F27;
 	}
@@ -159,7 +159,8 @@ padding-bottom: 20px;
 
 	.storywidget-time {
 		position: relative;
-		margin-bottom: 5px margin-top : 10px;
+	  margin-bottom: 5px;
+margin-top : 10px;
 	}
 
 	.storywidget-timestamp {
@@ -172,7 +173,7 @@ padding-bottom: 20px;
 	}
 
 #footer-well{
-  margin-top: -16px;
+  margin-top: -17px;
 }
 
 	/*
