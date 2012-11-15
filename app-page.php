@@ -70,8 +70,14 @@ margin-top: -20px;
 	}
 
 	.widget-selected {
-
+	 background: rgb(235, 235, 235) !important;
+	 color: rgb(0, 69, 29) !important;
 	}
+
+.story-widget:hover{
+	 background: rgb(235, 235, 235) !important;
+     color: rgb(0, 69, 29) !important;
+ }
 
 	#story-content {
 		position: relative;
@@ -173,7 +179,8 @@ margin-top : 10px;
 	}
 
 #footer-well{
-  margin-top: -17px;
+margin-top: -17px;
+z-index: 9e9;
 }
 
 	/*
