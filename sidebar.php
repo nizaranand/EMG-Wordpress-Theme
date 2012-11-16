@@ -24,13 +24,18 @@
 			
 	</div><!--social media -->	
 	
-	<div class="gameday-ad" style="margin-bottom:20px;">
+	<div class="diy-duck-ad" style="margin-top: -10px; margin-bottom:10px;">
+		<a href="http://bit.ly/UndhfD">
+			<img src="<?php echo get_template_directory_uri(); ?>/images/20121116_diy_duck.jpg" />
+		</a>
+	</div>
+
+	<div class="gameday-ad" style="margin-bottom:10px;">
 		<a href="http://bit.ly/NYQE0J">
 			<img src="<?php echo get_template_directory_uri(); ?>/images/gameday-ad.png" />
 		</a>
 	</div>
-	
-				
+					
 	<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017"></fb:recommendations>
 	
 	<div class="ad">
@@ -68,7 +73,7 @@ new TWTR.Widget({
   rpp: 18,
   interval: 30000,
   width: 300,
-  height: 600,
+  height: 300,
   theme: {
     shell: {
       background: '#ffffff',
