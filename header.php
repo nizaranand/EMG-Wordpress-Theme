@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/emerald.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/lightbox/lightbox.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/lightbox/screen.css" type="text/css" media="all" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 <?php

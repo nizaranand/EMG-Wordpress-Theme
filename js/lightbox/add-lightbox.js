@@ -4,10 +4,12 @@
 
      $(document).ready(function(){
 	if(wordpress_template_used == "single.php"){
-	    alert("added lightbox");
 	    $("#content img").wrap(function(){
-	       return "<a href='" + $(this).attr("src") + "' rel='lightbox[post-images]' >";	    
-	    });
+		    if(!$(this).parent().hasClass("ps-image")){
+		        var src = $(this).attr("src").replace(/-\d+x\d+/ig, "");
+	            return "<a href='" + src + "' rel='lightbox[post-images]' >";	    
+	        }
+		});
 	}
      });
 
