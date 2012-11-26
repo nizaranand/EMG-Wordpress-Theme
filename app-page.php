@@ -12,7 +12,6 @@
 // add ui and dependencies
 wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/jquery-ui/jquery-ui-1.9.1.custom.min.js", true);
 wp_enqueue_script("jquery-ui-punch", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.ui.touch-punch.min.js", true);
-wp_enqueue_script("dragscrollable", get_template_directory_uri() . "/js/app-view/libs/dragscrollable/jquery.dragscrollable.js", true);
 wp_enqueue_script("facescroll", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/facescroll.js", true);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 wp_enqueue_script("spin", get_template_directory_uri() . "/js/app-view/libs/spin/spin.min.js", true);
@@ -120,8 +119,11 @@ padding-bottom: 20px;
 	}
 
 	#storycontent-content p {
-		margin-left: 13%;
-		margin-right: 13%;
+		margin-left:25%;
+		margin-right: 1px;
+color: #555;
+font-weight: 500;
+
 	}
 
 	#storycontent-content div {
