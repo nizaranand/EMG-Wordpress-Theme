@@ -13,7 +13,7 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php wp_title( '| Oregon Daily Emerald', true, 'right' ); ?></title>
+<title><?php wp_title( '| Emerald Media', true, 'right' ); ?></title>
 
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/emerald.css" type="text/css" media="all" />
