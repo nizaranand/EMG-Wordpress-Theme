@@ -17,6 +17,8 @@
 
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/emerald.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/lightbox/lightbox.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/lightbox/screen.css" type="text/css" media="all" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 <?php
@@ -24,11 +26,15 @@
 emg_head_fb_open_graph();
 
 wp_enqueue_script("jquery", "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", true);
+wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/jquery-ui-1.9.1.custom.min.js", true);
 wp_enqueue_script("bootstrap", get_template_directory_uri() . '/js/bootstrap.js', true);
+wp_enqueue_script("jquery-smooth-scroll", get_template_directory_uri() . "/js/lightbox/jquery.smooth-scroll.min.js", true);
+wp_enqueue_script("jquery-lightbox", get_template_directory_uri() . "/js/lightbox/lightbox.js", true);
 wp_enqueue_script("jquery-timeago", "http://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/0.9.3/jquery.timeago.js", true);
 wp_enqueue_script("dailyemerald", get_template_directory_uri() . '/js/dailyemerald.js', true);
 wp_enqueue_script("socketio", "http://dev.dailyemerald.com:5335/socket.io/socket.io.js", true);
 wp_enqueue_script("readerboard-client", "http://dev.dailyemerald.com:5335/readerboard-client.js", true);
+wp_enqueue_script("add-lightbox", get_template_directory_uri() . "/js/lightbox/add-lightbox.js", true);
 
 ?>
 

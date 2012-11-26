@@ -10,7 +10,6 @@
 //wp_enqueue_style('app-view', get_template_directory_uri() . "/css/app-view.css", "all");
 
 // add ui and dependencies
-wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/jquery-ui/jquery-ui-1.9.1.custom.min.js", true);
 wp_enqueue_script("jquery-ui-punch", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.ui.touch-punch.min.js", true);
 wp_enqueue_script("facescroll", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/facescroll.js", true);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
