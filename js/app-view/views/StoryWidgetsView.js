@@ -134,7 +134,11 @@ var app = app || {};
 					// hack the iframe size to rezise it down to 860px wide
 					var $curr = $(this);
 					if($curr.is("img")){
-					    if(_.contains(images, $curr.attr("src"))){
+						if(index == 0 && content_opts.story_title.indexOf("Photos:") == 0){				
+                        // photoshelter images have a different cdn so the first image needs to be manually removed in photo posts to avoid duplicates
+                            $curr.remove();
+                            return true;
+						}else if(_.contains(images, $curr.attr("src"))){
 						    $curr.remove();
 						    return true;
                         }else{							

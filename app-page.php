@@ -118,19 +118,11 @@ padding-bottom: 20px;
 	}
 
 	#storycontent-content p {
-		margin-left:25%;
-		margin-right: 1px;
+		margin-left:13%;
+		margin-right: 13%;
 color: #555;
 font-weight: 500;
 
-	}
-
-	#storycontent-content div {
-
-	}
-
-	.story-media {
-		margin: 0 auto !important;
 	}
 
 	.widget-first {
