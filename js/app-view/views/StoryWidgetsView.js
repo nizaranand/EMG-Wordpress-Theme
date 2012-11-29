@@ -177,6 +177,7 @@ var app = app || {};
 					$story_content.append($content);
 					$story_content.fadeIn(150, function() {
 						app.resizeApp();
+						add_lightbox();
 					});
 
 				});
