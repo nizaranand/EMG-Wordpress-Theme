@@ -101,6 +101,10 @@ padding-bottom: 20px;
 
 	}
 
+.story-media{
+margin: 0 auto;
+}
+
 	#storycontent-story-info {
 		margin: 10px 0 10px 0;
 	}

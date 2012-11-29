@@ -147,10 +147,13 @@ var app = app || {};
 					}
 					var max_width = $("#story-content").width();
 					if ($curr.is("img") && !$curr.parent().hasClass("ps-image")) {
-						$curr.remove();
+						$curr.remove(); // remove inline images
 					}
 					if ($curr.is("iframe") || $curr.parent().hasClass("ps-image")) {
-						$curr.parent().addClass("story-media");
+						if($curr.attr("src").indexOf("coveritlive") == -1){
+						    // don't float coveritlive iframes to the left
+							$curr.parent().addClass("story-media");
+						}
 					}
 					var width = $curr.attr("width"), height = $curr.attr("height");
 					if (width > max_width) {
