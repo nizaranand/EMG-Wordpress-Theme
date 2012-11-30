@@ -150,8 +150,8 @@ var app = app || {};
 						$curr.remove(); // remove inline images
 					}
 					if ($curr.is("iframe") || $curr.parent().hasClass("ps-image")) {
-						if($curr.attr("src").indexOf("coveritlive") == -1){
-						    // don't float coveritlive iframes to the left
+						if($curr.attr("src").indexOf("coveritlive") < 0){
+						    // don't float coveritlive iframes to the left TODO
 							$curr.parent().addClass("story-media");
 						}
 					}

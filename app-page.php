@@ -102,7 +102,7 @@ padding-bottom: 20px;
 	}
 
 .story-media{
-margin: 0 auto;
+    margin-left: 0 !important;
 }
 
 	#storycontent-story-info {
