@@ -13,8 +13,23 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php wp_title( '| Oregon Daily Emerald', true, 'right' ); ?></title>
+<title><?php
+	/*
+	 * Print the <title> tag based on what is being viewed.
+	 */
+	global $page, $paged;
 
+	wp_title( '|', true, 'right' );
+
+	// Add the blog name.
+	bloginfo( 'DailyEmerald' );
+
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) )
+		echo " | University of Oregon news, sports and entertainment.";
+
+	?></title>
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/emerald.css" type="text/css" media="all" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
