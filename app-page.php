@@ -10,9 +10,7 @@
 //wp_enqueue_style('app-view', get_template_directory_uri() . "/css/app-view.css", "all");
 
 // add ui and dependencies
-wp_enqueue_script("jquery-ui", get_template_directory_uri() . "/js/app-view/libs/jquery-ui/jquery-ui-1.9.1.custom.min.js", true);
 wp_enqueue_script("jquery-ui-punch", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/jquery.ui.touch-punch.min.js", true);
-wp_enqueue_script("dragscrollable", get_template_directory_uri() . "/js/app-view/libs/dragscrollable/jquery.dragscrollable.js", true);
 wp_enqueue_script("facescroll", get_template_directory_uri() . "/js/app-view/libs/custom-scroll/facescroll.js", true);
 wp_enqueue_script("timeago", get_template_directory_uri() . "/js/app-view/libs/timeago/jquery-timeago.js", true);
 wp_enqueue_script("spin", get_template_directory_uri() . "/js/app-view/libs/spin/spin.min.js", true);
@@ -103,6 +101,10 @@ padding-bottom: 20px;
 
 	}
 
+.story-media{
+    margin-left: 0 !important;
+}
+
 	#storycontent-story-info {
 		margin: 10px 0 10px 0;
 	}
@@ -120,16 +122,11 @@ padding-bottom: 20px;
 	}
 
 	#storycontent-content p {
-		margin-left: 13%;
+		margin-left:13%;
 		margin-right: 13%;
-	}
+color: #555;
+font-weight: 500;
 
-	#storycontent-content div {
-
-	}
-
-	.story-media {
-		margin: 0 auto !important;
 	}
 
 	.widget-first {

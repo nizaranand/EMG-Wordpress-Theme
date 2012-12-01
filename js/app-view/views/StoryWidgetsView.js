@@ -134,7 +134,11 @@ var app = app || {};
 					// hack the iframe size to rezise it down to 860px wide
 					var $curr = $(this);
 					if($curr.is("img")){
-					    if(_.contains(images, $curr.attr("src"))){
+						if(index == 0 && content_opts.story_title.indexOf("Photos:") == 0){				
+                        // photoshelter images have a different cdn so the first image needs to be manually removed in photo posts to avoid duplicates
+                            $curr.remove();
+                            return true;
+						}else if(_.contains(images, $curr.attr("src"))){
 						    $curr.remove();
 						    return true;
                         }else{							
@@ -143,10 +147,13 @@ var app = app || {};
 					}
 					var max_width = $("#story-content").width();
 					if ($curr.is("img") && !$curr.parent().hasClass("ps-image")) {
-						$curr.remove();
+						$curr.remove(); // remove inline images
 					}
 					if ($curr.is("iframe") || $curr.parent().hasClass("ps-image")) {
-						$curr.parent().addClass("story-media");
+						if($curr.attr("src").indexOf("coveritlive") < 0){
+						    // don't float coveritlive iframes to the left TODO
+							$curr.parent().addClass("story-media");
+						}
 					}
 					var width = $curr.attr("width"), height = $curr.attr("height");
 					if (width > max_width) {
@@ -177,6 +184,7 @@ var app = app || {};
 					$story_content.append($content);
 					$story_content.fadeIn(150, function() {
 						app.resizeApp();
+						add_lightbox();
 					});
 
 				});

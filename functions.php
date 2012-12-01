@@ -13,6 +13,7 @@ function emg_show_template() {
     echo '
     <script>
       wordpress_template_used = "' . basename($template) .'"
+      theme_prefix = "'. get_bloginfo("template_directory") .'"
     </script>
     ';
 }
