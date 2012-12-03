@@ -106,7 +106,7 @@ var app = app || {};
 					time[0] -= 12;
 					suffix = "PM";
 				}
-				return "Published: " + months[month] + " " + day + ", " + year + " at " + time[0] + ":" + time[1] + " " + suffix;
+				return "Published: " + months[month - 1] + " " + day + ", " + year + " at " + time[0] + ":" + time[1] + " " + suffix;
 			},
 
 			showStory : function(id) {
