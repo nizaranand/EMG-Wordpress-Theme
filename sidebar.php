@@ -98,6 +98,12 @@ new TWTR.Widget({
 	<div class="ad">
 		<?php get_adtag_300_3(); ?>
 	</div>
+	
+	<div class="ad well well-small">
+		<small>ADVERTISEMENT</small><br>
+		Take an <a style="text-decoration:underline" href="http://www.straighterline.com/college-courses/college-algebra.cfm" title="online algebra course">online algebra course</a> at Straighterline.com</small>
+	</div>
+	
 	<div class="ad">
 		<?php get_adtag_300_4(); ?>
 	</div>
