@@ -3,6 +3,22 @@
  * The Header for our theme.
  *
  */
+
+
+if (is_single()) {
+	$external_url = "";
+	foreach(get_post_custom_values("external_url") as $url) {
+		$external_url = $url;
+	}
+	if (is_string($external_url) && strlen($external_url) > 5) {
+		header("HTTP/1.1 302");
+		header("Location: ".$external_url);
+		header("Connection: close");
+		exit;
+	}
+}
+
+
 ?><!DOCTYPE html>
 <!--[if IE 7 | IE 8]>
 <html class="ie" <?php language_attributes(); ?>>

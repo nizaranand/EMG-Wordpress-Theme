@@ -18,8 +18,6 @@ function emg_show_template() {
     ';
 }
 
-
-
 require( get_template_directory() . '/inc/get_adtag.php' );
 require( get_template_directory() . '/inc/get_vendor_javascript_setups.php' );
 require( get_template_directory() . '/inc/description_walker_for_nav_bar.php');
@@ -144,9 +142,9 @@ function get_the_editors_picks() {
 		echo '<tr><td>';
 		
 		echo '<a href="'.get_permalink().'">';
-		echo '  <h2 style="margin:0">'.get_the_title().'</h2>';
+		echo '  <h2>'.get_the_title().'</h2>';
 		echo '</a>';
-
+	
 		echo '<div class="feed-header">Posted <time class="timeago" datetime="'.get_the_time("c").'">'.get_the_time("l, M. j \a\\t g:i a").'</time></div>';
 
 		echo '<a href="'.get_permalink().'">';
