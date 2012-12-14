@@ -261,3 +261,36 @@ function get_goducks_video_player() {
 
 <?php
 }
+
+function get_staff_image_url($user_id){
+    $dir_prefix = get_theme_root() . "/EMG-Wordpress-Theme/img/staff-photos/";
+    $url_prefix = get_template_directory_uri() . "/img/staff-photos/";
+    
+    $subdirs = array(
+        'newsroom_editors',
+        'newsroom_staff',
+        'professional-staff',
+        'ad-staff',
+        'marketing',
+        'board'
+    );
+    
+    $user = get_userdata($user_id);
+    $filename_id = ucfirst($user->first_name) . " " . ucfirst($user->last_name) . "-" . $user_id . ".jpg"; 
+    $filename = ucfirst($user->first_name) . " " . ucfirst($user->last_name) . ".jpg";
+    
+    $fsrc = false;
+    foreach($subdirs as $dir){
+        if(file_exists($dir_prefix . $dir . $filename)){
+            $fsrc = $url_prefix . $dir . $filename; 
+            break;
+        }else if(file_exists($dir_prefix . $dir . $filename_id)){
+            $fsrc = $url_prefix . $dir . $filename_id; 
+            break;
+        }else{}
+    } 
+    return $fsrc;
+}   
+
+?>
+

@@ -8,14 +8,13 @@
 /*
  * Loops over the directories under the img/staff-photos/ directory in the theme folder to gather image filenames. 
  * Then constructs a grid of images for each folder in the order declared below.
- * 
  */
 $settings = array(
     'dir_prefix' => get_theme_root() . '/EMG-Wordpress-Theme/img/staff-photos/',
     'url_prefix' => get_template_directory_uri() . '/img/staff-photos/',
-    'columns' => 5, //column number must be a divisor of 10;
+    'columns' => 5 //column number must be a divisor of 10
 );
-/* to change the order rearrange the set of key/value pairs below in $subdir */
+// to change the order rearrange the set of key/value pairs below in $subdir
 $subdir = array(
     'newsroom_editors',
     'newsroom_staff',
