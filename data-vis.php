@@ -22,7 +22,13 @@ wp_enqueue_script("d3", "http://d3js.org/d3.v3.min.js", true);
 wp_enqueue_script("nvd3", get_template_directory_uri() . "/js/nv.d3.min.js", true);
 wp_enqueue_script("load-js", get_template_directory_uri() . "/data-vis/load-project.js", true);
 
+// bootstrap project source, styles, and templates
+$project_js = get_template_directory_uri() . "/data-vis/js/" . $pagename . ".js";
+wp_enqueue_script($pagename . "_src", $project_js, true);
+
 ?>
+
+
 
 <style>
     /* general template styling, use external stylesheets for individual projects */
