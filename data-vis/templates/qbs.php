@@ -4,8 +4,8 @@
 	<div class="row" >
 		<div class="span14" id="qbs-menu" >
 				<ul class="nav nav-tabs" id="main-tabs" >
-					<li><a href="#passing-tab" >Passing</a></li>					
-					<li><a href="#rushing-tab" >Rushing</a></li>
+					<li><a href="#passing-tab" data-toggle="tab" >Passing</a></li>					
+					<li><a href="#rushing-tab" data-toggle="tab" >Rushing</a></li>
 				</ul>
 		</div>
 	</div>
@@ -15,38 +15,34 @@
 	<div class="row" >
 		<div class="span14 tab-content" id="qbs-content" >
 			<div class="tab-pane" id="passing-tab" >
-				<div class="row" >
+				<div class="tabbable tabs-bottom" >
 					<ul class="nav nav-tabs" id="passing-menu" >
-						<li><a href="#RAT" >Passer Rating</a></li>
-						<li><a href="#Completion-Percentage" >Completion Percentage</a></li>
-						<li><a href="#Passing-Yards" >Yards</a></li>
-						<li><a href="#Passing-TD" >Touchdowns</a></li>
-						<li><a href="#INT" >Interceptions</a></li>
+						<li><a href="#RAT" data-toggle="tab" >Passer Rating</a></li>
+						<li><a href="#Completion-Percentage" data-toggle="tab" >Completion Percentage</a></li>
+						<li><a href="#Passing-Yards" data-toggle="tab" >Yards</a></li>
+						<li><a href="#Passing-TD" data-toggle="tab" >Touchdowns</a></li>
+						<li><a href="#INT" data-toggle="tab" >Interceptions</a></li>
 					</ul>
-				</div>
-				<div class="row" >
-					<div class="tab-content" id="passing-graphs" >
-						<div class="tab-pane span12 offset1" id="RAT" ><svg xmlns="http://www.w3.org/2000/svg" version="1.1"></svg></div>
-						<div class="tab-pane span12 offset1" id="Completion-Percentage" ><svg xmlns="http://www.w3.org/2000/svg" version="1.1"></div>
-						<div class="tab-pane span12 offset1" id="Passing-Yards" ><svg xmlns="http://www.w3.org/2000/svg" version="1.1"></div>
-						<div class="tab-pane span12 offset1" id="Passing-TD" ><svg xmlns="http://www.w3.org/2000/svg" version="1.1"></div>
-						<div class="tab-pane span12 offset1" id="INT" ><svg xmlns="http://www.w3.org/2000/svg" version="1.1"></div>
+					<div class="tab-content charts" id="passing-graphs" >
+						<div class="tab-pane fade chart" id="RAT" ></div>
+						<div class="tab-pane fade chart" id="Completion-Percentage" ></div>
+						<div class="tab-pane fade chart" id="Passing-Yards" ></div>
+						<div class="tab-pane fade chart" id="Passing-TD" ></div>
+						<div class="tab-pane fade chart" id="INT" ></div>
 					</div>
-				</div>
+                </div>
 			</div>
 			<div class="tab-pane" id="rushing-tab" >
-				<div class="row" >
+				<div class="tabbable tabs-bottom" >
 					<ul class="nav nav-tabs" id="rushing-menu" >
-						<li><a href="#Rushing-Yards" >Yards</a></li>
-						<li><a href="#Rushing-Average" >Average</a></li>
-						<li><a href="#Rushing-TD" >Touchdowns</a></li>
+						<li><a href="#Rushing-Yards" data-toggle="tab" >Yards</a></li>
+						<li><a href="#Rushing-Average" data-toggle="tab" >Average</a></li>
+						<li><a href="#Rushing-TD" data-toggle="tab" >Touchdowns</a></li>
 					</ul>
-				</div>
-				<div class="row" >
-					<div class="tab-content" id="rushing-graphs" >
-						<div class="tab-pane span12 offset1" id="Rushing-Yards" ><svg xmlns="http://www.w3.org/2000/svg" version="1.1"></div>
-						<div class="tab-pane span12 offset1" id="Rushing-Average" ><svg xmlns="http://www.w3.org/2000/svg" version="1.1"></div>
-						<div class="tab-pane span12 offset1" id="Rushing-TD" ><svg xmlns="http://www.w3.org/2000/svg" version="1.1"></div>
+					<div class="tab-content charts" id="rushing-graphs" >
+						<div class="tab-pane fade chart" id="Rushing-Yards" ></div>
+						<div class="tab-pane fade chart" id="Rushing-Average" ></div>
+						<div class="tab-pane fade chart" id="Rushing-TD" ></div>
 					</div>
 				</div>
 			</div>
