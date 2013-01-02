@@ -288,7 +288,12 @@ function get_staff_image_url($user_id){
         }else{}
     } 
     return $fsrc;
-}   
+}
+
+// for debugging only
+function jscript_log($msg){
+    return "<script>console.log('" . $msg . "');</script>";
+}  
 
 ?>
 
