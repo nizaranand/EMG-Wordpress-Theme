@@ -18,7 +18,8 @@ wp_enqueue_script("underscore", get_template_directory_uri() . "/js/app-view/lib
 //wp_enqueue_script("handlebars", get_template_directory_uri() . "/js/handlebars.js", true);
 
 wp_enqueue_script("d3", "http://d3js.org/d3.v3.min.js", true);
-wp_enqueue_script("fiesta-bowl", get_template_directory_uri() . "/js/data-vis/fiesta-bowl.js", true);
+wp_enqueue_script("nvd3", get_template_directory_uri() . "/js/nv.d3.min.js", true);
+wp_enqueue_script("load-js", get_template_directory_uri() . "/data-vis/js/load-js.js", true);
 
 ?>
 
