@@ -16,7 +16,6 @@
   		 		href: window.theme_prefix + "/data-vis/css/" + window.project + ".css"
 			}).appendTo("head");
 			$.get(window.theme_prefix + "/data-vis/templates/" + window.project + ".php", function(data){
-				console.log(data);
 				$("body").append(data);
 			    var data_vis = new DataVisualization();
 			    data_vis.init();

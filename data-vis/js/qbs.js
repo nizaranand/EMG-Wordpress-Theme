@@ -1,7 +1,7 @@
 
 (function($){
 	
-	var DataVisualization = function(){
+	window.DataVisualization = function(){
 		var that = {
 			spin_opts: {
   				lines: 13,
@@ -52,8 +52,8 @@
 			},
 						
 			build_graphs: function(){
-				for(var category in that.categories){
-					that.build_graph(category);
+				for(var i = 0; i < that.categories.length; i++){
+					that.build_graph(that.categories[i]);
 				}
 			},
 							
@@ -86,7 +86,7 @@
 				var chart = nv.models.multiBarChart();
 				chart.x(function(d) { return d.label; });
 				chart.y(function(d) { return d.value; });
-				d3.select("#" + category + " svg").datum(data).transition().duration(100).call(chart); 
+				d3.select("#" + category.replace(" ", "-") + " svg").datum(data).transition().duration(100).call(chart); 
 			},
 			
 			start_spinning: function(){
@@ -99,11 +99,11 @@
 			}
 			
 		};
-		$.getJSON("../data/qbs/mariota.json", function(data){
+		$.getJSON(window.theme_prefix + "/data-vis/data/qbs/mariota.json", function(data){
 			that.mariota = data;
 			console.log(that.mariota);
 		});
-		$.getJSON("../data/qbs/klein.json", function(data){
+		$.getJSON(window.theme_prefix + "/data-vis/data/qbs/klein.json", function(data){
 			that.klein = data;
 			console.log(that.klein);
 		});
