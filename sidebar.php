@@ -24,9 +24,9 @@
 			
 	</div><!--social media -->	
 	
-	<div class="diy-duck-ad" style="margin-top: -10px; margin-bottom:10px;">
-		<a href="http://bit.ly/UndhfD">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/20121116_diy_duck.jpg" />
+	<div class="kansas-fb-ad" style="margin-top: -10px; margin-bottom:10px;">
+		<a href="http://on.fb.me/VN0FzD">
+			<img src="<?php echo get_template_directory_uri(); ?>/images/20121217-kansas.jpg" />
 		</a>
 	</div>
 
