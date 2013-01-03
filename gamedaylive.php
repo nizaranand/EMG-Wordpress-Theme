@@ -120,7 +120,7 @@
 		</section>
 
 		<div id="footer">
-			<a href="http://dailyemerald.com/about-gameday-live/">ABOUT</a>
+			<a href="http://dailyemerald.com/2013/01/03/about-gameday-live/">ABOUT</a>
 			<a href="http://dailyemerald.com/normal/">NORMAL HOMEPAGE</a>
 		</div>
 
