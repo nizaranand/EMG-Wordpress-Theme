@@ -8,7 +8,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="http://dailyemerald.github.com/gameday-live/base.css">
-	<link rel="stylesheet" type="text/css" href="http://dailyemerald.github.com/gameday-live/app.css">
+	<link rel="stylesheet" type="text/css" href="http://dailyemerald.github.com/gameday-live/app.css?<?php echo get_post_meta($post->ID, 'rev', true) ?>">
 
 	<meta property="fb:admins" content="100001785043323" />
 	<meta property="fb:app_id" content="197312536953017" />
@@ -132,9 +132,9 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
 	
-	<script src="http://dailyemerald.github.com/gameday-live/app.js"></script>
-	<script src="http://dailyemerald.github.com/gameday-live/chat.js"></script>
-	<script src="http://dailyemerald.github.com/gameday-live/stories.js"></script>
+	<script src="http://dailyemerald.github.com/gameday-live/app.js?<?php echo get_post_meta($post->ID, 'rev', true) ?>"></script>
+	<script src="http://dailyemerald.github.com/gameday-live/chat.js?<?php echo get_post_meta($post->ID, 'rev', true) ?>"></script>
+	<script src="http://dailyemerald.github.com/gameday-live/stories.js?<?php echo get_post_meta($post->ID, 'rev', true) ?>"></script>
 
 	<script type="text/javascript">
 	  WebFontConfig = {
