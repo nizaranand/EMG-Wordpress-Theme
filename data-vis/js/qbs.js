@@ -105,8 +105,9 @@
 				chart.xAxis.ticks(12);
 				$("#" + category.replace(" ", "-")).append("<svg>").attr("width", $(".chart").first().width());
 				d3.select("#" + category.replace(" ", "-") + " svg").datum(data).transition().duration(100).call(chart);
-				d3.select("#" + category.replace(" ", "-") + " g.nv-legend").attr("transform", "translate(-100, 5)");
 				
+				// fix positioning of labels
+				d3.select("#" + category.replace(" ", "-") + " g.nv-legend").attr("transform", "translate(-100, 5)");
 				d3.select("#" + category.replace(" ", "-") + " g.nv-series").each(function(data, index){
 					// USE IDS EVERY ONCE IN A WHILE, MY GOD WHOEVER MADE THIS IS A DICK
 					var curr = d3.select(this);
