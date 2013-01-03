@@ -1,5 +1,17 @@
 
 
-.chart{
-	/*width: 907px !important;*/
+.chart svg{
+	width: 907px !important;
+}
+
+.nv-controlsWrap{
+	display: none;
+}
+
+.nvtooltip{
+	display: none;
+}
+
+.tab-content{
+	overflow: hidden;
 }

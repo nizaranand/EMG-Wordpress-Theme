@@ -26,10 +26,15 @@
 				"Passing Yards",
 				"Completion Percentage",
 				"Passing TD",
+				"Passing Completions",
+				"Passing Attempts",
+				"Longest Pass",
 				"INT",
 				"Rushing Yards",
 				"Rushing Average",
-				"Rushing TD"
+				"Rushing TD",
+				"Rushing Attempts",
+				"Longest Rush"
 			],
 			mariota: [],
 			klein: [],
@@ -97,8 +102,20 @@
 				chart.x(function(d) { return d.x; });
 				chart.y(function(d) { return parseFloat(d.y); });
 				chart.xAxis.axisLabel("Week");
-				$("#" + category.replace(" ", "-")).append("<svg>").attr("width", $(".charts").first().width());
-				d3.select("#" + category.replace(" ", "-") + " svg").datum(data).transition().duration(100).call(chart); 
+				chart.xAxis.ticks(12);
+				$("#" + category.replace(" ", "-")).append("<svg>").attr("width", $(".chart").first().width());
+				d3.select("#" + category.replace(" ", "-") + " svg").datum(data).transition().duration(100).call(chart);
+				d3.select("#" + category.replace(" ", "-") + " g.nv-legend").attr("transform", "translate(-100, 5)");
+				
+				d3.select("#" + category.replace(" ", "-") + " g.nv-series").each(function(data, index){
+					// USE IDS EVERY ONCE IN A WHILE, MY GOD WHOEVER MADE THIS IS A DICK
+					var curr = d3.select(this);
+					if(curr.select("text").text() == "Marcus Mariota"){
+						curr.attr("transform", "translate(-100,5)");
+					}
+				});
+
+				nv.utils.windowResize(chart.update);
 			},
 			
 			start_spinning: function(){

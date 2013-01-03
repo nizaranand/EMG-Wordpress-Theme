@@ -15,13 +15,13 @@
 	<div class="row" >
 		<div class="span14 tab-content" id="qbs-content" >
 			<div class="tab-pane" id="passing-tab" >
-				<div class="tabbable tabs-bottom" >
+				<div class="tabbable tabs-left" >
 					<ul class="nav nav-tabs" id="passing-menu" >
 						<li><a href="#RAT" data-toggle="tab" >Passer Rating</a></li>
 						<li><a href="#Completion-Percentage" data-toggle="tab" >Completion Percentage</a></li>
 						<li><a href="#Passing-Yards" data-toggle="tab" >Yards</a></li>
 						<li><a href="#Passing-TD" data-toggle="tab" >Touchdowns</a></li>
-						<li><a href="#INT" data-toggle="tab" >Interceptions</a></li>
+						<li><a href="#INT" data-toggle="tab" >Interceptions</a></li>  
 					</ul>
 					<div class="tab-content charts" id="passing-graphs" >
 						<div class="tab-pane fade chart" id="RAT" ></div>
@@ -33,7 +33,7 @@
                 </div>
 			</div>
 			<div class="tab-pane" id="rushing-tab" >
-				<div class="tabbable tabs-bottom" >
+				<div class="tabbable tabs-left" >
 					<ul class="nav nav-tabs" id="rushing-menu" >
 						<li><a href="#Rushing-Yards" data-toggle="tab" >Yards</a></li>
 						<li><a href="#Rushing-Average" data-toggle="tab" >Average</a></li>
