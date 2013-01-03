@@ -4,7 +4,7 @@
 	<div class="row" >
 		<div class="span14" id="qbs-menu" >
 				<ul class="nav nav-tabs" id="main-tabs" >
-					<li><a href="#passing-tab" data-toggle="tab" >Passing</a></li>					
+					<li class="active" ><a href="#passing-tab" data-toggle="tab" >Passing</a></li>					
 					<li><a href="#rushing-tab" data-toggle="tab" >Rushing</a></li>
 				</ul>
 		</div>
@@ -14,7 +14,7 @@
 <script type="text/template" id="content-template" >
 	<div class="row" >
 		<div class="span14 tab-content" id="qbs-content" >
-			<div class="tab-pane" id="passing-tab" >
+			<div class="tab-pane active" id="passing-tab" >
 				<div class="tabbable tabs-left" >
 					<ul class="nav nav-tabs" id="passing-menu" >
 						<li><a href="#RAT" data-toggle="tab" >Passer Rating</a></li>

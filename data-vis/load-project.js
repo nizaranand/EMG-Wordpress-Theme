@@ -10,6 +10,8 @@
 		 * The project's javascript source file must implement the DataVisualization object and init() and should fetch its own data.
 		 */
 		if(window.project != null && window.project){
+			var sp = document.getElementById("data-vis");
+			spinner = new Spinner().spin(sp);
 			$("<link/>", {
    				rel: "stylesheet",
    				type: "text/css",
@@ -19,6 +21,7 @@
 				$("body").append(data);
 			    var data_vis = new DataVisualization();
 			    data_vis.init();
+				spinner.stop();
 			});
 		}else{
 			console.log("No project source given.");
