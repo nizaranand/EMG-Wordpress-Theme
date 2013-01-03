@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="http://dailyemerald.github.com/gameday-live/base.css">
 	<link rel="stylesheet" type="text/css" href="http://dailyemerald.github.com/gameday-live/app.css?<?php echo get_post_meta($post->ID, 'rev', true) ?>">
 
+	<title>GameDay Live | Emerald Media</title>
 	<meta property="fb:admins" content="100001785043323" />
 	<meta property="fb:app_id" content="197312536953017" />
 	<meta property="og:title" content="GameDay Live by Emerald Media" />
