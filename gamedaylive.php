@@ -12,11 +12,11 @@
 
 	<meta property="fb:admins" content="100001785043323" />
 	<meta property="fb:app_id" content="197312536953017" />
-	<meta property="og:title" content="Emerald Media" />
-	<meta property="og:description" content="University of Oregon news, sports, opinion and entertainment" />
+	<meta property="og:title" content="GameDay Live by Emerald Media" />
+	<meta property="og:description" content="A real-time dashboard for the Fiesta Bowl." />
 	<meta property="og:url" content="http://dailyemerald.com" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="http://dailyemerald.com/wp-content/themes/EMG-Wordpress-Theme/images/ArchivePlaceholder.jpg" />
+	<meta property="og:image" content="http://dailyemerald.github.com/gameday-live/screenshot.png" />
 
 	<script>window.load_start = new Date();</script>
 
