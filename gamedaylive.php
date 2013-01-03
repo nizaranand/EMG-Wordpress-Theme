@@ -25,7 +25,7 @@
 			<img src="{{{thumbnail}}}" class="thumb" />
 			<h2 class="tweet-title">{{{title}}}</h2>
 			<span class="tweet-content">{{{content}}}</span>
-			<time class="time" datetime="{{iso_time}}"></p>
+			<time class="time" datetime="{{time}}"></time>
 		</li>
 	</script>
 	
@@ -48,8 +48,8 @@
 			<img src="{{{image}}}" class="insta-img" />
 			<!--<img src="{{{thumb}}}" class="thumb" />-->
 			<h2 class="instagram-title">{{title}}</h2>
-			<span href="#" class="instagram-comment">{{comment}}</span>
-			<time class="time" datetime="{{time}}"></p>
+			<span class="instagram-comment">{{comment}}</span>
+			<time class="time" datetime="{{time}}"></time>
 		</li>
 	</script>
 
