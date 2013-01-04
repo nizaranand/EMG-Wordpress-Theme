@@ -73,7 +73,7 @@
 				<h2>#GODUCKS</h2>
 			</div>
 			<div id="twitter" class="column-inner feed">
-				<!-- stub -->
+				<ul id="twitter-ul"></ul>
 				
 			</div>
 		</section>
