@@ -124,7 +124,7 @@
 		
 		<section class="column story-wrapper column-last">
 			<div class="column-header story-header column-header-last">
-				<h2>STORIES</h2>
+				<h2>EMERALD STORIES</h2>
 			</div>
 			<div class="column-inner">
 				<ul class="story-list"></ul>
