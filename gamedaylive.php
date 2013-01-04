@@ -93,7 +93,18 @@
 				<h2>CHAT</h2>
 			</div>
 			<div class="game-score">
-				<!-- stub -->
+				<table class="scores">
+					<tr>
+						<td class="oregon-score"></td>
+						<td class="kstate-score"></td>
+					</tr>
+					<tr>
+						<td>Oregon</td>
+						<td>Kansas State</td>
+					</tr>
+				</table>
+				<div id="score-shim"></div>
+				
 			</div>
 			<div class="column-inner chat">
 				<input id="message-name" type="text" placeholder="What's your name?"></input>
@@ -132,6 +143,7 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
+	<script src="http://raw.github.com/jsoma/tabletop/master/src/tabletop.js"></script>
 	
 	<script src="http://dailyemerald.github.com/gameday-live/app.js?<?php echo get_post_meta($post->ID, 'rev', true) ?>"></script>
 	<script src="http://dailyemerald.github.com/gameday-live/chat.js?<?php echo get_post_meta($post->ID, 'rev', true) ?>"></script>
