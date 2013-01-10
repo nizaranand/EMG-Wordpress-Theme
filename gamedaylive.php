@@ -1,0 +1,183 @@
+<?php
+/**
+ * Template Name: GameDay Live (v1)
+ *
+ */
+?>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="http://dailyemerald.github.com/gameday-live/base.css">
+	<link rel="stylesheet" type="text/css" href="http://dailyemerald.github.com/gameday-live/app.css?<?php echo get_post_meta($post->ID, 'rev', true) ?>">
+
+	<title>GameDay Live | Emerald Media</title>
+	<meta property="fb:admins" content="100001785043323" />
+	<meta property="fb:app_id" content="197312536953017" />
+	<meta property="og:title" content="GameDay Live by Emerald Media" />
+	<meta property="og:description" content="A real-time dashboard for the Fiesta Bowl." />
+	<meta property="og:url" content="http://dailyemerald.com" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="http://dailyemerald.github.com/gameday-live/screenshot.png" />
+
+	<script>window.load_start = new Date();</script>
+
+	<script id="tplTwitter" type="text/html">	
+		<li class="tweet">
+			<img src="{{{thumbnail}}}" class="thumb" />
+			<h2 class="tweet-title">{{{title}}}</h2>
+			<span class="tweet-content">{{{content}}}</span>
+			<time class="time" datetime="{{time}}"></time>
+		</li>
+	</script>
+	
+	<script id="tplChat" type="text/html">	
+		<li class='message'>
+			<p>{{{ text }}}</p>
+			<small>{{ human_time }} by {{ name }}</small>
+		</li>
+	</script>
+
+	<script id="tplChatAdmin" type="text/html">	
+		<li class='message-admin'>
+			<p>{{{ text }}}</p>
+			<small>{{ human_time }} by {{ name }}</small>
+		</li>
+	</script>
+
+	<script id="tplInstagram" type="text/x-handlebars-template">
+		<li class="instagram">
+			<img src="{{{image}}}" class="insta-img" />
+			<!--<img src="{{{thumb}}}" class="thumb" />-->
+			<h2 class="instagram-title">{{title}}</h2>
+			<span class="instagram-comment">{{comment}}</span>
+			<time class="time" datetime="{{time}}"></time>
+		</li>
+	</script>
+
+	<script id="tplStory" type="text/x-handlebars-template">
+		<li class="story">
+			<a href="{{permalink}}" target="_blank"><img src="{{thumbnail}}" class="thumb" /></a>
+			<h2><a href="{{permalink}}" target="_blank">{{{title}}}</a></h2>
+			<p class="time">{{date}}</p>
+		</li>
+  </script>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div class="logo">
+			<img src="http://dailyemerald.github.com/gameday-live/logo.png" />
+		</div>
+		<section class="column twitter-wrapper">
+			<div class="column-header twitter-header">
+				<h2>#GODUCKS</h2>
+			</div>
+			<div id="twitter" class="column-inner feed">
+				<ul id="twitter-ul"></ul>
+				
+			</div>
+		</section>
+		
+		<section class="column instagram-wrapper">
+			<div class="column-header instagram-header">
+				<h2>INSTAGRAM</h2>
+			</div>
+			<div id="instagram" class="column-inner feed">
+				<!-- stub -->
+				
+			</div>
+		</section>
+
+		<section class="column chat-wrapper">
+			<div class="column-header chat-header">
+				<h2>CHAT</h2>
+			</div>
+			<div class="game-score">
+				<table class="scores">
+					<tr>
+						<td class="oregon-score"></td>
+						<td class="kstate-score"></td>
+					</tr>
+					<tr>
+						<td>Oregon</td>
+						<td>Kansas State</td>
+					</tr>
+				</table>
+				<div id="score-shim"></div>
+				
+			</div>
+			<div class="column-inner chat">
+				<input id="message-name" type="text" placeholder="What's your name?"></input>
+      
+				<textarea id="message-text" type="text" placeholder="Post something..."></textarea>
+				<button type="submit" id="message-send">Send</button>
+
+				<div id="chat-status">Connecting to server...</div>
+				<ul id="chat-messages">
+				</ul>
+
+			</div><!-- .column-inner -->
+
+		</section>
+
+		
+		
+		<section class="column story-wrapper column-last">
+			<div class="column-header story-header column-header-last">
+				<h2>EMERALD STORIES</h2>
+			</div>
+			<div class="column-inner">
+				<ul class="story-list"></ul>
+			</div>
+		</section>
+
+		<div id="footer">
+			<a href="http://dailyemerald.com/2013/01/03/about-gameday-live/">ABOUT</a>
+			<a href="http://dailyemerald.com/normal/">NORMAL HOMEPAGE</a>
+		</div>
+
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.1/handlebars.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
+	<script src="http://raw.github.com/jsoma/tabletop/master/src/tabletop.js"></script>
+	
+	<script src="http://dailyemerald.github.com/gameday-live/app.js?<?php echo get_post_meta($post->ID, 'rev', true) ?>"></script>
+	<script src="http://dailyemerald.github.com/gameday-live/chat.js?<?php echo get_post_meta($post->ID, 'rev', true) ?>"></script>
+	<script src="http://dailyemerald.github.com/gameday-live/stories.js?<?php echo get_post_meta($post->ID, 'rev', true) ?>"></script>
+
+	<script type="text/javascript">
+	  WebFontConfig = {
+	    google: { families: [ 'Exo:700:latin' ] }
+	  };
+	  (function() {
+	    var wf = document.createElement('script');
+	    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+	      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+	    wf.type = 'text/javascript';
+	    wf.async = 'true';
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(wf, s);
+	  })(); 
+	</script>
+
+	<script type="text/javascript">
+    (function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");
+    b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+
+    '//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';d=c.getElementsByTagName("script")[0];
+    d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){
+    var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(
+    Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:
+    f="mixpanel";g.people=g.people||[];h=['disable','track','track_pageview','track_links',
+    'track_forms','register','register_once','unregister','identify','alias','name_tag',
+    'set_config','people.set','people.increment'];for(e=0;e<h.length;e++)d(g,h[e]);
+    a._i.push([b,c,f])};a.__SV=1.2;})(document,window.mixpanel||[]);
+    mixpanel.init("6430a27843701ed6a70443f0b7ee4eff");
+    mixpanel.track("GameDay Live");
+	</script>
+
+</body>
+</html>
