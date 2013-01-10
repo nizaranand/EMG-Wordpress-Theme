@@ -23,18 +23,6 @@
 			</div>
 			
 	</div><!--social media -->	
-	
-	<div class="kansas-fb-ad" style="margin-top: -10px; margin-bottom:10px;">
-		<a href="http://on.fb.me/VN0FzD">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/20121217-kansas.jpg" />
-		</a>
-	</div>
-
-	<div class="gameday-ad" style="margin-bottom:10px;">
-		<a href="http://bit.ly/NYQE0J">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/gameday-ad.png" />
-		</a>
-	</div>
 					
 	<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017"></fb:recommendations>
 	
