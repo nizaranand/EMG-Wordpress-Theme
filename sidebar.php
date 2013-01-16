@@ -21,10 +21,13 @@
 			<div class="pull-right" >
 				<div class="fb-like" data-href="http://facebook.com/dailyemerald" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
 			</div>
+			<div class="clear"></div>
 			
 	</div><!--social media -->	
-					
-	<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017"></fb:recommendations>
+	
+	<div id="fb-recommendations">				
+		<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017" width="300" height="300" header="false"></fb:recommendations>
+	</div>
 	
 	<div class="ad">
 		<?php get_adtag_300_1(); ?>

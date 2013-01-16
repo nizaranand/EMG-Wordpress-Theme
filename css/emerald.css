@@ -1,7 +1,5 @@
 /*
-  Something clever and useful goes here.
-  Love,
-  Alec
+
 */
 
 .centered{
@@ -67,4 +65,10 @@ a.menu:after, .dropdown-toggle:after {
 
 .ad {
   margin: 10px 0;
+}
+
+#fb-recommendations {
+  height: 320px;
+  margin: 0;
+  margin-top: -20px;
 }
