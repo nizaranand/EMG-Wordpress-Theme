@@ -76,7 +76,7 @@ wp_enqueue_script("add-lightbox", get_template_directory_uri() . "/js/lightbox/a
 
 <?php get_adtag_header(); //load google double click javascipt into head. TODO: move to wp_head hook ?>
 <?php get_facebook_and_twitter_setup(); ?>
-<?php get_mixpanel_setup(); ?>
+<?php //get_mixpanel_setup(); ?>
 <!--about to call wp_head -->
 <?php wp_head(); 
 
