@@ -96,7 +96,7 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 	
 			<div id="flag" class="span3">
 				<a href="/">
-					<img src="<?php bloginfo('template_directory'); ?>/images/daily-emerald-logo.png" />
+					<img src="<?php bloginfo('template_directory'); ?>/images/daily-emerald-logo.png" alt="The simple housing search for UO students" />
 				</a>
 			</div>
 			
@@ -120,9 +120,15 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 					    );
 					?>
 			</div>
-								
+			<div class="span14" style="margin-top: -17px; margin-bottom: 20px;">
+				<a href="http://www.duckshousing.com">
+					<img src="<?php bloginfo('template_directory'); ?>/images/duckshousing-teaser.jpg" />
+				</a>
+			</div>
+			
 		</header><!-- #masthead -->
 
 		<div class="row">
+
 		<!-- tags still open: body, div.container, div.row - should be closed in footer.php -->
 		<!-- END OF HEADER.PHP -->
