@@ -29,6 +29,12 @@
 		<iframe src="http://dailyemerald.github.com/wawm/" frameborder="0" width="300" height="100"></iframe>
 	</div>
 
+	<div class="ad best-of-campus">
+		<a href="/bestofcampus">
+		<img src="<?php echo get_template_directory_uri(); ?>/images/13boc.jpg"></img>
+		</a>
+	</div>
+
 	<div id="fb-recommendations" style="margin-top:0;">				
 		<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017" width="300" height="300" header="false"></fb:recommendations>
 	</div>
@@ -36,22 +42,6 @@
 	<div class="ad">
 		<?php get_adtag_300_1(); ?>
 	</div>	
-
-	<!--<div class="email-newsletter">
-		<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-		<style type="text/css">
-			#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:300px;}
-			/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-			   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-		</style>
-		<div id="mc_embed_signup">
-		<form action="http://dailyemerald.us2.list-manage2.com/subscribe/post?u=bc301242e4224997e2e590f38&amp;id=d1d250c9c1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-			<label for="mce-EMAIL">Subscribe to our email newsletter</label>
-			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-			<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-		</form>
-		</div>
-	</div>-->
 
 	<div class="ad">
 		<?php get_adtag_300_2(); ?>
