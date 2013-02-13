@@ -29,12 +29,6 @@
 		<iframe src="http://dailyemerald.github.com/wawm/" frameborder="0" width="300" height="100"></iframe>
 	</div>
 
-	<div class="ad best-of-campus">
-		<a href="/bestofcampus">
-		<img src="<?php echo get_template_directory_uri(); ?>/images/13boc.jpg"></img>
-		</a>
-	</div>
-
 	<div id="fb-recommendations" style="margin-top:0;">				
 		<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017" width="300" height="300" header="false"></fb:recommendations>
 	</div>
