@@ -101,7 +101,10 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 			</div>
 			
 			<div class="hidden-phone pull-right"><!-- hide this on small screens -->
-				<?php get_adtag_leaderboard(); // inc/get_adtag.php ?>
+				<?php //get_adtag_leaderboard(); // inc/get_adtag.php ?>
+				<a href="http://bit.ly/UETcay">
+					<img src="<?php bloginfo('template_directory'); ?>/images/uh_banner.jpg"></img>
+				</a>
 			</div>
 			
 			<div class="span14" style="height:20px"></div>			
