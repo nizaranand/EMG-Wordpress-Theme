@@ -14,13 +14,6 @@
 	
 	<?php get_search_form(); ?>		
 	
-	<div class="ad">
-		<?php //get_adtag_300_1(); ?>
-		<a href="http://bit.ly/UETcay">
-			<img src="<?php bloginfo('template_directory'); ?>/images/uh_sidebar.jpg"></img>
-		</a>
-	</div>
-
 	<div id="socialmedia" class="well well-small">
 			<div style="" class="pull-left">
 				<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.1340179658.html#_=1340391604138&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=dailyemerald&amp;show_count=false&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button" style="width: 139px; height: 20px; " title="Twitter Follow Button"></iframe>
@@ -32,6 +25,10 @@
 
 	</div><!--social media -->	
 	
+	<div class="ad">
+		<?php get_adtag_300_1(); ?>		
+	</div>
+
 	<div class="what-are-we-missing" style="margin-bottom:20px;">
 		<iframe src="http://dailyemerald.github.com/wawm/" frameborder="0" width="300" height="100"></iframe>
 	</div>
@@ -40,8 +37,6 @@
 		<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017" width="300" height="300" header="false"></fb:recommendations>
 	</div>
 	
-		
-
 	<div class="ad">
 		<?php get_adtag_300_2(); ?>
 	</div>
