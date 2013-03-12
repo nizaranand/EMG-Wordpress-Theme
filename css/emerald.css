@@ -86,6 +86,11 @@ a.menu:after, .dropdown-toggle:after {
   color: #333;
 }
 
+.entry-content iframe {
+  margin: 20px auto !important;
+  
+}
+
 #fb-recommendations {
   height: 320px;
   margin: 0;
