@@ -38,7 +38,7 @@
 				
 			
 				
-				<div class="well well-small">
+				<div class="well well-small author-box">
 										
 					Posted by
 						<?php //printf( __( '%s', 'twentytwelve' ), get_the_author() ); 
@@ -72,6 +72,7 @@
 				
 				<?php if (!in_category('multimedia')) { ?>
 				
+				<!--
 				<div class="well well-small pull-left" style="margin-right:20px; max-width:150px;">
 				
 					<?php $embedHtmlFields = get_post_custom_values("infobox");
@@ -88,7 +89,8 @@
 					</ul>
 				
 				</div>
-				
+				-->
+
 				<?php } // close if !in_category('multimedia')?>
 				
 				<!--<div class="btn-group btn-group-vertical post-tags-list pull-left" style="margin-right:20px;">

@@ -68,3 +68,22 @@ a.menu:after, .dropdown-toggle:after {
 .ad {
   margin: 10px 0;
 }
+
+#content header {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#content .author-box {
+  margin-top: 20px;
+}
+
+#content p {
+  max-width: 640px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  /*font-family: Georgia;*/
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
