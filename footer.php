@@ -24,6 +24,8 @@
 	
 </div><!-- .container, opened in header.php -->
 
+<img src="http://emping1.herokuapp.com/pixel.gif?key=<?php the_permalink() ?>"></img>
+
 <?php wp_footer(); ?>
 
 <script src="http://intense-thicket-1581.herokuapp.com/track.js"></script>

@@ -76,7 +76,7 @@ wp_enqueue_script("add-lightbox", get_template_directory_uri() . "/js/lightbox/a
 
 <?php get_adtag_header(); //load google double click javascipt into head. TODO: move to wp_head hook ?>
 <?php get_facebook_and_twitter_setup(); ?>
-<?php get_mixpanel_setup(); ?>
+<?php //get_mixpanel_setup(); ?>
 <!--about to call wp_head -->
 <?php wp_head(); 
 
@@ -96,12 +96,12 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 	
 			<div id="flag" class="span3">
 				<a href="/">
-					<img src="<?php bloginfo('template_directory'); ?>/images/daily-emerald-logo.png" />
+					<img src="<?php bloginfo('template_directory'); ?>/images/daily-emerald-logo.png" alt="The simple housing search for UO students" />
 				</a>
 			</div>
 			
 			<div class="hidden-phone pull-right"><!-- hide this on small screens -->
-				<?php get_adtag_leaderboard(); // inc/get_adtag.php ?>
+				<?php get_adtag_leaderboard(); // inc/get_adtag.php ?>						
 			</div>
 			
 			<div class="span14" style="height:20px"></div>			
@@ -120,9 +120,15 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 					    );
 					?>
 			</div>
-								
+			<div class="span14" style="margin-top: -17px; margin-bottom: 20px;">
+				<a href="http://www.duckshousing.com">
+					<img src="<?php bloginfo('template_directory'); ?>/images/duckshousing-teaser.jpg" />
+				</a>
+			</div>
+			
 		</header><!-- #masthead -->
 
 		<div class="row">
+
 		<!-- tags still open: body, div.container, div.row - should be closed in footer.php -->
 		<!-- END OF HEADER.PHP -->

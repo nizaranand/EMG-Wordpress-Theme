@@ -13,7 +13,7 @@
 <div class="sidebar span4">
 	
 	<?php get_search_form(); ?>		
-			
+	
 	<div id="socialmedia" class="well well-small">
 			<div style="" class="pull-left">
 				<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.1340179658.html#_=1340391604138&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=dailyemerald&amp;show_count=false&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button" style="width: 139px; height: 20px; " title="Twitter Follow Button"></iframe>
@@ -21,43 +21,22 @@
 			<div class="pull-right" >
 				<div class="fb-like" data-href="http://facebook.com/dailyemerald" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
 			</div>
-			
+			<div class="clear"></div>
+
 	</div><!--social media -->	
 	
-	<div class="diy-duck-ad" style="margin-top: -10px; margin-bottom:10px;">
-		<a href="http://bit.ly/UndhfD">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/20121116_diy_duck.jpg" />
-		</a>
-	</div>
-
-	<div class="gameday-ad" style="margin-bottom:10px;">
-		<a href="http://bit.ly/NYQE0J">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/gameday-ad.png" />
-		</a>
-	</div>
-					
-	<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017"></fb:recommendations>
-	
 	<div class="ad">
-		<?php get_adtag_300_1(); ?>
-	</div>	
+		<?php get_adtag_300_1(); ?>		
+	</div>
 
-	<!--<div class="email-newsletter">
-		<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-		<style type="text/css">
-			#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:300px;}
-			/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-			   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-		</style>
-		<div id="mc_embed_signup">
-		<form action="http://dailyemerald.us2.list-manage2.com/subscribe/post?u=bc301242e4224997e2e590f38&amp;id=d1d250c9c1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-			<label for="mce-EMAIL">Subscribe to our email newsletter</label>
-			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-			<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-		</form>
-		</div>
-	</div>-->
+	<div class="what-are-we-missing" style="margin-bottom:20px;">
+		<iframe src="http://dailyemerald.github.com/wawm/" frameborder="0" width="300" height="100"></iframe>
+	</div>
 
+	<div id="fb-recommendations" style="margin-top:0;">				
+		<fb:recommendations site="http://www.dailyemerald.com" app_id="197312536953017" width="300" height="300" header="false"></fb:recommendations>
+	</div>
+	
 	<div class="ad">
 		<?php get_adtag_300_2(); ?>
 	</div>

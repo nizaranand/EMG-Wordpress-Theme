@@ -294,6 +294,3 @@ function get_staff_image_url($user_id){
 function jscript_log($msg){
     return "<script>console.log('" . $msg . "');</script>";
 }  
-
-?>
-
