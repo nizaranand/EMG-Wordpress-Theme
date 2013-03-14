@@ -26,10 +26,10 @@
 	</div><!--social media -->	
 	
 	<div class="ad">
-		<?php //get_adtag_300_1(); ?>		
-		<a href="http://bit.ly/14WZH8X">
+		<?php get_adtag_300_1(); ?>		
+		<!-- <a href="http://bit.ly/14WZH8X">
           <img src="<?php bloginfo('template_directory'); ?>/images/coffee_s.jpg"></img>
-        </a>
+        </a> -->
 	</div>
 
 	<div class="what-are-we-missing" style="margin-bottom:20px;">
