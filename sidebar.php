@@ -25,12 +25,15 @@
 
 	</div><!--social media -->	
 	
+	<a href="http://bit.ly/xaAeNw">
+          <img src="<?php bloginfo('template_directory'); ?>/images/pac12mbb.png"></img>
+    </a>
+
 	<div class="ad">
-		<?php get_adtag_300_1(); ?>		
-		<!-- <a href="http://bit.ly/14WZH8X">
-          <img src="<?php bloginfo('template_directory'); ?>/images/coffee_s.jpg"></img>
-        </a> -->
+		<?php get_adtag_300_1(); ?>				
 	</div>
+
+	
 
 	<div class="what-are-we-missing" style="margin-bottom:20px;">
 		<iframe src="http://dailyemerald.github.com/wawm/" frameborder="0" width="300" height="100"></iframe>
