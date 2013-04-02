@@ -18,7 +18,7 @@ get_header(); ?>
 	<?php } ?>
 	
 	
-		<div id="content" role="main">
+		<div id="content" role="main" class="post-single">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

@@ -24,10 +24,6 @@
 			<div class="clear"></div>
 
 	</div><!--social media -->	
-	
-	<a href="http://bit.ly/xaAeNw">
-          <img src="<?php bloginfo('template_directory'); ?>/images/ncaa_mbb.png"></img>
-    </a>
 
 	<div class="ad">
 		<?php get_adtag_300_1(); ?>				

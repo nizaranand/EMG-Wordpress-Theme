@@ -76,7 +76,7 @@ a.menu:after, .dropdown-toggle:after {
   margin-top: 20px;
 }
 
-#content p {
+.post-single p {
   max-width: 640px;
   margin: 0 auto;
   margin-bottom: 16px;
@@ -86,9 +86,22 @@ a.menu:after, .dropdown-toggle:after {
   color: #333;
 }
 
-.entry-content iframe {
+.post-single iframe {
   margin: 20px auto !important;
   
+}
+
+.blog-header-image {
+  display: block;
+  margin: 0 auto;
+}
+.blog-header-title {
+  font-style: italic;
+  display: block;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 #fb-recommendations {
