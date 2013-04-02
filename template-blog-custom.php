@@ -14,7 +14,8 @@ get_header();
 
 	echo "<img class='blog-header-image' src=\"" . $custom_fields['blog_image'][0] . "\"></img>";
 	echo "<p class='blog-header-title'>" . $custom_fields['blog_title'][0] . "</p>";
-
+	echo "<hr>";
+	
 	$the_query = new WP_Query("category_name=".$custom_fields['blog_category'][0]."&posts_per_page=10"); //TODO: SQL injection by here
 	while ( $the_query->have_posts() ) : $the_query->the_post();	
 		get_template_part('content', 'archive2');
