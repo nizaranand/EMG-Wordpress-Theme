@@ -26,7 +26,10 @@
 	</div><!--social media -->	
 
 	<div class="ad">
-		<?php get_adtag_300_1(); ?>				
+		<?php //get_adtag_300_1(); ?>
+		<a href="http://bit.ly/UETcay">
+			<img src="<?php bloginfo('template_directory'); ?>/images/uh_sidebar.jpg"></img>
+		</a>				
 	</div>
 
 	
