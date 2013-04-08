@@ -25,6 +25,10 @@
 
 	</div><!--social media -->	
 
+	<a href="http://bit.ly/10NjEMO">
+		<img src="<?php bloginfo('template_directory'); ?>/images/25ducks.jpg"></img>
+	</a>
+
 	<div class="ad">
 		<?php get_adtag_300_1(); ?>				
 	</div>
