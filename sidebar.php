@@ -49,37 +49,11 @@
 
 	<?php get_goducks_video_player(); ?>
 
-	
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 18,
-  interval: 30000,
-  width: 300,
-  height: 300,
-  theme: {
-    shell: {
-      background: '#ffffff',
-      color: '#000000'
-    },
-    tweets: {
-      background: '#ffffff',
-      color: '#000000',
-      links: '#004F27'
-    }
-  },
-  features: {
-    scrollbar: true,
-    loop: false,
-    live: true,
-    behavior: 'all'
-  }
-}).render().setUser('dailyemerald').start();
-</script>	
+	<div style="width:300px">
+		<a class="twitter-timeline" href="https://twitter.com/DailyEmerald" data-widget-id="324587622238396416">Tweets by @DailyEmerald</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
 
-	
 	<div class="ad">
 		<?php get_adtag_300_3(); ?>
 	</div>
