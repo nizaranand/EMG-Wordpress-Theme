@@ -24,12 +24,6 @@
 			
 	</div><!--social media -->	
 	
-	<div class="diy-duck-ad" style="margin-top: -10px; margin-bottom:10px;">
-		<a href="http://bit.ly/UndhfD">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/20121116_diy_duck.jpg" />
-		</a>
-	</div>
-
 	<div class="gameday-ad" style="margin-bottom:10px;">
 		<a href="http://bit.ly/NYQE0J">
 			<img src="<?php echo get_template_directory_uri(); ?>/images/gameday-ad.png" />
