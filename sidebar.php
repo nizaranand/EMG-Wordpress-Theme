@@ -26,10 +26,8 @@
 	</div><!--social media -->	
 
 	<div class="ad">
-		<?php //get_adtag_300_1(); ?>	
-		<a href="http://bit.ly/XxRSXJ">
-					<img src="<?php bloginfo('template_directory'); ?>/images/1304-pg-sidebar.jpg"></img>
-				</a>
+		<?php get_adtag_300_1(); ?>	
+		
 	</div>
 
 	
