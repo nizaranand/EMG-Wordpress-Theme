@@ -27,6 +27,7 @@
 
 	<div class="ad">
 		<?php get_adtag_300_1(); ?>	
+		
 	</div>
 
 	
