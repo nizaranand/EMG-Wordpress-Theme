@@ -32,7 +32,10 @@
 	</div>
 
 	<div class="ad">
-		<?php get_adtag_300_1(); ?>	
+		<?php //get_adtag_300_1(); ?>	
+	    <a href="bit.ly/15O8orL">
+		<img src="/wp-content/themes/EMG-Wordpress-Theme/images/uosc-banner.png" />
+	    </a>
 		
 	</div>
 
