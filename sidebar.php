@@ -28,7 +28,7 @@
 	<div class="ad">
 		<?php //get_adtag_300_1(); ?>	
 	    <a href="http://bit.ly/15O8orL">
-		<img src="/wp-content/themes/EMG-Wordpress-Theme/images/uosc-banner.png" />
+		<img src="/wp-content/themes/EMG-Wordpress-Theme/images/uosc-side.jpg" />
 	    </a>
 		
 	</div>
