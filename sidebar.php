@@ -26,6 +26,12 @@
 	</div><!--social media -->	
 
 	<div class="ad">
+		<a href="http://emrld.co/15lwqKQ">
+			<img src="http://dailyemerald.com/wp-content/themes/EMG-Wordpress-Theme/images/football-book-sidebar-ad.jpg" />
+		</a>
+	</div>
+
+	<div class="ad">
 		<?php get_adtag_300_1(); ?>	
 		
 	</div>
