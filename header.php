@@ -103,7 +103,7 @@ date_default_timezone_set('America/Los_Angeles'); // TODO: This is a hack to fix
 			<div class="hidden-phone pull-right"><!-- hide this on small screens -->
 				<?php //get_adtag_leaderboard(); // inc/get_adtag.php ?>
 				 <a href="http://bit.ly/15O8orL">
-					<img src="/wp-content/themes/EMG-Wordpress-Theme/images/uosc-side.jpg" />
+					<img src="/wp-content/themes/EMG-Wordpress-Theme/images/uosc-banner.png" />
 	    			</a>
 				
 			</div>
