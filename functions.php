@@ -229,6 +229,12 @@ function emg_head_fb_open_graph() {
 	foreach( $properties as $property => $content ) {
 		echo '<meta property="' . $property . '" content="' . $content . '" />' . "\n";
 	}	
+	echo '<meta name="twitter:card" content="summary">';
+	echo '<meta name="twitter:site" content="@dailyemerald">';
+	echo '<meta name="twitter:title" content="' . $properties['og:title'] . '">';
+	echo '<meta name="twitter:description" content="' . $properties['og:description'] . '">';
+	echo '<meta name="twitter:image:src" content="' . $properties['og:image'] . '">';
+	echo '<meta name="twitter:domain" content="DailyEmerald.com">';
 }
 
 
